@@ -10,10 +10,63 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180102092404) do
+ActiveRecord::Schema.define(version: 20180103140840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "articles", force: :cascade do |t|
+    t.string "article_title"
+    t.string "article_content"
+    t.string "article_photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ask_for_rdvs", force: :cascade do |t|
+    t.string "reason"
+    t.string "disponibility"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "donations", force: :cascade do |t|
+    t.integer "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "message_title"
+    t.text "message_content"
+    t.string "message_photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "destinataire"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "category"
+    t.string "address"
+    t.string "post_code"
+    t.string "city"
+    t.string "photo"
+    t.date "birthday"
+    t.string "phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "review_title"
+    t.text "review_content"
+    t.integer "rating"
+    t.string "review_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
