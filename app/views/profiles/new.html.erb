@@ -1,2 +1,71 @@
-<h1>Profiles#new</h1>
-<p>Find me in app/views/profiles/new.html.erb</p>
+<div class="container">
+ <div class="col-md-6 col-sm-offset-3">
+    <h3 class="titre-login margin-bottom-1x">Please, create your profile !</h3>
+      <p>Registration takes less than a minute but gives you full control over your orders.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-sm-offset-3">
+      <%= simple_form_for @profile do |f| %>
+        <form class="row" method="post">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <%= f.input :first_name , class: "form-control" %>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <%= f.input :last_name , class: "form-control" %>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <%= f.input :address , class: "form-control" %>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <%= f.input :post_code , class: "form-control" %>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                  <%= f.input :city , class: "form-control" %>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <div class="form-group">
+                  <%= f.input :phone_number , class: "form-control" %>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <div class="form-group">
+                  <%= f.input :category , class: "form-control" %>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <%= f.input :birthday, as: :date, start_year: Date.today.year - 90, end_year: Date.today.year - 12, order: [:day, :month, :year], class: "form-control" %>
+              </div>
+            </div>
+          <div class="col-md-12 text-center padding-bottom-100">
+            <%= f.button :submit, class:"btn btn-primary" %>
+            <br>
+            <br>
+          </div>
+        </form>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
