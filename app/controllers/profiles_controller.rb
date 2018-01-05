@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
   end
 
   def index
-    @profiles = Profile.all
+    @profiles = Profile.where(category: "Dentiste")
   end
 
   def show
