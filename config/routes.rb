@@ -8,8 +8,6 @@ Rails.application.routes.draw do
     resources :reviews
     resources :askforrdvs
     resources :messages
-
-
   end
 
   root to: 'pages#home'
