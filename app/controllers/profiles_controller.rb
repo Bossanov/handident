@@ -7,10 +7,10 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
     @profile.user = current_user
     if @profile.save
-      flash[:notice] = 'Profile was successfully created.'
+      flash[:notice] = 'Votre profil a correctement été créé. Merci.'
       redirect_to profile_path(@profile)
     else
-      flash[:notice] = 'Your profile has not been created, please update your profile later.'
+      flash[:notice] = 'Un problème est survenu lors de la création de votre profil. Veuillez nous contacter svp.'
       redirect_to root_path
     end
   end
@@ -28,6 +28,14 @@ class ProfilesController < ApplicationController
   end
 
   def update
+    @profile = current_user.profile
+    if @profile.update(profile_params)
+      flash[:notice] = 'Votre profil a correctement été actualisé. Merci.'
+      redirect_to profile_path(@profile)
+    else
+      flash[:notice] = 'Un problème est survenu lors de la mise à jour de votre profil. Veuillez nous contacter svp.'
+      redirect_to profile_path(@profile)
+    end
   end
 
   private
