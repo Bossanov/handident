@@ -2,4 +2,5 @@
   <%= @profile.first_name %> <%= @profile.last_name %>
   <p>Membre depuis <%= @profile.created_at.strftime("%m/%Y") %></p>
   <p><%= link_to 'Editer mon profil', edit_profile_path(@profile), class: 'btn btn-rounded'%></p>
+  <p><%= link_to 'Voir les profils', profiles_path, class: 'btn btn-rounded'%></p>
 </div>
