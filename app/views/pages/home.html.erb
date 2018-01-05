@@ -1,7 +1,8 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
-
+<% if current_user %>
     <p><%= link_to 'Voir mon profil', profile_path(current_user.profile), class: 'btn btn-rounded'%></p>
     <p><%= link_to 'Editer mon profil', edit_profile_path(current_user.profile), class: 'btn btn-rounded'%></p>
+<% end %>
     <p><%= link_to 'Voir les profils', profiles_path, class: 'btn btn-rounded'%></p>
