@@ -15,14 +15,16 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def show
-  end
-
   def index
     @profiles = Profile.all
   end
 
+  def show
+    @profile = current_user.profile
+  end
+
   def edit
+    @profile = current_user.profile
   end
 
   def update
