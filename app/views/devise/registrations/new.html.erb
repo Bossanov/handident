@@ -1,17 +1,147 @@
-<h2>Sign up</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<!DOCTYPE html>
+<html lang="en" class="wide wow-animation smoothscroll scrollTo">
+  <head>
+    <!-- Site Title-->
+    <title>Login/Register</title>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="keywords" content="SANA design multipurpose template">
+    <meta name="date" content="Dec 26">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7CLato:400italic,400,700">
+    <link rel="stylesheet" href="css/style.css">
+    <!--[if lt IE 10]>
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- Page-->
+    <div class="page text-center">
+      <!-- Page Content-->
+      <main class="page-content">
+        <!-- Our Customers-->
+        <section class="section-98 section-sm-110">
+          <div class="shell">
+            <div class="range range-xs-center range-md-left">
+              <div class="cell-sm-8 cell-md-6 cell-lg-5">
+                <!-- Responsive-tabs-->
+                <div data-type="horizontal" class="responsive-tabs responsive-tabs-classic">
+                  <ul data-group="tabs-group-default" class="resp-tabs-list tabs-1 text-center tabs-group-default">
+                    <li>Sign in</li>
+                  </ul>
+                  <div data-group="tabs-group-default" class="resp-tabs-container text-left tabs-group-default">
+                    <div>
+                      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                      <%= f.error_notification %>
+                        <div class="responsive-tabs-padding-none">
+                          <!-- RD Mailform-->
+                          <form action="#" class="text-left">
+                            <div class="form-group">
+                              <!--<label for="contact-email" class="form-label form-label-outside">E-mail</label> -->
+                              <!-- <input id="contact-email" type="email" name="email" class="form-control"> -->
+                              <%= f.input :email, required: true, autofocus: true , class: "form-control", id:"contact-email", type:"email", name:"email", placeholder: "email@exemple.com" %>
+                            </div>
+                            <div class="form-group">
+<!--                               <label for="password" class="form-label form-label-outside">Password</label> -->
+<!--                               <input id="password" name="password" type="password" class="form-control"> -->
+                              <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), id:"password", name:"password", type:"password", placeholder: "**********" %>
+                            </div>
+                            <div class="form-group">
+<!--                               <label for="password" class="form-label form-label-outside">Password</label> -->
+<!--                               <input id="password" name="password" type="password" class="form-control"> -->
+                              <%= f.input :password_confirmation, required: true, id:"password", name:"password", type:"password", placeholder: "**********" %>
+                            </div>
+                            <div class="offset-top-20">
+                              <div class="reveal-sm-flex offset-none range-xs-middle text-center text-sm-left">
+<!--                                 <button type="submit" class="btn btn-ellipse btn-primary">sign in</button>
+ -->                                <%= f.button :submit, "Sign in", class: "btn btn-ellipse btn-primary", style: "font-weight: bold" %>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      <% end %>
+                      <%= render "devise/shared/links" %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!-- Page Footer-->
+      <!-- Default footer-->
+      <footer class="section-relative section-55 page-footer bg-primary context-dark">
+        <div class="shell-wide">
+          <div class="inset-xl-left-30">
+            <div class="range range-sm-center">
+              <div class="cell-sm-8 cell-md-12">
+                <div class="range range-md-justify range-md-middle">
+                  <div class="cell-md-4 cell-md-push-1 text-md-left">
+                    <!-- Footer brand-->
+                    <div class="footer-brand reveal-inline-block"><a href="index.html"><img width="158" height="45" src="images/logo.png" alt="" class="img-responsive"></a></div>
+                  </div>
+                  <div class="cell-md-4 offset-top-55 offset-md-top-0 cell-md-push-3 text-md-right">
+                          <ul class="list-inline">
+                            <li><a href="#" class="icon fa fa-facebook icon-xxs icon-circle icon-white"></a></li>
+                            <li><a href="#" class="icon fa fa-twitter icon-xxs icon-circle icon-white"></a></li>
+                            <li><a href="#" class="icon fa fa-google icon-xxs icon-circle icon-white"></a></li>
+                            <li><a href="#" class="icon fa fa-rss icon-xxs icon-circle icon-white"></a></li>
+                          </ul>
+                  </div>
+                  <div class="cell-md-4 offset-top-55 offset-md-top-0 cell-md-push-2">
+                    <p class="text-white-08">&copy; <span id="copyright-year"></span> All Rights Reserved Terms of Use and <a href="privacy.html" class="text-white-08">Privacy Policy</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!-- Global Mailform Output-->
+    <div id="form-output-global" class="snackbars"></div>
+    <!-- PhotoSwipe Gallery-->
+    <div tabindex="-1" role="dialog" aria-hidden="true" class="pswp">
+      <div class="pswp__bg"></div>
+      <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+          <div class="pswp__top-bar">
+            <div class="pswp__counter"></div>
+            <button title="Close (Esc)" class="pswp__button pswp__button--close"></button>
+            <button title="Share" class="pswp__button pswp__button--share"></button>
+            <button title="Toggle fullscreen" class="pswp__button pswp__button--fs"></button>
+            <button title="Zoom in/out" class="pswp__button pswp__button--zoom"></button>
+            <div class="pswp__preloader">
+              <div class="pswp__preloader__icn">
+                <div class="pswp__preloader__cut">
+                  <div class="pswp__preloader__donut"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+            <div class="pswp__share-tooltip"></div>
+          </div>
+          <button title="Previous (arrow left)" class="pswp__button pswp__button--arrow--left"></button>
+          <button title="Next (arrow right)" class="pswp__button pswp__button--arrow--right"></button>
+          <div class="pswp__caption">
+            <div class="pswp__caption__center"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Java script-->
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
