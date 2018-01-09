@@ -240,9 +240,14 @@
                             <label for="index-doctor" class="form-label form-label-outside text-white-06">Docteur</label>
                             <div class="select2-whitout-border shadow-drop-md">
                               <select id="index-doctor" data-minimum-results-for-search="Infinity" class="form-control">
-                                <option value="1">Dr Heinkels</option>
-                                <option value="2">Dr Staumont</option>
-                                <option value="3">Dr Durniak</option>
+                                <% @profiles = Profile.all %>
+                                <% value = 1 %>
+                                <% @profiles.each do |pro| %>
+                                  <% if pro.category == "dentiste" %>
+                                    <option value="#{value}">Dr <%=pro.last_name.upcase%> <%=pro.first_name.capitalize%></option>
+                                    <% value += 1 %>
+                                  <% end %>
+                                <% end %>
                               </select>
                             </div>
                           </div>
