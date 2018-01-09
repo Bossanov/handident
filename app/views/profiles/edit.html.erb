@@ -53,6 +53,12 @@
                   <%= f.input :birthday, as: :date, start_year: Date.today.year - 90, end_year: Date.today.year - 12, order: [:day, :month, :year], class: "form-control" %>
               </div>
             </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                  <%= f.input :photo, class: "form-control"%>
+                <%= f.input :photo_cache, as: :hidden %>
+              </div>
+            </div>
           <div class="col-md-12 text-center padding-bottom-100">
             <%= f.button :submit, class:"btn btn-primary", value:"Mettre à jour" %>
             <br>

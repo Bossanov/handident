@@ -5,6 +5,6 @@ class Profile < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :askforrdvs, dependent: :destroy
   has_many :messages, dependent: :destroy
-
+  mount_uploader :photo, PhotoUploader
 end
 
