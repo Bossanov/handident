@@ -26,6 +26,12 @@
                 <%= f.input :destinataire, collection: result,  class: "form-control" %>
               </div>
             </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <%= f.input :message_photo, class: "form-control"%>
+                <%= f.input :message_photo_cache, as: :hidden %>
+              </div>
+            </div>
           <div class="col-md-12 text-center padding-bottom-100">
             <%= f.button :submit, class:"btn btn-primary" %>
             <br>

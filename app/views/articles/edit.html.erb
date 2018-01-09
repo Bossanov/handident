@@ -1,4 +1,4 @@
-<h1>Articles#edit</h1>
+
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-sm-offset-3">
@@ -14,7 +14,12 @@
                 <%= f.input :article_content , input_html: {style: 'height:200px;'}, class: "form-control" %>
               </div>
             </div>
-
+            <div class="col-sm-12">
+              <div class="form-group">
+                <%= f.input :article_photo, class: "form-control"%>
+                <%= f.input :article_photo_cache, as: :hidden %>
+              </div>
+            </div>
           <div class="col-md-12 text-center padding-bottom-100">
             <%= f.button :submit, class:"btn btn-primary" %>
             <br>
