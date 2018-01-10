@@ -1,76 +1,77 @@
-<div class="container">
- <div class="col-md-6 col-sm-offset-3">
-    <h3 class="titre-login margin-bottom-1x">Veuillez mettre à jour votre profil svp</h3>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 col-sm-offset-3">
-      <%= simple_form_for @profile do |f| %>
-        <form class="row" method="post">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <%= f.input :first_name , class: "form-control" %>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <%= f.input :last_name , class: "form-control" %>
-              </div>
-            </div>
-            <div class="col-sm-12">
-              <div class="form-group">
-                <%= f.input :address , class: "form-control" %>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <%= f.input :post_code , class: "form-control" %>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                  <%= f.input :city , class: "form-control" %>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <div class="form-group">
-                  <%= f.input :phone_number , class: "form-control" %>
+<div class="page text-center">
+      <!-- Page Content-->
+      <main class="page-content section-98 section-sm-110">
+        <!-- Contact us-->
+        <section class="offset-top-90 offset-md-top-130">
+          <%= simple_form_for @profile do |f| %>
+            <div class="shell">
+              <div class="range range-xs-center range-lg-left">
+                <div class="cell-sm-8">
+                  <h4 class="text-md-left">Mettre à jour mon profil</h4>
+                  <hr class="text-subline">
+                  <div class="offset-top-30">
+                    <form data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php" novalidate="novalidate" class="rd-mailform text-left">
+                      <div class="range range-xs-center">
+                        <div class="cell-sm-6">
+                          <div class="form-group form-group-label-outside">
+                            <%= f.input :first_name , id:"contacts-first-name", type:"text", name:"Prénom", required: true, class: "form-control form-control-last-child" %>
+                          </div>
+                          <div class="form-group form-group-label-outside offset-top-20">
+                            <%= f.input :phone_number , id:"contacts-phone", type:"text", name:"Téléphone", required: true, class: "form-control form-control-last-child" %>
+                          </div>
+                          <div class="form-group form-group-label-outside offset-top-20">
+                            <%= f.input :category , id:"contacts-phone", type:"text", name:"Téléphone", required: true, class: "form-control form-control-last-child" %>
+                          </div>
+                        </div>
+                        <div class="cell-sm-6 offset-top-20 offset-sm-top-0">
+                          <div class="form-group form-group-label-outside">
+                            <%= f.input :last_name , id:"contacts-last-name", type:"text", name:"Nom", required: true, class: "form-control form-control-last-child" %>
+                          </div>
+                          <div class="form-group form-group-label-outside">
+                            <%= f.input :birthday, as: :date, start_year: Date.today.year - 70, end_year: Date.today.year - 25, order: [:day, :month, :year], required: true, class: "form-control" %>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group form-group-label-outside offset-top-20">
+                        <%= f.input :address , id:"contacts-last-name", type:"text", name:"Adresse", required: true, class: "form-control form-control-last-child" %>
+                      </div>
+                      <div class="range range-xs-center" style="margin-top:0">
+                        <div class="cell-sm-6">
+                          <div class="form-group form-group-label-outside">
+                            <%= f.input :post_code , id:"contacts-first-name", type:"text", name:"Prénom", required: true, class: "form-control form-control-last-child" %>
+                          </div>
+                        </div>
+                        <div class="cell-sm-6 offset-top-20 offset-sm-top-0">
+                          <div class="form-group form-group-label-outside">
+                            <%= f.input :city , id:"contacts-last-name", type:"text", name:"Nom", required: true, class: "form-control form-control-last-child" %>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group form-group-label-outside offset-top-20">
+                        <%= f.input :biographie , input_html: {style: 'max-height:1500px;'}, required: true, class: "form-control form-control-last-child" %>
+                      </div>
+                      <div class="col-sm-12">
+                        <div class="form-group">
+                          <%= f.input :photo, class: "form-control"%>
+                          <%= f.input :photo_cache, as: :hidden %>
+                        </div>
+                      </div>
+                      <div class="offset-top-18 offset-sm-top-30 text-center text-sm-left">
+                        <button type="submit" style="min-width: 130px;" class="btn-fullwidth btn btn-ellipse btn-primary ">mettre à jour</button>
+                        <p><%= link_to 'Annuler', profile_path(current_user.profile), class: 'btn-fullwidth btn btn-ellipse btn-white', style:"margin-top:20px"%></p>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <div class="form-group">
-                  <%= f.input :category , class: "form-control" %>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-12">
-              <div class="form-group">
-                  <%= f.input :birthday, as: :date, start_year: Date.today.year - 90, end_year: Date.today.year - 12, order: [:day, :month, :year], class: "form-control" %>
-              </div>
-            </div>
-            <div class="col-sm-12">
-              <div class="form-group">
-                  <%= f.input :photo, class: "form-control"%>
-                <%= f.input :photo_cache, as: :hidden %>
-              </div>
-            </div>
-          <div class="col-md-12 text-center padding-bottom-100">
-            <%= f.button :submit, class:"btn btn-primary", value:"Mettre à jour" %>
-            <br>
-            <br>
-          </div>
-          <p><%= link_to 'Annuler', profile_path(current_user.profile), class: 'btn btn-rounded'%></p>
-        </form>
-      <% end %>
+          <% end %>
+        </section>
+      </main>
     </div>
-  </div>
-</div>
-
+    <!-- Java script-->
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
 
 
 

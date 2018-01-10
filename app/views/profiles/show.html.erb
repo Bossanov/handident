@@ -19,6 +19,8 @@
     <![endif]-->
   </head>
   <body>
+    <%= cl_image_tag @profile.photo, width:"320", height:"320", alt:"", class:"img-responsive center-block"%>
+
     <!-- Page-->
     <div class="page text-center">
       <div class="breadcrumb-inset-left">
@@ -42,7 +44,7 @@
             <div class="range range-xs-center">
               <div class="cell-xs-10 cell-md-4">
                 <!-- Member block type 5-->
-                <div class="member-block-type-5 inset-md-right-20"><img src="https://livedemo00.template-help.com/wt_46574_v1/images/users/user-scott-riley-320x320.jpg" width="320" height="320" alt="" class="img-responsive center-block"/>
+                <div class="member-block-type-5 inset-md-right-20"><%= cl_image_tag "http://res.cloudinary.com/df1s7fgsf/image/upload/v1515579313/47043_10150297089650010_8118742_n_mzqdtn.jpg", width:"320", height: "320", crop: :thumb, gravity: :face, alt:"", class:"img-responsive center-block" %>
                   <!-- ajouter une restriction sur l'accès à l'edit du profile -->
                     <% if @profile.id == current_user.profile.id %>
                       <p><%= link_to 'éditer mon profil', edit_profile_path(@profile), class: 'btn-fullwidth btn btn-ellipse btn-white offset-sm-top-41 offset-top-41 offset-md-top-60'%></p>
