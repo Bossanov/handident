@@ -15,9 +15,13 @@ class ArticlesController < ApplicationController
     @article.profile = @profile
 
     if @article.save
-    redirect_to root_path
+      redirect_to root_path
+      flash[:notice] = 'Votre article a été sauvegardé !'
+
     else
       render :new
+      flash[:notice] = 'Une erreur est survenue, veuillez recommencer ...'
+
     end
   end
 
@@ -39,6 +43,8 @@ class ArticlesController < ApplicationController
     @article.profile = @profile
     @article.update(article_params)
     redirect_to root_path
+    flash[:notice] = 'Votre article a été modifié, merci !'
+
   end
 
   private
