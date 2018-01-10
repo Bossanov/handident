@@ -8,6 +8,7 @@
 <% end %>
 
 <p><%= link_to 'Voir les profils', profiles_path, class: 'btn btn-rounded'%></p>
+<p><%= link_to 'About', pages_about_path, class: 'btn btn-rounded'%></p>
 
 
 <!DOCTYPE html>
@@ -239,11 +240,11 @@
                           <div class="form-group form-group-select-white text-left">
                             <label for="index-doctor" class="form-label form-label-outside text-white-06">Docteur</label>
                             <div class="select2-whitout-border shadow-drop-md">
-                              <select id="index-doctor" data-minimum-results-for-search="Infinity" class="form-control">
+                              <select id="index-doctor" data-minimum-results-for-search="Infinity" class="form-control", style="background-color: white">
                                 <% @profiles = Profile.all %>
                                 <% value = 1 %>
                                 <% @profiles.each do |pro| %>
-                                  <% if pro.category == "dentiste" %>
+                                  <% if pro.category == "Dentiste" %>
                                     <option value="#{value}">Dr <%=pro.last_name.upcase%> <%=pro.first_name.capitalize%></option>
                                     <% value += 1 %>
                                   <% end %>
