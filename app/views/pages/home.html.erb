@@ -227,8 +227,18 @@
                         <div class="group-item element-fullwidth">
                           <div class="form-group form-group-label-outside">
                             <label for="index-name" class="form-label form-label-outside rd-input-label text-white-06">Ville</label>
-                            <input id="index-name" type="text" data-constraints="@Required" class="form-control form-control-white form-border-none">
-
+                            <div class="select2-whitout-border shadow-drop-md">
+                              <select id="index-doctor" data-minimum-results-for-search="Infinity" class="form-control", style="background-color: white">
+                                <% @profiles = Profile.all %>
+                                <% value = 1 %>
+                                <% @profiles.each do |pro| %>
+                                  <% if pro.category == "Dentiste" %>
+                                    <option value="#{value}"><%=pro.city.upcase%></option>
+                                    <% value += 1 %>
+                                  <% end %>
+                                <% end %>
+                              </select>
+                            </div>
                           </div>
                         </div>
                         <div class="group-item element-fullwidth">
