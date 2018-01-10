@@ -11,9 +11,11 @@ class ReviewsController < ApplicationController
     @review.review_status = "pending"
 
     if @review.save
-    redirect_to root_path
+      redirect_to root_path
+      flash[:notice] = 'Merci pour votre commentaire !'
     else
       render :new
+      flash[:notice] = 'Une erreur est survenue, veuillez recommencer ...'
     end
   end
 

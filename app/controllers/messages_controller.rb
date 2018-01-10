@@ -10,9 +10,13 @@ class MessagesController < ApplicationController
     @message.profile = @profile
 
     if @message.save
-    redirect_to root_path
+      redirect_to root_path
+      flash[:notice] = 'Votre message a été envoyé !'
+
     else
       render :new
+      flash[:notice] = 'Une erreur est survenue, veuillez recommencer ...'
+
     end
   end
 
