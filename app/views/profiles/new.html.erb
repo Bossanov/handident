@@ -19,13 +19,16 @@
                           <div class="form-group form-group-label-outside offset-top-20">
                             <%= f.input :phone_number , id:"contacts-phone", type:"text", name:"Téléphone", required: true, class: "form-control form-control-last-child" %>
                           </div>
+                          <div class="form-group form-group-label-outside offset-top-20">
+                            <%= f.input :category , id:"contacts-phone", type:"text", name:"Téléphone", required: true, class: "form-control form-control-last-child" %>
+                          </div>
                         </div>
                         <div class="cell-sm-6 offset-top-20 offset-sm-top-0">
                           <div class="form-group form-group-label-outside">
                             <%= f.input :last_name , id:"contacts-last-name", type:"text", name:"Nom", required: true, class: "form-control form-control-last-child" %>
                           </div>
                           <div class="form-group form-group-label-outside">
-                            <%= f.input :birthday, as: :date, start_year: Date.today.year - 90, end_year: Date.today.year - 12, order: [:day, :month, :year], required: true, class: "form-control" %>
+                            <%= f.input :birthday, as: :date, start_year: Date.today.year - 70, end_year: Date.today.year - 25, order: [:day, :month, :year], required: true, class: "form-control" %>
                           </div>
                         </div>
                       </div>
@@ -53,11 +56,9 @@
                           <%= f.input :photo_cache, as: :hidden %>
                         </div>
                       </div>
-
-
-
                       <div class="offset-top-18 offset-sm-top-30 text-center text-sm-left">
-                        <button type="submit" style="min-width: 130px;" class="btn btn-ellipse btn-primary">créer mon profil</button>
+                        <button type="submit" style="min-width: 130px;" class="btn-fullwidth btn btn-ellipse btn-primary ">créer mon profil</button>
+                        <p><%= link_to 'Annuler', root_path(current_user.profile), class: 'btn-fullwidth btn btn-ellipse btn-white', style:"margin-top:20px"%></p>
                       </div>
                     </form>
                   </div>
