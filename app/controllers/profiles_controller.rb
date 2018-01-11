@@ -21,6 +21,8 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = Profile.find(params[:id])
+    @profile_coordinates = { lat: @profile.latitude, lng: @profile.longitude }
+
   end
 
   def edit
