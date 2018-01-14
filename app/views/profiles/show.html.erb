@@ -73,6 +73,22 @@
             </div>
           </div>
         </section>
+        <div id="map" style="width: 100%; height: 400px;"></div>
+        <% content_for(:after_js) do %>
+          <%= javascript_tag do %>
+            var handler = Gmaps.build('Google');
+            handler.buildMap({ internal: { id: 'map' } }, function() {
+              markers = handler.addMarkers(<%= raw @markers.to_json %>);
+              handler.bounds.extendWith(markers);
+              handler.fitMapToBounds();
+              if (markers.length == 0) {
+                handler.getMap().setZoom(2);
+              } else if (markers.length == 1) {
+                handler.getMap().setZoom(14);
+              }
+            });
+          <% end %>
+        <% end %>
         <!-- Scott Riley’s blog posts-->
         <section class="section-98 section-sm-110 bg-white-liac">
           <div class="shell">
@@ -166,6 +182,9 @@
           </div>
         </section>
       </main>
+
+
+
       <!-- Page Footer-->
       <!-- Default footer-->
       <footer class="section-relative section-55 page-footer bg-primary context-dark">
@@ -236,11 +255,5 @@
     <!-- Java script-->
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
-    <% content_for(:after_js) do %>
-      <%= javascript_tag do %>
-        const coord = <%= raw @profile_coordinates.to_json %>;
-        alert('profile coordinates are ' + coord.lat + ', ' + coord.lng);
-      <% end %>
-    <% end %>
   </body>
 </html>

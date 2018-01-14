@@ -426,8 +426,8 @@ th {
 /** 1.2  Glyphicons */
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url("../fonts/glyphicons-halflings-regular.eot");
-  src: url("../fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/glyphicons-halflings-regular.woff2") format("woff2"), url("../fonts/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
+  src: url("glyphicons-halflings-regular.eot");
+  src: url("glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("glyphicons-halflings-regular.woff2") format("woff2"), url("glyphicons-halflings-regular.woff") format("woff"), url("glyphicons-halflings-regular.ttf") format("truetype"), url("glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
 }
 
 .glyphicon {
@@ -11197,7 +11197,7 @@ mark, .mark {
     top: 0;
     width: 50vw;
     height: 100%;
-    background: url(../images/backgrounds/background-02-676x545.jpg);
+    background: url(backgrounds/background-02-676x545.jpg);
     background-repeat: no-repeat;
     background-position: top left;
     background-size: cover;
@@ -11212,7 +11212,7 @@ mark, .mark {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url(../images/backgrounds/background-07-1920x616.jpg);
+    background-image: url(backgrounds/background-07-1920x616.jpg);
   }
 }
 
@@ -13824,7 +13824,7 @@ html.lt-ie11 .btn-santos-svg:hover {
 }
 
 .section-bg-image-1:before {
-  background-image: url(../images/backgrounds/background-05-960x678.jpg);
+  background-image: url(assets/backgrounds/background-05-960x678.jpg);
 }
 
 @media (min-width: 992px) {
@@ -15084,8 +15084,8 @@ html.lt-ie11 .btn-santos-svg:hover {
 /** 2.13 Font Awesome */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("../fonts/fontawesome-webfont.eot?v=4.5.0");
-  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.5.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.5.0") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.5.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.5.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular") format("svg");
+  src: url("fontawesome-webfont.eot?v=4.5.0");
+  src: url("fontawesome-webfont.eot?#iefix&v=4.5.0") format("embedded-opentype"), url("fontawesome-webfont.woff2?v=4.5.0") format("woff2"), url("fontawesome-webfont.woff?v=4.5.0") format("woff"), url("fontawesome-webfont.ttf?v=4.5.0") format("truetype"), url("fontawesome-webfont.svg?v=4.5.0#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -17815,8 +17815,8 @@ html.lt-ie11 .btn-santos-svg:hover {
     */
 @font-face {
   font-family: "Flaticon";
-  src: url("../fonts/Flaticon.eot");
-  src: url("../fonts/Flaticon.eot?#iefix") format("embedded-opentype"), url("../fonts/Flaticon.woff") format("woff"), url("../fonts/Flaticon.ttf") format("truetype"), url("../fonts/Flaticon.svg#Flaticon") format("svg");
+  src: url("Flaticon.eot");
+  src: url("Flaticon.eot?#iefix") format("embedded-opentype"), url("Flaticon.woff") format("woff"), url("Flaticon.ttf") format("truetype"), url("Flaticon.svg#Flaticon") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -18726,8 +18726,8 @@ html.lt-ie11 .btn-santos-svg:hover {
 /** 2.15 Material Design Icons */
 @font-face {
   font-family: "Material Design Icons";
-  src: url("../fonts/materialdesignicons-webfont.eot?v=1.4.57");
-  src: url("../fonts/materialdesignicons-webfont.eot?#iefix&v=1.4.57") format("embedded-opentype"), url("../fonts/materialdesignicons-webfont.woff2?v=1.4.57") format("woff2"), url("../fonts/materialdesignicons-webfont.woff?v=1.4.57") format("woff"), url("../fonts/materialdesignicons-webfont.ttf?v=1.4.57") format("truetype"), url("../fonts/materialdesignicons-webfont.svg?v=1.4.57#materialdesigniconsregular") format("svg");
+  src: url("materialdesignicons-webfont.eot?v=1.4.57");
+  src: url("materialdesignicons-webfont.eot?#iefix&v=1.4.57") format("embedded-opentype"), url("materialdesignicons-webfont.woff2?v=1.4.57") format("woff2"), url("materialdesignicons-webfont.woff?v=1.4.57") format("woff"), url("materialdesignicons-webfont.ttf?v=1.4.57") format("truetype"), url("materialdesignicons-webfont.svg?v=1.4.57#materialdesigniconsregular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -25634,7 +25634,7 @@ a.thumbnail:hover {
     top: 0;
     width: 44vw;
     height: 100%;
-    background: transparent url(../images/backgrounds/background-02-676x545.jpg);
+    background: transparent url(backgrounds/background-02-676x545.jpg);
     background-repeat: no-repeat;
     background-position: top left;
     background-size: cover;
@@ -26479,31 +26479,31 @@ a.icon-rect.fa-behance:hover, a.icon-circle.fa-behance:hover, a.icon-outlined.fa
 }
 
 .icon-doctor-01:before {
-  background-image: url("../images/icons/icon-doctor-01.jpg");
+  background-image: url("icons/icon-doctor-01.jpg");
 }
 
 .icon-doctor-xl:before {
-  background-image: url("../images/icons/icon-doctor-xl.png");
+  background-image: url("images/icons/icon-doctor-xl.png");
 }
 
 .icon-medical-car-01:before {
-  background-image: url("../images/icons/icon-medical-car-01.jpg");
+  background-image: url("icons/icon-medical-car-01.jpg");
 }
 
 .icon-medical-car-xl:before {
-  background-image: url("../images/icons/icon-medical-car-xl.png");
+  background-image: url("icons/icon-medical-car-xl.png");
 }
 
 .icon-pills-01:before {
-  background-image: url("../images/icons/icon-pills-01.jpg");
+  background-image: url("icons/icon-pills-01.jpg");
 }
 
 .icon-pills-xl:before {
-  background-image: url("../images/icons/icon-pills-xl.png");
+  background-image: url("icon-pills-xl.png");
 }
 
 .icon-emergency-01:before {
-  background-image: url("../images/icons/icon-emergency-01.png");
+  background-image: url("icons/icon-emergency-01.png");
   height: 21px;
   width: 24px;
 }
@@ -26841,7 +26841,7 @@ button.list-group-item-danger.active:focus {
 }
 
 .breadcrumb-modern {
-  background-image: url("../images/backgrounds/background-breadcrumbs-01-1920x345.jpg");
+  background-image: url("/backgrounds/background-breadcrumbs-01-1920x345.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -34203,7 +34203,7 @@ fieldset[disabled] .bg-primary .btn-java {
 .page-loader-variant-1 .spinner {
   width: 56px;
   height: 56px;
-  background: url("../images/633328.png") no-repeat transparent;
+  background: url("633328.png") no-repeat transparent;
   background-position: -2240px 0;
   animation: 1.5s sprite-animation steps(40) infinite;
   display: inline-block;
@@ -38818,7 +38818,7 @@ fieldset[disabled] .bg-primary .btn-java {
   opacity: 0;
   visibility: hidden;
   transition: .3s all ease;
-  background: url(../images/preloader.gif) no-repeat rgba(255, 255, 255, 0.8) center center;
+  background: url(preloader.gif) no-repeat rgba(255, 255, 255, 0.8) center center;
   z-index: 6;
 }
 
@@ -45886,7 +45886,7 @@ html:not(.lt-ie10) .not-animated {
 .pswp__button,
 .pswp__button--arrow--left:before,
 .pswp__button--arrow--right:before {
-  background: url(../images/photoswipe-controls.png) 0 0 no-repeat;
+  background: url(photoswipe-controls.png) 0 0 no-repeat;
   background-size: 264px 88px;
   width: 44px;
   height: 44px;
@@ -45897,7 +45897,7 @@ html:not(.lt-ie10) .not-animated {
   .pswp--svg .pswp__button,
   .pswp--svg .pswp__button--arrow--left:before,
   .pswp--svg .pswp__button--arrow--right:before {
-    background-image: url(../images/photoswipe-controls.svg);
+    background-image: url(photoswipe-controls.svg);
   }
   .pswp--svg .pswp__button--arrow--left,
   .pswp--svg .pswp__button--arrow--right {
@@ -46205,7 +46205,7 @@ a.pswp__share--download:hover {
 
 .pswp__preloader--active .pswp__preloader__icn {
   /* We use .gif in browsers that don't support CSS animation */
-  background: url(../images/preloader.gif) 0 0 no-repeat;
+  background: url(preloader.gif) 0 0 no-repeat;
 }
 
 .pswp--css_animation .pswp__preloader--active {
@@ -48476,7 +48476,7 @@ a.pswp__share--download:hover {
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  background: url(../images/preloader.png) no-repeat center center;
+  background: url(preloader.png) no-repeat center center;
   background-position: -648px 0;
   animation: 0.7s sprite-animation steps(12) infinite;
   opacity: 0;
