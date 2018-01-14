@@ -42,7 +42,7 @@
             <div class="range range-xs-center">
               <div class="cell-xs-10 cell-md-4">
                 <!-- Member block type 5-->
-                <div class="member-block-type-5 inset-md-right-20"><%= cl_image_tag @profile.photo, width:"320", height: "320", alt:"", class:"img-responsive center-block" %>
+                <div class="member-block-type-5 inset-md-right-20"><%= cl_image_tag @profile.photo, width:"320", height: "320", alt:"", class:"img-responsive center-block" %> <!-- options available with cloudinary crop: :thumb, gravity: :face -->
                   <!-- ajouter une restriction sur l'accès à l'edit du profile -->
                     <% if @profile.id == current_user.profile.id %>
                       <p><%= link_to 'éditer mon profil', edit_profile_path(@profile), class: 'btn-fullwidth btn btn-ellipse btn-white offset-sm-top-41 offset-top-41 offset-md-top-60'%></p>
@@ -73,6 +73,22 @@
             </div>
           </div>
         </section>
+        <div id="map" style="width: 100%; height: 400px;"></div>
+        <% content_for(:after_js) do %>
+          <%= javascript_tag do %>
+            var handler = Gmaps.build('Google');
+            handler.buildMap({ internal: { id: 'map' } }, function() {
+              markers = handler.addMarkers(<%= raw @markers.to_json %>);
+              handler.bounds.extendWith(markers);
+              handler.fitMapToBounds();
+              if (markers.length == 0) {
+                handler.getMap().setZoom(2);
+              } else if (markers.length == 1) {
+                handler.getMap().setZoom(14);
+              }
+            });
+          <% end %>
+        <% end %>
         <!-- Scott Riley’s blog posts-->
         <section class="section-98 section-sm-110 bg-white-liac">
           <div class="shell">
@@ -166,6 +182,9 @@
           </div>
         </section>
       </main>
+
+
+
       <!-- Page Footer-->
       <!-- Default footer-->
       <footer class="section-relative section-55 page-footer bg-primary context-dark">

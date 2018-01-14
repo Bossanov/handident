@@ -12,7 +12,7 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <!-- Stylesheets-->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7CLato:400italic,400,700">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="assets/pages/_index.scss">
     <!--[if lt IE 10]>
     <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
     <script src="js/html5shiv.min.js"></script>
@@ -163,7 +163,7 @@
                         <q>I urgently required dental help on July, 4. And despite all other clinics being closed, Smile took my appointment!</q>
                       </p>
                       <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
-                        <div class="unit-left unit-item-narrow"><img width="60" height="60" src="images/users/user-betty-wade-2-60x60.jpg" alt="" class="img-circle quote-img"></div>
+                        <div class="unit-left unit-item-narrow"><%= image_tag "users/user-betty-wade-2-60x60.jpg", width:'60', height:'60', class:'img-circle quote-img' %></div>
                         <div class="unit-body unit-item-wide">
                           <h4 class="quote-author text-capitalize text-bold text-java">
                             <cite class="text-normal">Betty Wade</cite>
@@ -181,7 +181,7 @@
                         <q>Comparing teeth whitening prices here and elsewhere, I picked Smile. The result was beyond my expectations!</q>
                       </p>
                       <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
-                        <div class="unit-left unit-item-narrow"><img width="60" height="60" src="images/users/user-bryan-green-60x60.jpg" alt="" class="img-circle quote-img"></div>
+                        <div class="unit-left unit-item-narrow"><%= image_tag "users/user-bryan-green-60x60.jpg", width:'60', height:'60', class:'img-circle quote-img' %></div>
                         <div class="unit-body unit-item-wide">
                           <h4 class="quote-author text-capitalize text-bold text-java">
                             <cite class="text-normal">Bryan Green</cite>
@@ -199,7 +199,7 @@
                         <q>Taking my kids to a dentist has never been easier. They just loved the welcoming and warm atmosphere in there!</q>
                       </p>
                       <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
-                        <div class="unit-left unit-item-narrow"><img width="60" height="60" src="images/users/user-joan-anderson-60x60.jpg" alt="" class="img-circle quote-img"></div>
+                        <div class="unit-left unit-item-narrow"><%= image_tag "users/user-joan-anderson-60x60.jpg", width:'60', height:'60', class:'img-circle quote-img' %></div>
                         <div class="unit-body unit-item-wide">
                           <h4 class="quote-author text-capitalize text-bold text-java">
                             <cite class="text-normal">John Anderson</cite>
@@ -217,100 +217,10 @@
                         <q>I urgently required dental help on July, 4. And despite all other clinics being closed, Smile took my appointment!</q>
                       </p>
                       <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
-                        <div class="unit-left unit-item-narrow"><img width="60" height="60" src="images/users/user-betty-wade-2-60x60.jpg" alt="" class="img-circle quote-img"></div>
+                        <div class="unit-left unit-item-narrow"><%= image_tag "users/user-betty-wade-2-60x60.jpg", width:'60', height:'60', class:'img-circle quote-img' %></div>
                         <div class="unit-body unit-item-wide">
                           <h4 class="quote-author text-capitalize text-bold text-java">
                             <cite class="text-normal">Betty Wade</cite>
-                          </h4>
-                          <p class="quote-desc text-capitalize text-gray text-italic">Regular Patient</p>
-                        </div>
-                      </div>
-                    </div>
-                  </blockquote>
-                </div>
-                <div class="owl-item">
-                  <blockquote class="quote quote-classic quote-classic-secondary">
-                    <div class="quote-body">
-                      <p class="text-italic text-gray-dark">
-                        <q>Comparing teeth whitening prices here and elsewhere, I picked Smile. The result was beyond my expectations!</q>
-                      </p>
-                      <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
-                        <div class="unit-left unit-item-narrow"><img width="60" height="60" src="images/users/user-bryan-green-60x60.jpg" alt="" class="img-circle quote-img"></div>
-                        <div class="unit-body unit-item-wide">
-                          <h4 class="quote-author text-capitalize text-bold text-java">
-                            <cite class="text-normal">Bryan Green</cite>
-                          </h4>
-                          <p class="quote-desc text-capitalize text-gray text-italic">Regular Patient</p>
-                        </div>
-                      </div>
-                    </div>
-                  </blockquote>
-                </div>
-                <div class="owl-item">
-                  <blockquote class="quote quote-classic quote-classic-secondary">
-                    <div class="quote-body">
-                      <p class="text-italic text-gray-dark">
-                        <q>Taking my kids to a dentist has never been easier. They just loved the welcoming and warm atmosphere in there!</q>
-                      </p>
-                      <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
-                        <div class="unit-left unit-item-narrow"><img width="60" height="60" src="images/users/user-joan-anderson-60x60.jpg" alt="" class="img-circle quote-img"></div>
-                        <div class="unit-body unit-item-wide">
-                          <h4 class="quote-author text-capitalize text-bold text-java">
-                            <cite class="text-normal">Joan Anderson</cite>
-                          </h4>
-                          <p class="quote-desc text-capitalize text-gray text-italic">Regular Patient</p>
-                        </div>
-                      </div>
-                    </div>
-                  </blockquote>
-                </div>
-                <div class="owl-item">
-                  <blockquote class="quote quote-classic quote-classic-secondary">
-                    <div class="quote-body">
-                      <p class="text-italic text-gray-dark">
-                        <q>I urgently required dental help on July, 4. And despite all other clinics being closed, Smile took my appointment!</q>
-                      </p>
-                      <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
-                        <div class="unit-left unit-item-narrow"><img width="60" height="60" src="images/users/user-betty-wade-2-60x60.jpg" alt="" class="img-circle quote-img"></div>
-                        <div class="unit-body unit-item-wide">
-                          <h4 class="quote-author text-capitalize text-bold text-java">
-                            <cite class="text-normal">Betty Wade</cite>
-                          </h4>
-                          <p class="quote-desc text-capitalize text-gray text-italic">Regular Patient</p>
-                        </div>
-                      </div>
-                    </div>
-                  </blockquote>
-                </div>
-                <div class="owl-item">
-                  <blockquote class="quote quote-classic quote-classic-secondary">
-                    <div class="quote-body">
-                      <p class="text-italic text-gray-dark">
-                        <q>Comparing teeth whitening prices here and elsewhere, I picked Smile. The result was beyond my expectations!</q>
-                      </p>
-                      <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
-                        <div class="unit-left unit-item-narrow"><img width="60" height="60" src="images/users/user-bryan-green-60x60.jpg" alt="" class="img-circle quote-img"></div>
-                        <div class="unit-body unit-item-wide">
-                          <h4 class="quote-author text-capitalize text-bold text-java">
-                            <cite class="text-normal">Bryan Green</cite>
-                          </h4>
-                          <p class="quote-desc text-capitalize text-gray text-italic">Regular Patient</p>
-                        </div>
-                      </div>
-                    </div>
-                  </blockquote>
-                </div>
-                <div class="owl-item">
-                  <blockquote class="quote quote-classic quote-classic-secondary">
-                    <div class="quote-body">
-                      <p class="text-italic text-gray-dark">
-                        <q>Taking my kids to a dentist has never been easier. They just loved the welcoming and warm atmosphere in there!</q>
-                      </p>
-                      <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
-                        <div class="unit-left unit-item-narrow"><img width="60" height="60" src="images/users/user-joan-anderson-60x60.jpg" alt="" class="img-circle quote-img"></div>
-                        <div class="unit-body unit-item-wide">
-                          <h4 class="quote-author text-capitalize text-bold text-java">
-                            <cite class="text-normal">Joan Anderson</cite>
                           </h4>
                           <p class="quote-desc text-capitalize text-gray text-italic">Regular Patient</p>
                         </div>
@@ -333,7 +243,7 @@
                 <div class="range range-md-justify range-md-middle">
                   <div class="cell-md-4 cell-md-push-1 text-md-left">
                     <!-- Footer brand-->
-                    <div class="footer-brand reveal-inline-block"><a href="index.html"><img width="158" height="45" src="images/logo.png" alt="" class="img-responsive"></a></div>
+                    <div class="footer-brand reveal-inline-block"><a href="index.html"><%= image_tag "logo.png", width:'158', height:'45', class:'img-responsive' %></a></div>
                   </div>
                   <div class="cell-md-4 offset-top-55 offset-md-top-0 cell-md-push-3 text-md-right">
                           <ul class="list-inline">
@@ -391,7 +301,7 @@
       </div>
     </div>
     <!-- Java script-->
-    <script src="js/core.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="assets/core.min.js"></script>
+    <script src="assets/script.js"></script>
   </body>
 </html>

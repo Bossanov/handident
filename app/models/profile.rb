@@ -6,5 +6,12 @@ class Profile < ApplicationRecord
   has_many :askforrdvs, dependent: :destroy
   has_many :messages, dependent: :destroy
   mount_uploader :photo, PhotoUploader
+  geocoded_by :full_address
+  after_validation :geocode, if: :address_changed?
+
+  def full_address
+    "#{address} #{post_code} #{city}"
+  end
+
 end
 
