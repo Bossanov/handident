@@ -46,7 +46,7 @@
                   <!-- ajouter une restriction sur l'accès à l'edit du profile -->
                     <% if @profile.id == current_user.profile.id %>
                       <p><%= link_to 'éditer mon profil', edit_profile_path(@profile), class: 'btn-fullwidth btn btn-ellipse btn-white offset-sm-top-41 offset-top-41 offset-md-top-60'%></p>
-                      <p><%= link_to 'Rédiger un article', profiles_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+                      <p><%= link_to 'Rédiger un article', new_profile_article_path(@profile), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
                     <% end %>
                     <p><%= link_to 'Voir les profils', profiles_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
                     <p><%= link_to 'Donner votre avis', profiles_path, class: 'btn-fullwidth btn-ellipse btn btn-primary' %></p>
