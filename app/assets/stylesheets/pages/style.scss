@@ -11197,7 +11197,7 @@ mark, .mark {
     top: 0;
     width: 50vw;
     height: 100%;
-    background: url(backgrounds/background-02-676x545.jpg);
+    background: url(/assets/backgrounds/background-02-676x545.jpg);
     background-repeat: no-repeat;
     background-position: top left;
     background-size: cover;
@@ -11212,7 +11212,7 @@ mark, .mark {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url(backgrounds/background-07-1920x616.jpg);
+    background-image: url(/assets/backgrounds/background-07-1920x616.jpg);
   }
 }
 
@@ -13824,7 +13824,7 @@ html.lt-ie11 .btn-santos-svg:hover {
 }
 
 .section-bg-image-1:before {
-  background-image: url(assets/backgrounds/background-05-960x678.jpg);
+  background-image: linear-gradient(-225deg, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.5) 50%), url(/assets/backgrounds/background-02-1920x800.jpg);
 }
 
 @media (min-width: 992px) {
@@ -25634,7 +25634,7 @@ a.thumbnail:hover {
     top: 0;
     width: 44vw;
     height: 100%;
-    background: transparent url(backgrounds/background-02-676x545.jpg);
+    background: transparent url(/assets/backgrounds/background-02-676x545.jpg);
     background-repeat: no-repeat;
     background-position: top left;
     background-size: cover;
@@ -26479,31 +26479,33 @@ a.icon-rect.fa-behance:hover, a.icon-circle.fa-behance:hover, a.icon-outlined.fa
 }
 
 .icon-doctor-01:before {
-  background-image: url("icons/icon-doctor-01.jpg");
+  // background-image: url("/assets/icons/icon-doctor-01.jpg");
+  background-image: url("/assets/icons/icon-medical-car-01.jpg");
 }
 
 .icon-doctor-xl:before {
-  background-image: url("images/icons/icon-doctor-xl.png");
+  // background-image: url("/assets/images/icons/icon-doctor-xl.png");
+  background-image: url("/assets/icons/icon-medical-car-xl.png");
 }
 
 .icon-medical-car-01:before {
-  background-image: url("icons/icon-medical-car-01.jpg");
+  background-image: url("/assets/icons/icon-medical-car-01.jpg");
 }
 
 .icon-medical-car-xl:before {
-  background-image: url("icons/icon-medical-car-xl.png");
+  background-image: url("/assets/icons/icon-medical-car-xl.png");
 }
 
 .icon-pills-01:before {
-  background-image: url("icons/icon-pills-01.jpg");
+  background-image: url("/assets/icons/icon-pills-01.jpg");
 }
 
 .icon-pills-xl:before {
-  background-image: url("icon-pills-xl.png");
+  background-image: url("/assets/icon-pills-xl.png");
 }
 
 .icon-emergency-01:before {
-  background-image: url("icons/icon-emergency-01.png");
+  background-image: url("/assets/icons/icon-emergency-01.png");
   height: 21px;
   width: 24px;
 }
@@ -26841,7 +26843,7 @@ button.list-group-item-danger.active:focus {
 }
 
 .breadcrumb-modern {
-  background-image: url("/backgrounds/background-breadcrumbs-01-1920x345.jpg");
+  background-image: url("/assets/backgrounds/background-breadcrumbs-01-1920x345.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

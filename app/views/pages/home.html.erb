@@ -8,7 +8,8 @@
 <% end %>
 
 <p><%= link_to 'Voir les profils', profiles_path, class: 'btn btn-rounded'%></p>
-<p><%= link_to 'About', pages_about_path, class: 'btn btn-rounded'%></p>
+<p><%= link_to 'A propos', pages_about_path, class: 'btn btn-rounded'%></p>
+<p><%= link_to 'Formation & Prévention', pages_formation_path, class: 'btn btn-rounded'%></p>
 
 
 <!DOCTYPE html>
@@ -35,111 +36,6 @@
     <div class="page text-center">
       <!-- Page Head-->
       <header class="page-head rd-navbar-sidebar-toggle-wrap">
-        <!-- RD Navbar Transparent-->
-        <div class="rd-navbar-wrap">
-          <nav class="rd-navbar rd-navbar-sidebar-toggle rd-navbar-light" data-lg-auto-height="true" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-fixed" data-lg-stick-up="false" data-lg-hover-on="false">
-            <div class="rd-navbar-inner">
-              <!-- RD Navbar Panel-->
-              <div class="rd-navbar-panel">
-                <!-- RD Navbar Toggle-->
-                <button data-rd-navbar-toggle=".rd-navbar, .rd-navbar-nav-wrap" class="rd-navbar-toggle"><span></span></button>
-                <!-- RD Navbar Toggle-->
-                <button data-rd-navbar-toggle=".rd-navbar, .swiper-top-panel" class="rd-navbar-top-panel-toggle"><span></span></button>
-              </div>
-              <div class="rd-navbar-menu-wrap">
-                <div class="rd-navbar-nav-wrap">
-                  <div class="rd-navbar-mobile-scroll-holder">
-                    <div class="rd-navbar-mobile-scroll">
-                      <!--Navbar Brand Mobile-->
-
-                      <div class="rd-navbar-mobile-brand"><a href="index.html"><%= image_tag "logo-dark.png", width:'160', height:'45', class:'img-responsive' %></a></div>
-                      <div class="form-search-wrap">
-                        <!-- RD Search Form-->
-                        <form action="search-results.html" method="GET" class="form-search rd-search">
-                          <div class="form-group">
-                            <label for="rd-navbar-form-search-widget" class="form-label form-search-label form-label-sm">Search</label>
-                            <input id="rd-navbar-form-search-widget" type="text" name="s" autocomplete="off" class="form-search-input form-control form-control-gray-lightest input-sm"/>
-                          </div>
-                          <button type="submit" class="form-search-submit"><span class="fa fa-search text-primary"></span></button>
-                        </form>
-                      </div>
-                      <!-- RD Navbar Nav-->
-                      <ul class="rd-navbar-nav">
-                        <li class="active"><a href="index.html"><span>Home</span></a>
-                        </li>
-                        <li><a href="about.html"><span>About</span></a>
-                        </li>
-                        <li><a href="our-team.html"><span>Team</span></a>
-                        </li>
-                        <li><a href="#"><span>Pages</span></a>
-                          <ul class="rd-navbar-dropdown">
-                            <li><a href="typography.html"><span class="rd-navbar-icon"></span><span class="text-middle">Typography</span></a></li>
-                            <li><a href="forms.html"><span class="rd-navbar-icon"></span><span class="text-middle">Forms</span></a></li>
-                            <li><a href="buttons.html"><span class="rd-navbar-icon"></span><span class="text-middle">Buttons</span></a></li>
-                            <li><a href="grid-system.html"><span class="rd-navbar-icon"></span><span class="text-middle">Grid</span></a></li>
-                            <li><a href="tabs-and-accordions.html"><span class="rd-navbar-icon"></span><span class="text-middle">Tabs &amp; Accordions</span></a></li>
-                            <li><a href="infographics.html"><span class="rd-navbar-icon"></span><span class="text-middle">Progress Bars</span></a></li>
-                            <li><a href="icons.html"><span class="rd-navbar-icon"></span><span class="text-middle">Icons</span></a></li>
-                            <li><a href="tables.html"><span class="rd-navbar-icon"></span><span class="text-middle">Tables</span></a></li>
-                            <li><a href="team-member.html"><span class="rd-navbar-icon"></span><span class="text-middle">Team Member Profile</span></a></li>
-                            <li><a href="careers.html"><span class="rd-navbar-icon"></span><span class="text-middle">Careers</span></a></li>
-                            <li><a href="faq.html"><span class="rd-navbar-icon"></span><span class="text-middle">FAQ Page</span></a></li>
-                            <li><a href="pricing.html"><span class="rd-navbar-icon"></span><span class="text-middle">Pricing</span></a></li>
-                            <li><a href="coming-soon.html"><span class="rd-navbar-icon"></span><span class="text-middle">Coming Soon</span></a></li>
-                            <li><a href="maintenance.html"><span class="rd-navbar-icon"></span><span class="text-middle">Maintenance</span></a></li>
-                            <li><a href="under-construction.html"><span class="rd-navbar-icon"></span><span class="text-middle">Under construction</span></a></li>
-                            <li><a href="login.html"><span class="rd-navbar-icon"></span><span class="text-middle">Login/Register</span></a></li>
-                            <li><a href="Clients.html"><span class="rd-navbar-icon"></span><span class="text-middle">Clients</span></a></li>
-                            <li><a href="partners.html"><span class="rd-navbar-icon"></span><span class="text-middle">Partners</span></a></li>
-                            <li><a href="privacy.html"><span class="rd-navbar-icon"></span><span class="text-middle">Terms of Use</span></a></li>
-                            <li><a href="search-results.html"><span class="rd-navbar-icon"></span><span class="text-middle">Search Results</span></a></li>
-                            <li><a href="404.html"><span class="rd-navbar-icon"></span><span class="text-middle">404 Page</span></a></li>
-                            <li><a href="503.html"><span class="rd-navbar-icon"></span><span class="text-middle">503 Page</span></a></li>
-                            <li><a href="make-an-appointment.html"><span class="rd-navbar-icon"></span><span class="text-middle">Make an Appointment</span></a></li>
-                          </ul>
-                        </li>
-                        <li><a href="services.html"><span>Services</span></a>
-                        </li>
-                        <li><a href="departments.html"><span>Departments</span></a>
-                        </li>
-                        <li><a href="timetable.html"><span>Timetable</span></a>
-                        </li>
-                        <li><a href="grid-gallery.html"><span>Gallery</span></a>
-                          <ul class="rd-navbar-dropdown">
-                            <li><a href="grid-gallery.html"><span class="text-middle">Grid Gallery</span></a>
-                            </li>
-                            <li><a href="grid-gallery-no-padding.html"><span class="text-middle">Gallery Without Padding</span></a>
-                            </li>
-                            <li><a href="masonry-gallery.html"><span class="text-middle">Masonry Gallery</span></a>
-                            </li>
-                            <li><a href="cobbles-gallery.html"><span class="text-middle">Cobbles Gallery</span></a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li><a href="blog-masonry.html"><span>Blog</span></a>
-                          <ul class="rd-navbar-dropdown">
-                            <li><a href="blog-masonry.html"><span class="text-middle">Masonry blog</span></a>
-                            </li>
-                            <li><a href="blog-modern.html"><span class="text-middle">Modern blog</span></a>
-                            </li>
-                            <li><a href="blog-classic.html"><span class="text-middle">Classic blog</span></a>
-                            </li>
-                            <li><a href="blog-grid.html"><span class="text-middle">Grid blog</span></a>
-                            </li>
-                            <li><a href="single-post.html"><span class="text-middle">Single post</span></a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li><a href="contacts.html"><span>Contacts</span></a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </nav>
-        </div>
         <!--Swiper-->
         <div data-loop="true" data-height="" data-slide-effect="fade" data-dragable="false" data-min-height="400px" class="swiper-container swiper-slider bg-white">
           <div class="swiper-top-panel">
@@ -657,7 +553,7 @@
         </section>
         <!-- RD Parallax-->
         <section class="rd-parallax context-dark">
-          <div data-speed="0.2" data-type="media" data-url="backgrounds/background-04-1920x900.jpg" class="rd-parallax-layer"></div>
+          <div data-speed="0.2" data-type="media" data-url="assets/backgrounds/background-02-1920x800.jpg" class="rd-parallax-layer"></div>
           <div data-speed="0" data-type="html" class="rd-parallax-layer">
             <div class="bg-overlay-light section-98 section-sm-160 context-dark">
               <div class="shell">
