@@ -1,0 +1,179 @@
+<!-- Page-->
+<div class="page text-center">
+  <!-- Page Contents-->
+  <main class="page-content">
+    <!-- Modern Blog-->
+    <div id="fb-root"></div>
+    <section class="section-98 section-sm-110 text-left">
+      <div class="shell">
+        <div class="range range-xs-center range-lg-right">
+          <div class="cell-sm-10 cell-md-8">
+            <% @article = Article.find(4) %>
+            <% @profile = Profile.find(@article.profile_id) %>
+            <h3 class="text-bold text-java"><%= @article.article_title %></h3>
+            <ul class="list list-inline list-inline-dashed offset-top-4">
+              <li type=date><%= @article.created_at %></li>
+              <li>by <a <%= link_to @profile.last_name, profile_path(@profile), class: 'text-secondary'%></a>
+              </li>
+              <li><a href="blog-modern.html" class="text-secondary">Oral Health</a></li>
+            </ul>
+            <div class="offset-top-30"><%= image_tag @article.article_photo, width:'770', height:'480', class:'img-responsive center-block' %></div>
+            <div class="offset-top-30">
+              <p class="text-gray-darker"><%= @article.article_content %></p>
+            </div>
+            <div class="offset-top-30 offset-md-top-66">
+              <div class="pull-sm-left">
+                <div class="tags group group-sm"><a href="#" class="btn-tag btn btn-secondary">Teeth</a><a href="#" class="btn-tag btn btn-secondary">Gums</a><a href="#" class="btn-tag btn btn-secondary">Care</a></div>
+              </div>
+              <div style="margin-top: -5px;" class="pull-sm-right">
+                <div class="reveal-inline-block inset-right-20">
+                  <p class="text-dark">Share:</p>
+                </div>
+                <ul class="list-inline list-inline-xs reveal-inline-block offset-top-14 offset-sm-top-0">
+                  <li><a href="#" class="icon icon-xxs icon-circle icon-gray-light fa fa-facebook"></a></li>
+                  <li><a href="#" class="icon icon-xxs icon-circle icon-gray-light fa fa-twitter"></a></li>
+                  <li><a href="#" class="icon icon-xxs icon-circle icon-gray-light fa fa-rss"></a></li>
+                </ul>
+              </div>
+              <div class="clearfix"></div>
+              <div class="offset-top-66">
+                <h3>Posted by</h3>
+                <hr class="text-subline">
+              </div>
+              <div class="offset-top-30">
+                <div class="unit unit-xs unit-xs-horizontal">
+                  <div class="unit-left"><%= image_tag @profile.photo, width:'170', height:'170', class:'img-circle img-responsive center-block' %></div>
+                  <div class="unit-body text-xs-left">
+                    <div>
+                      <h4> <a <%= link_to @profile.last_name, profile_path(@profile), class: 'text-primary'%></a></h4>
+                    </div>
+                    <div class="offset-top-4 offset-sm-top-8">
+                      <div class="text-gray text-italic"><%= @profile.category %></div>
+                    </div>
+                    <div class="offset-top-20 text-left">
+                      <p class="text-gray-darker"><%= @profile.biographie %></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="offset-top-66">
+                <h3>Recent blog posts</h3>
+                <hr class="text-subline">
+              </div>
+              <div class="range offset-top-30">
+                <div class="cell-sm-6">
+                  <!-- Post Modern-->
+                  <article class="post post-modern post-modern-classic">
+                    <!-- Post media-->
+                    <header class="post-media"><a href="single-post.html"><img width="370" height="240" src="images/blog/post-08-770x480.jpg" alt="" class="img-responsive img-cover"/></a>
+                    </header>
+                    <!-- Post content-->
+                    <section class="post-content text-left">
+                      <!-- Post Title-->
+                      <div class="post-title offset-top-8">
+                        <h4 class="text-bold"><a href="single-post.html">Basic Dental Care</a></h4>
+                      </div>
+                      <ul class="list-inline list-inline-dashed">
+                        <li>June 21, 2017 at 8:12pm</li>
+                        <li><a href="blog-masonry.html" class="text-secondary">Oral Health</a></li>
+                      </ul>
+                      <!-- Post Body-->
+                      <div class="post-body">
+                        <p>Americans oftentimes ignore some basic, daily routines of oral hygiene, that need to be upheld. Practicing healthy habits like these ones will...</p>
+                      </div>
+                      <div class="tags group group-sm"><a href="#" class="btn-tag btn btn-secondary text-regular">Health</a><a href="#" class="btn-tag btn btn-secondary text-regular">Care</a><a href="#" class="btn-tag btn btn-secondary text-regular">Floss</a>
+                      </div>
+                    </section>
+                  </article>
+                </div>
+                <div class="cell-sm-6 offset-top-50 offset-sm-top-0">
+                  <!-- Post Modern-->
+                  <article class="post post-modern post-modern-classic">
+                    <!-- Post media-->
+                    <header class="post-media"><a href="single-post.html"><img width="370" height="240" src="images/blog/post-09-770x480.jpg" alt="" class="img-responsive img-cover"/></a>
+                    </header>
+                    <!-- Post content-->
+                    <section class="post-content text-left">
+                      <!-- Post Title-->
+                      <div class="post-title offset-top-8">
+                        <h4 class="text-bold"><a href="single-post.html">Mouth Sores</a></h4>
+                      </div>
+                      <ul class="list-inline list-inline-dashed">
+                        <li>June 21, 2017 at 8:12pm</li>
+                        <li><a href="blog-masonry.html" class="text-secondary">Oral Health</a></li>
+                      </ul>
+                      <!-- Post Body-->
+                      <div class="post-body">
+                        <p>Mouth sores are as nasty as it gets. Despite the majority of it lasting from few days to few weeks, some can be a telling sign of a mouth cancer...</p>
+                      </div>
+                      <div class="tags group group-sm"><a href="#" class="btn-tag btn btn-secondary text-regular">Health</a><a href="#" class="btn-tag btn btn-secondary text-regular">Disease</a><a href="#" class="btn-tag btn btn-secondary text-regular">Mouth</a>
+                      </div>
+                    </section>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cell-sm-10 cell-md-4 offset-top-66 offset-md-top-0">
+            <div class="blog-grid-sidebar inset-xl-left-30">
+              <!-- Aside-->
+              <aside class="text-left">
+                <!-- Archive-->
+                <div class="offset-top-30 offset-md-top-60">
+                  <h4>Archive</h4>
+                  <hr class="text-subline">
+                </div>
+                <div class="offset-top-14 offset-md-top-20">
+                  <div class="range range-xs-center range-lg-left">
+                    <div class="cell-xs-6 cell-lg-5">
+                      <!-- List Marked-->
+                      <ul class="list list-marked inset-left-0 list-marked-icon text-dark list-marked-gray">
+                        <li><a href="#" class="text-java">Jan 2017</a></li>
+                        <li><a href="#" class="text-java">Mar 2017</a></li>
+                        <li><a href="#" class="text-java">May 2017</a></li>
+                        <li><a href="#" class="text-java">Jul 2017</a></li>
+                      </ul>
+                    </div>
+                    <div class="cell-xs-6 cell-lg-5 offset-top-10 offset-xs-top-0 inset-xs-left-5">
+                      <!-- List Marked-->
+                      <ul class="list list-marked inset-left-0 list-marked-icon text-dark list-marked-gray">
+                        <li><a href="#" class="text-java">Feb 2017</a></li>
+                        <li><a href="#" class="text-java">Apr 2017</a></li>
+                        <li><a href="#" class="text-java">Jun 2017</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <!-- Recent Posts-->
+                <div class="offset-top-30 offset-md-top-60">
+                  <h4>Recent blog posts</h4>
+                  <hr class="text-subline">
+                </div>
+                <div class="offset-top-14 offset-md-top-20">
+                  <!-- List Marked-->
+                  <ul class="list list-marked list-marked-icon text-dark inset-left-0 list-marked-gray">
+                    <li><a href="single-post.html" class="text-java text-bold">Things to Do to Overcome Your Dental Fears</a><br>
+                      <time datetime="2017-04-30" class="text-gray-dark">June 21, 2017 at 8:12pm</time>
+                    </li>
+                    <li><a href="single-post.html" class="text-java text-bold">Taking Kids to a Dentist: How To</a><br>
+                      <time datetime="2017-04-30" class="text-gray-dark">June 21, 2017 at 8:12pm</time>
+                    </li>
+                    <li><a href="single-post.html" class="text-java text-bold">Preventing Teeth Decay for Adults</a><br>
+                      <time datetime="2017-04-30" class="text-gray-dark">June 21, 2017 at 8:12pm</time>
+                    </li>
+                    <li><a href="single-post.html" class="text-java text-bold">Fast Food and Snacks: A Lasting Harmful Effect for Teeth and Gums</a><br>
+                      <time datetime="2017-04-30" class="text-gray-dark">June 21, 2017 at 8:12pm</time>
+                    </li>
+                  </ul>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+  <!-- Java script-->
+<script src="assets/core.min.js"></script>
+<script src="assets/script.js"></script>
