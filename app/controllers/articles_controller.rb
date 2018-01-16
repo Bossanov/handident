@@ -26,7 +26,9 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:profile_id])
+    # @article = Article.find(params[:profile_id])
+    # récupérer l'article qui nous interesse
+    @article = Article.find(4)
   end
 
 
