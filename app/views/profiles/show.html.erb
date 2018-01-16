@@ -1,259 +1,167 @@
-<!DOCTYPE html>
-<html lang="en" class="wide wow-animation smoothscroll scrollTo">
-  <head>
-    <!-- Site Title-->
-    <title>Team Member Profile</title>
-    <meta charset="utf-8">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="keywords" content="SANA design multipurpose template">
-    <meta name="date" content="Dec 26">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <!-- Stylesheets-->
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7CLato:400italic,400,700">
-    <link rel="stylesheet" href="css/style.css">
-    <!--[if lt IE 10]>
-    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
-    <script src="js/html5shiv.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <!-- Page-->
-    <div class="page text-center">
-      <div class="breadcrumb-inset-left">
-        <!-- Modern Breadcrumbs-->
-        <section class="breadcrumb-modern context-dark text-md-left">
-          <div class="shell section-34 section-md-top-160 section-md-bottom-41", style="color:#434445">
-            <h1 style="color:#434445"><%= @profile.first_name.capitalize %> <%= @profile.last_name.upcase %></h1>
-            <ul class="list-inline list-inline-arrows p offset-top-34 offset-md-top-70">
-              <li> <%= link_to 'Home', root_path %> </li>
-              <li> <%= link_to 'Liste', profiles_path %> </li>
-              <li> Membre depuis <%= @profile.created_at.strftime("%m/%Y") %> </li>
-            </ul>
-          </div>
-        </section>
+<!-- Page-->
+<div class="page text-center">
+  <div class="breadcrumb-inset-left">
+    <!-- Modern Breadcrumbs-->
+    <section class="breadcrumb-modern context-dark text-md-left" style="background-image: none">
+      <div class="shell section-34 section-md-top-160 section-md-bottom-41", style="color:#434445">
+        <h1 style="color:#434445"><%= @profile.first_name.capitalize %> <%= @profile.last_name.upcase %></h1>
+        <ul class="list-inline list-inline-arrows p offset-top-34 offset-md-top-70">
+          <li> <%= link_to 'Home', root_path %> </li>
+          <li> <%= link_to 'Liste', profiles_path %> </li>
+          <li> Membre depuis <%= @profile.created_at.strftime("%m/%Y") %> </li>
+        </ul>
       </div>
-      <!-- Page Content-->
-      <main class="page-content">
-        <!-- team member section-->
-        <section class="section-98 section-sm-top-34 section-sm-bottom-110">
-          <div class="shell">
-            <div class="range range-xs-center">
-              <div class="cell-xs-10 cell-md-4">
-                <!-- Member block type 5-->
-                <div class="member-block-type-5 inset-md-right-20"><%= cl_image_tag @profile.photo, width:"320", height: "320", alt:"", class:"img-responsive center-block" %> <!-- options available with cloudinary crop: :thumb, gravity: :face -->
-                  <!-- ajouter une restriction sur l'accès à l'edit du profile -->
-                    <% if @profile.id == current_user.profile.id %>
-                      <p><%= link_to 'éditer mon profil', edit_profile_path(@profile), class: 'btn-fullwidth btn btn-ellipse btn-white offset-sm-top-41 offset-top-41 offset-md-top-60'%></p>
-                      <p><%= link_to 'Rédiger un article', new_profile_article_path(@profile), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
-                    <% end %>
-                    <p><%= link_to 'Voir les profils', profiles_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
-                    <p><%= link_to 'Donner votre avis', profiles_path, class: 'btn-fullwidth btn-ellipse btn btn-primary' %></p>
+    </section>
+  </div>
+  <!-- Page Content-->
+  <main class="page-content">
+    <!-- team member section-->
+    <section class="section-98 section-sm-top-34 section-sm-bottom-110">
+      <div class="shell">
+        <div class="range range-xs-center">
+          <div class="cell-xs-10 cell-md-4">
+            <!-- Member block type 5-->
+            <div class="member-block-type-5 inset-md-right-20"><%= cl_image_tag @profile.photo, width:"320", height: "320", alt:"", class:"img-responsive center-block" %> <!-- options available with cloudinary crop: :thumb, gravity: :face -->
+              <!-- ajouter une restriction sur l'accès à l'edit du profile -->
+                <% if @profile.id == current_user.profile.id %>
+                  <p><%= link_to 'éditer mon profil', edit_profile_path(@profile), class: 'btn-fullwidth btn btn-ellipse btn-white offset-sm-top-41 offset-top-41 offset-md-top-60'%></p>
+                  <p><%= link_to 'Rédiger un article', new_profile_article_path(@profile), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+                <% end %>
+                <p><%= link_to 'Voir les profils', profiles_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+                <p><%= link_to 'Donner votre avis', profiles_path, class: 'btn-fullwidth btn-ellipse btn btn-primary' %></p>
 
-                </div>
-              </div>
-              <div class="cell-xs-10 cell-md-8 text-md-left offset-top-60 offset-md-top-0">
-                <div class="range">
-                  <div class="cell-sm-5">
-                    <div>Profession</div>
-                    <h4 class="text-bold"><%= @profile.category %></h4>
-                  </div>
-                  <div class="cell-sm-7 offset-top-41 offset-sm-top-0">
-                    <div>Education</div>
-                    <h4 class="text-bold">Perelman School of Medicine at the University of Pennsylvania (1987)</h4>
-                  </div>
-                </div>
-                <div class="offset-top-66 text-left">
-                  <h5>Biographie</h5>
-                  <hr class="text-subline">
-                  <p><%= @profile.biographie %></p>
-                </div>
-              </div>
             </div>
           </div>
-        </section>
-        <div id="map" style="width: 100%; height: 400px;"></div>
-        <% content_for(:after_js) do %>
-          <%= javascript_tag do %>
-            var handler = Gmaps.build('Google');
-            handler.buildMap({ internal: { id: 'map' } }, function() {
-              markers = handler.addMarkers(<%= raw @markers.to_json %>);
-              handler.bounds.extendWith(markers);
-              handler.fitMapToBounds();
-              if (markers.length == 0) {
-                handler.getMap().setZoom(2);
-              } else if (markers.length == 1) {
-                handler.getMap().setZoom(14);
-              }
-            });
-          <% end %>
-        <% end %>
-        <!-- Scott Riley’s blog posts-->
-        <section class="section-98 section-sm-110 bg-white-liac">
-          <div class="shell">
-            <h2>Les articles de <%= @profile.first_name %></h2>
-            <hr class="divider divider-lg bg-secondary">
-            <div class="offset-top-41 offset-lg-top-60">
-              <div class="range range-xs-center">
-                <div class="cell-xs-10 cell-sm-8 cell-md-4">
-                  <!-- Post Modern-->
-                  <article class="post post-modern post-modern-classic">
-                    <!-- Post media-->
-                    <header class="post-media"><a href="single-post.html"><img width="370" height="250" src="images/blog/post-05-370x250.jpg" alt="" class="img-responsive img-cover"/></a>
-                    </header>
-                    <!-- Post content-->
-                    <section class="post-content text-left">
-                      <!-- Post Title-->
-                      <div class="post-title offset-top-8">
-                        <h4 class="text-bold"><a href="single-post.html">First signs of Gum Disease</a></h4>
-                      </div>
-                      <ul class="list-inline list-inline-dashed">
-                        <li>June 21, 2017 at 8:12pm</li>
-                        <li><a href="#" class="text-secondary">Healthy Lifestyle</a></li>
-                      </ul>
-                      <!-- Post Body-->
-                      <div class="post-body">
-                        <div class="offset-top-14">
-                          <p>Gums disease is preceded by few very distinct symptoms. One of these is when you spit out blood after brushing your teeth...</p>
-                        </div>
-                      </div>
-                      <div class="tags group group-sm">
-                      </div>
-                    </section>
-                  </article>
-                </div>
-                <div class="cell-xs-10 cell-sm-8 cell-md-4 offset-top-50 offset-md-top-0">
-                  <!-- Post Modern-->
-                  <article class="post post-modern post-modern-classic">
-                    <!-- Post media-->
-                    <header class="post-media"><a href="single-post.html"><img width="370" height="250" src="images/blog/post-06-370x250.jpg" alt="" class="img-responsive img-cover"/></a>
-                    </header>
-                    <!-- Post content-->
-                    <section class="post-content text-left">
-                      <!-- Post Title-->
-                      <div class="post-title offset-top-8">
-                        <h4 class="text-bold"><a href="single-post.html">Basic Dental Care</a></h4>
-                      </div>
-                      <ul class="list-inline list-inline-dashed">
-                        <li>June 21, 2017 at 8:12pm</li>
-                        <li><a href="#" class="text-secondary">Dental Care</a></li>
-                      </ul>
-                      <!-- Post Body-->
-                      <div class="post-body">
-                        <div class="offset-top-14">
-                          <p>Americans oftentimes ignore some basic, daily routines of oral hygiene, that need to be upheld. Practicing healthy habits...</p>
-                        </div>
-                      </div>
-                      <div class="tags group group-sm">
-                      </div>
-                    </section>
-                  </article>
-                </div>
-                <div class="cell-xs-10 cell-sm-8 cell-md-4 offset-top-50 offset-md-top-0">
-                  <!-- Post Modern-->
-                  <article class="post post-modern post-modern-classic">
-                    <!-- Post media-->
-                    <header class="post-media"><a href="single-post.html"><img width="370" height="250" src="images/blog/post-07-370x250.jpg" alt="" class="img-responsive img-cover"/></a>
-                    </header>
-                    <!-- Post content-->
-                    <section class="post-content text-left">
-                      <!-- Post Title-->
-                      <div class="post-title offset-top-8">
-                        <h4 class="text-bold"><a href="single-post.html">Avoiding Bad Breath</a></h4>
-                      </div>
-                      <ul class="list-inline list-inline-dashed">
-                        <li>June 21, 2017 at 8:12pm</li>
-                        <li><a href="#" class="text-secondary">Oral Hygiene</a></li>
-                      </ul>
-                      <!-- Post Body-->
-                      <div class="post-body">
-                        <div class="offset-top-14">
-                          <p>Bad breath is a deal breaker both in business and in personal life of ours. And while breath fresheners or candies hide it, they do not cure the very problem at hand...</p>
-                        </div>
-                      </div>
-                      <div class="tags group group-sm">
-                      </div>
-                    </section>
-                  </article>
-                </div>
-              </div><a href="blog-masonry.html" class="btn btn-ellipse btn-primary offset-top-41 offset-md-top-60">view all blog posts</a>
-            </div>
-          </div>
-        </section>
-      </main>
-
-
-
-      <!-- Page Footer-->
-      <!-- Default footer-->
-      <footer class="section-relative section-55 page-footer bg-primary context-dark">
-        <div class="shell-wide">
-          <div class="inset-xl-left-30">
-            <div class="range range-sm-center">
-              <div class="cell-sm-8 cell-md-12">
-                <div class="range range-md-justify range-md-middle">
-                  <div class="cell-md-4 cell-md-push-1 text-md-left">
-                    <!-- Footer brand-->
-                    <div class="footer-brand reveal-inline-block"><a href="index.html"><img width="158" height="45" src="images/logo.png" alt="" class="img-responsive"></a></div>
-                  </div>
-                  <div class="cell-md-4 offset-top-55 offset-md-top-0 cell-md-push-3 text-md-right">
-                          <ul class="list-inline">
-                            <li><a href="#" class="icon fa fa-facebook icon-xxs icon-circle icon-white"></a></li>
-                            <li><a href="#" class="icon fa fa-twitter icon-xxs icon-circle icon-white"></a></li>
-                            <li><a href="#" class="icon fa fa-google icon-xxs icon-circle icon-white"></a></li>
-                            <li><a href="#" class="icon fa fa-rss icon-xxs icon-circle icon-white"></a></li>
-                          </ul>
-                  </div>
-                  <div class="cell-md-4 offset-top-55 offset-md-top-0 cell-md-push-2">
-                    <p class="text-white-08">&copy; <span id="copyright-year"></span> All Rights Reserved Terms of Use and <a href="privacy.html" class="text-white-08">Privacy Policy</a></p>
-                  </div>
-                </div>
+          <div class="cell-xs-10 cell-md-8 text-md-left offset-top-60 offset-md-top-0">
+            <div class="range">
+              <div class="cell-sm-5">
+                <div>Profession</div>
+                <h4 class="text-bold"><%= @profile.category %></h4>
+              </div>
+              <div class="cell-sm-7 offset-top-41 offset-sm-top-0">
+                <div>Education</div>
+                <h4 class="text-bold">Perelman School of Medicine at the University of Pennsylvania (1987)</h4>
               </div>
             </div>
-          </div>
-        </div>
-      </footer>
-    </div>
-    <!-- Global Mailform Output-->
-    <div id="form-output-global" class="snackbars"></div>
-    <!-- PhotoSwipe Gallery-->
-    <div tabindex="-1" role="dialog" aria-hidden="true" class="pswp">
-      <div class="pswp__bg"></div>
-      <div class="pswp__scroll-wrap">
-        <div class="pswp__container">
-          <div class="pswp__item"></div>
-          <div class="pswp__item"></div>
-          <div class="pswp__item"></div>
-        </div>
-        <div class="pswp__ui pswp__ui--hidden">
-          <div class="pswp__top-bar">
-            <div class="pswp__counter"></div>
-            <button title="Close (Esc)" class="pswp__button pswp__button--close"></button>
-            <button title="Share" class="pswp__button pswp__button--share"></button>
-            <button title="Toggle fullscreen" class="pswp__button pswp__button--fs"></button>
-            <button title="Zoom in/out" class="pswp__button pswp__button--zoom"></button>
-            <div class="pswp__preloader">
-              <div class="pswp__preloader__icn">
-                <div class="pswp__preloader__cut">
-                  <div class="pswp__preloader__donut"></div>
-                </div>
-              </div>
+            <div class="offset-top-66 text-left">
+              <h5>Biographie</h5>
+              <hr class="text-subline">
+              <p><%= @profile.biographie %></p>
             </div>
-          </div>
-          <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-            <div class="pswp__share-tooltip"></div>
-          </div>
-          <button title="Previous (arrow left)" class="pswp__button pswp__button--arrow--left"></button>
-          <button title="Next (arrow right)" class="pswp__button pswp__button--arrow--right"></button>
-          <div class="pswp__caption">
-            <div class="pswp__caption__center"></div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Java script-->
-    <script src="js/core.min.js"></script>
-    <script src="js/script.js"></script>
-  </body>
-</html>
+    </section>
+    <div id="map" style="width: 100%; height: 400px;"></div>
+    <% content_for(:after_js) do %>
+      <%= javascript_tag do %>
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ internal: { id: 'map' } }, function() {
+          markers = handler.addMarkers(<%= raw @markers.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          if (markers.length == 0) {
+            handler.getMap().setZoom(2);
+          } else if (markers.length == 1) {
+            handler.getMap().setZoom(14);
+          }
+        });
+      <% end %>
+    <% end %>
+    <!-- Scott Riley’s blog posts-->
+    <section class="section-98 section-sm-110 bg-white-liac">
+      <div class="shell">
+        <h2>Les articles de <%= @profile.first_name %></h2>
+        <hr class="divider divider-lg bg-secondary">
+        <div class="offset-top-41 offset-lg-top-60">
+          <div class="range range-xs-center">
+            <div class="cell-xs-10 cell-sm-8 cell-md-4">
+              <!-- Post Modern-->
+              <article class="post post-modern post-modern-classic">
+                <!-- Post media-->
+                <header class="post-media"><a href="single-post.html"><img width="370" height="250" src="images/blog/post-05-370x250.jpg" alt="" class="img-responsive img-cover"/></a>
+                </header>
+                <!-- Post content-->
+                <section class="post-content text-left">
+                  <!-- Post Title-->
+                  <div class="post-title offset-top-8">
+                    <h4 class="text-bold"><a href="single-post.html">First signs of Gum Disease</a></h4>
+                  </div>
+                  <ul class="list-inline list-inline-dashed">
+                    <li>June 21, 2017 at 8:12pm</li>
+                    <li><a href="#" class="text-secondary">Healthy Lifestyle</a></li>
+                  </ul>
+                  <!-- Post Body-->
+                  <div class="post-body">
+                    <div class="offset-top-14">
+                      <p>Gums disease is preceded by few very distinct symptoms. One of these is when you spit out blood after brushing your teeth...</p>
+                    </div>
+                  </div>
+                  <div class="tags group group-sm">
+                  </div>
+                </section>
+              </article>
+            </div>
+            <div class="cell-xs-10 cell-sm-8 cell-md-4 offset-top-50 offset-md-top-0">
+              <!-- Post Modern-->
+              <article class="post post-modern post-modern-classic">
+                <!-- Post media-->
+                <header class="post-media"><a href="single-post.html"><img width="370" height="250" src="images/blog/post-06-370x250.jpg" alt="" class="img-responsive img-cover"/></a>
+                </header>
+                <!-- Post content-->
+                <section class="post-content text-left">
+                  <!-- Post Title-->
+                  <div class="post-title offset-top-8">
+                    <h4 class="text-bold"><a href="single-post.html">Basic Dental Care</a></h4>
+                  </div>
+                  <ul class="list-inline list-inline-dashed">
+                    <li>June 21, 2017 at 8:12pm</li>
+                    <li><a href="#" class="text-secondary">Dental Care</a></li>
+                  </ul>
+                  <!-- Post Body-->
+                  <div class="post-body">
+                    <div class="offset-top-14">
+                      <p>Americans oftentimes ignore some basic, daily routines of oral hygiene, that need to be upheld. Practicing healthy habits...</p>
+                    </div>
+                  </div>
+                  <div class="tags group group-sm">
+                  </div>
+                </section>
+              </article>
+            </div>
+            <div class="cell-xs-10 cell-sm-8 cell-md-4 offset-top-50 offset-md-top-0">
+              <!-- Post Modern-->
+              <article class="post post-modern post-modern-classic">
+                <!-- Post media-->
+                <header class="post-media"><a href="single-post.html"><img width="370" height="250" src="images/blog/post-07-370x250.jpg" alt="" class="img-responsive img-cover"/></a>
+                </header>
+                <!-- Post content-->
+                <section class="post-content text-left">
+                  <!-- Post Title-->
+                  <div class="post-title offset-top-8">
+                    <h4 class="text-bold"><a href="single-post.html">Avoiding Bad Breath</a></h4>
+                  </div>
+                  <ul class="list-inline list-inline-dashed">
+                    <li>June 21, 2017 at 8:12pm</li>
+                    <li><a href="#" class="text-secondary">Oral Hygiene</a></li>
+                  </ul>
+                  <!-- Post Body-->
+                  <div class="post-body">
+                    <div class="offset-top-14">
+                      <p>Bad breath is a deal breaker both in business and in personal life of ours. And while breath fresheners or candies hide it, they do not cure the very problem at hand...</p>
+                    </div>
+                  </div>
+                  <div class="tags group group-sm">
+                  </div>
+                </section>
+              </article>
+            </div>
+          </div><a href="blog-masonry.html" class="btn btn-ellipse btn-primary offset-top-41 offset-md-top-60">view all blog posts</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+<!-- Java script-->
+<script src="js/core.min.js"></script>
+<script src="js/script.js"></script>
