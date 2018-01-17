@@ -34,6 +34,7 @@ class ProfilesController < ApplicationController
       marker.lng profile.longitude
       marker.infowindow "<p>#{profile.address} #{profile.post_code} #{profile.city}</p>"
       # marker.infowindow render_to_string(partial: "/profile/map_box", locals: { profile: profile })
+    @articles = Article.where(profile_id: @profile.id)
     end
   end
 

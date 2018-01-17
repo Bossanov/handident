@@ -69,94 +69,44 @@
       <% end %>
     <% end %>
     <!-- Scott Riley’s blog posts-->
+
+
     <section class="section-98 section-sm-110 bg-white-liac">
       <div class="shell">
         <h2>Les articles de <%= @profile.first_name %></h2>
         <hr class="divider divider-lg bg-secondary">
         <div class="offset-top-41 offset-lg-top-60">
           <div class="range range-xs-center">
-            <div class="cell-xs-10 cell-sm-8 cell-md-4">
-              <!-- Post Modern-->
-              <article class="post post-modern post-modern-classic">
-                <!-- Post media-->
-                <header class="post-media"><a href="single-post.html"><img width="370" height="250" src="images/blog/post-05-370x250.jpg" alt="" class="img-responsive img-cover"/></a>
-                </header>
-                <!-- Post content-->
-                <section class="post-content text-left">
-                  <!-- Post Title-->
-                  <div class="post-title offset-top-8">
-                    <h4 class="text-bold"><a href="single-post.html">First signs of Gum Disease</a></h4>
-                  </div>
-                  <ul class="list-inline list-inline-dashed">
-                    <li>June 21, 2017 at 8:12pm</li>
-                    <li><a href="#" class="text-secondary">Healthy Lifestyle</a></li>
-                  </ul>
-                  <!-- Post Body-->
-                  <div class="post-body">
-                    <div class="offset-top-14">
-                      <p>Gums disease is preceded by few very distinct symptoms. One of these is when you spit out blood after brushing your teeth...</p>
+            <% @articles.each do |article| %>
+              <div class="cell-xs-10 cell-sm-8 cell-md-4">
+                <!-- Post Modern-->
+                <article class="post post-modern post-modern-classic">
+                  <!-- Post media-->
+                  <header class="post-media"><a href="<%= profile_article_path(@profile, article)%>"><%= image_tag article.article_photo, width:'370', height:'250', crop: :thumb, class:'img-responsive img-cover"' %></a>
+                  </header>
+                  <!-- Post content-->
+                  <section class="post-content text-left">
+                    <!-- Post Title-->
+                    <div class="post-title offset-top-8">
+                      <h4 class="text-bold"><a href="<%= profile_article_path(@profile, article)%>"><%= article.article_title %></a></h4>
                     </div>
-                  </div>
-                  <div class="tags group group-sm">
-                  </div>
-                </section>
-              </article>
-            </div>
-            <div class="cell-xs-10 cell-sm-8 cell-md-4 offset-top-50 offset-md-top-0">
-              <!-- Post Modern-->
-              <article class="post post-modern post-modern-classic">
-                <!-- Post media-->
-                <header class="post-media"><a href="single-post.html"><img width="370" height="250" src="images/blog/post-06-370x250.jpg" alt="" class="img-responsive img-cover"/></a>
-                </header>
-                <!-- Post content-->
-                <section class="post-content text-left">
-                  <!-- Post Title-->
-                  <div class="post-title offset-top-8">
-                    <h4 class="text-bold"><a href="single-post.html">Basic Dental Care</a></h4>
-                  </div>
-                  <ul class="list-inline list-inline-dashed">
-                    <li>June 21, 2017 at 8:12pm</li>
-                    <li><a href="#" class="text-secondary">Dental Care</a></li>
-                  </ul>
-                  <!-- Post Body-->
-                  <div class="post-body">
-                    <div class="offset-top-14">
-                      <p>Americans oftentimes ignore some basic, daily routines of oral hygiene, that need to be upheld. Practicing healthy habits...</p>
+                    <ul class="list-inline list-inline-dashed">
+                      <li><%= article.created_at %></li>
+                      <li><a href="#" class="text-secondary">Healthy Lifestyle</a></li>
+                    </ul>
+                    <!-- Post Body-->
+                    <div class="post-body">
+                      <div class="offset-top-14">
+                        <p><%= article.article_content.first(150) %></p>
+                      </div>
                     </div>
-                  </div>
-                  <div class="tags group group-sm">
-                  </div>
-                </section>
-              </article>
-            </div>
-            <div class="cell-xs-10 cell-sm-8 cell-md-4 offset-top-50 offset-md-top-0">
-              <!-- Post Modern-->
-              <article class="post post-modern post-modern-classic">
-                <!-- Post media-->
-                <header class="post-media"><a href="single-post.html"><img width="370" height="250" src="images/blog/post-07-370x250.jpg" alt="" class="img-responsive img-cover"/></a>
-                </header>
-                <!-- Post content-->
-                <section class="post-content text-left">
-                  <!-- Post Title-->
-                  <div class="post-title offset-top-8">
-                    <h4 class="text-bold"><a href="single-post.html">Avoiding Bad Breath</a></h4>
-                  </div>
-                  <ul class="list-inline list-inline-dashed">
-                    <li>June 21, 2017 at 8:12pm</li>
-                    <li><a href="#" class="text-secondary">Oral Hygiene</a></li>
-                  </ul>
-                  <!-- Post Body-->
-                  <div class="post-body">
-                    <div class="offset-top-14">
-                      <p>Bad breath is a deal breaker both in business and in personal life of ours. And while breath fresheners or candies hide it, they do not cure the very problem at hand...</p>
+                    <div class="tags group group-sm">
                     </div>
-                  </div>
-                  <div class="tags group group-sm">
-                  </div>
-                </section>
-              </article>
-            </div>
-          </div><a href="blog-masonry.html" class="btn btn-ellipse btn-primary offset-top-41 offset-md-top-60">view all blog posts</a>
+                  </section>
+                </article>
+              </div>
+            <% end %>
+          </div><a <%= link_to 'Voir tous les articles', pages_all_articles_categories_path, class: 'btn btn-ellipse btn-primary offset-top-41 offset-md-top-60'%></a>
         </div>
       </div>
     </section>
