@@ -6,7 +6,7 @@
       <% @profiles = Profile.all %>
       <% result = [] %>
       <% @profiles.each do |pro| %>
-        <% if pro.category == "dentiste" %>
+        <% if pro.category == "Dentiste" %>
           <% result << pro.last_name %>
         <% end %>
       <% end %>

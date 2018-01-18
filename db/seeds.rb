@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Article.destroy_all
-AskForRdv.destroy_all
+Meeting.destroy_all
 Donation.destroy_all
 Message.destroy_all
 Profile.destroy_all
@@ -33,7 +33,11 @@ puts "***--- ADMIN #1 CREATION ---***"
     photo: "",
     user_id: user.id,
   )
-
+art = Article.create!(
+    article_title: "What is Lorem Ipsum?",
+    article_content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    profile_id: prof.id,
+  )
 puts "***--- ADMIN #2 CREATION ---***"
   user = User.create!(
     email: "eric.magnier@apf.asso.fr",
@@ -54,7 +58,11 @@ puts "***--- ADMIN #2 CREATION ---***"
     photo: "",
     user_id: user.id,
   )
-
+art = Article.create!(
+    article_title: "What is Lorem Ipsum?",
+    article_content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    profile_id: prof.id,
+  )
 puts "***--- ADMIN #3 CREATION ---***"
   user = User.create!(
     email: "urapei.5962@gmail.com",
@@ -75,7 +83,11 @@ puts "***--- ADMIN #3 CREATION ---***"
     photo: "",
     user_id: user.id,
   )
-
+art = Article.create!(
+    article_title: "What is Lorem Ipsum?",
+    article_content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    profile_id: prof.id,
+  )
 puts "***--- ADMIN #4 CREATION ---***"
   user = User.create!(
     email: "bruno.andries@yahoo.fr",
@@ -96,7 +108,11 @@ puts "***--- ADMIN #4 CREATION ---***"
     photo: "",
     user_id: user.id,
   )
-
+art = Article.create!(
+    article_title: "What is Lorem Ipsum?",
+    article_content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    profile_id: prof.id,
+  )
 
 puts "***--- ADMIN #5 CREATION ---***"
   user = User.create!(
@@ -118,9 +134,139 @@ puts "***--- ADMIN #5 CREATION ---***"
     photo: "",
     user_id: user.id,
   )
+art = Article.create!(
+    article_title: "What is Lorem Ipsum?",
+    article_content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    profile_id: prof.id,
+  )
+puts "***--- DENTIST #1 NORD CREATION ---***"
+  user = User.create!(
+    email: "dentiste1@gmail.com",
+    password: "123456",
 
+  )
+  prof = Profile.create!(
+    first_name: "Bruno",
+    last_name: "ANDRIES",
+    category: "Dentiste",
+    phone_number: "0328438222",
+    birthday: "",
+    address: "rue du 8 mai 1945",
+    post_code: 59253,
+    city: "LA GORGUE",
+    biographie: "",
+    formation: "",
+    photo: "",
+    user_id: user.id,
+  )
+art = Article.create!(
+    article_title: "What is Lorem Ipsum?",
+    article_content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    profile_id: prof.id,
+  )
+puts "***--- DENTIST #2 NORD CREATION ---***"
+  user = User.create!(
+    email: "dentiste2@gmail.com",
+    password: "123456",
 
+  )
+  prof = Profile.create!(
+    first_name: "Tanya",
+    last_name: "ARBAN",
+    category: "Dentiste",
+    phone_number: "0320913154",
+    birthday: "",
+    address: "33 chaussée de l'hôtel de ville",
+    post_code: 59650,
+    city: "VILLENEUVE D'ASCQ",
+    biographie: "",
+    formation: "",
+    photo: "",
+    user_id: user.id,
+  )
+art = Article.create!(
+    article_title: "What is Lorem Ipsum?",
+    article_content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    profile_id: prof.id,
+  )
 
+puts "***--- DENTIST #3 NORD CREATION ---***"
+  user = User.create!(
+    email: "dentiste3@gmail.com",
+    password: "123456",
+
+  )
+  prof = Profile.create!(
+    first_name: "Alain",
+    last_name: "AUPETIT",
+    category: "Dentiste",
+    phone_number: "0320568143",
+    birthday: "",
+    address: "rue Roger Salengro",
+    post_code: 59260,
+    city: "HELLEMMES",
+    biographie: "",
+    formation: "",
+    photo: "",
+    user_id: user.id,
+  )
+art = Article.create!(
+    article_title: "What is Lorem Ipsum?",
+    article_content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    profile_id: prof.id,
+  )
+
+puts "***--- DENTIST #4 NORD CREATION ---***"
+  user = User.create!(
+    email: "dentiste4@gmail.com",
+    password: "123456",
+
+  )
+  prof = Profile.create!(
+    first_name: "Laurence",
+    last_name: "BEAUVENTRE",
+    category: "Dentiste",
+    phone_number: "0320410224",
+    birthday: "",
+    address: "91 Route Nationale",
+    post_code: 59152,
+    city: "CHERENG",
+    biographie: "",
+    formation: "",
+    photo: "",
+    user_id: user.id,
+  )
+art = Article.create!(
+    article_title: "What is Lorem Ipsum?",
+    article_content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    profile_id: prof.id,
+  )
+
+puts "***--- DENTIST #5 NORD CREATION ---***"
+  user = User.create!(
+    email: "dentiste5@gmail.com",
+    password: "123456",
+
+  )
+  prof = Profile.create!(
+    first_name: "Marion",
+    last_name: "BIECQ",
+    category: "Dentiste",
+    phone_number: "0320152424",
+    birthday: "",
+    address: "17, Boulevard Vauban",
+    post_code: 59000,
+    city: "LILLE",
+    biographie: "",
+    formation: "Orthodontiste",
+    photo: "",
+    user_id: user.id,
+  )
+  art = Article.create!(
+    article_title: "What is Lorem Ipsum?",
+    article_content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    profile_id: prof.id,
+  )
 
 
 
