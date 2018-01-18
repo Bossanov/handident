@@ -46,11 +46,13 @@
                   </li>
                   <li><a <%= link_to 'News', pages_all_articles_categories_path %></a>
                   </li>
-                  <li><a <%= link_to 'Professionnels', profiles_path %></a>
+                  <li><a <%= link_to 'Dentistes', profiles_path %></a>
                   </li>
                   <li class="active"><a <%= link_to 'Formation et Prévention', pages_formation_path %></a>
                   </li>
                   <li><a href="/"><span>Partenaires</span></a>
+                  </li>
+                  <li><a <%= link_to 'Contact', contacts_path %></a>
                   </li>
                   <li>
                     <% if user_signed_in? %>
