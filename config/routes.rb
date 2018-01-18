@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :articles
     resources :donations
     resources :reviews
-    resources :askforrdvs
+    resources :meetings
     resources :messages
   end
 

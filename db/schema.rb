@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180111084210) do
+ActiveRecord::Schema.define(version: 20180116172904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,17 +25,20 @@ ActiveRecord::Schema.define(version: 20180111084210) do
     t.index ["profile_id"], name: "index_articles_on_profile_id"
   end
 
-  create_table "ask_for_rdvs", force: :cascade do |t|
-    t.string "reason"
-    t.string "disponibility"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "donations", force: :cascade do |t|
     t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "meetings", force: :cascade do |t|
+    t.string "reason"
+    t.string "disponibility"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "profile_id"
+    t.string "destinataire"
+    t.index ["profile_id"], name: "index_meetings_on_profile_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -98,6 +101,7 @@ ActiveRecord::Schema.define(version: 20180111084210) do
   end
 
   add_foreign_key "articles", "profiles"
+  add_foreign_key "meetings", "profiles"
   add_foreign_key "messages", "profiles"
   add_foreign_key "profiles", "users"
   add_foreign_key "reviews", "profiles"

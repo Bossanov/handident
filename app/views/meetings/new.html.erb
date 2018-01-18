@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-sm-offset-3">
+      <%= simple_form_for [@profile, @meeting] do |f| %>
+      <% @profiles = Profile.all %>
+      <% result = [] %>
+      <% @profiles.each do |pro| %>
+        <% if pro.category == "Dentiste" %>
+          <% result << pro.last_name %>
+        <% end %>
+      <% end %>
+        <form class="row" method="post">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <%= f.input :reason , class: "form-control" %>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <%= f.input :disponibility, input_html: {style: 'height:200px;'}, class: "form-control" %>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <%= f.input :destinataire, collection: result,  class: "form-control" %>
+              </div>
+            </div>
+
+          <div class="col-md-12 text-center padding-bottom-100">
+            <%= f.button :submit, class:"btn btn-primary" %>
+            <br>
+            <br>
+          </div>
+        </form>
+      <% end %>
+    </div>
+  </div>
+</div>
