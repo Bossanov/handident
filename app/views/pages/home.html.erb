@@ -1,6 +1,7 @@
 <% if current_user && current_user.profile %>
   <p><%= link_to 'Voir mon profil', profile_path(current_user.profile), class: 'btn btn-rounded'%></p>
   <p><%= link_to 'Editer mon profil', edit_profile_path(current_user.profile), class: 'btn btn-rounded'%></p>
+  <p><%= link_to 'Faire un don', new_profile_donation_path(current_user.profile), class: 'btn btn-rounded'%></p>
 <% end %>
 
 <% if current_user && current_user.profile == nil%>
@@ -11,9 +12,9 @@
 <p><%= link_to 'A propos', pages_about_path, class: 'btn btn-rounded'%></p>
 <p><%= link_to 'Formation & Prévention', pages_formation_path, class: 'btn btn-rounded'%></p>
 <p><%= link_to 'Catégories des articles', pages_all_articles_categories_path, class: 'btn btn-rounded'%></p>
-<% @article = Article.find(4) %>
-<% @profile = Profile.find(@article.profile_id) %>
-<p><%= link_to 'Articles #4', profile_article_path(@profile, @article), class: 'btn btn-rounded'%></p>
+
+
+
 
 <!-- Page-->
 <div class="page text-center">
