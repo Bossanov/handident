@@ -30,6 +30,7 @@ puts "***--- ADMIN #1 CREATION ---***"
     city: "Landrecies",
     biographie: "Michel Staumont est né le 8 Janvier 1948. Il est le gérant de l'entreprise Eura Dentaire qui a été créée en 2001.",
     formation: "Faculté d'odontologie de Lille",
+    departement: "Nord",
     photo: "",
     user_id: user.id,
   )
@@ -55,6 +56,7 @@ puts "***--- ADMIN #2 CREATION ---***"
     city: "",
     biographie: "",
     formation: "",
+    departement: "Nord",
     photo: "",
     user_id: user.id,
   )
@@ -80,6 +82,7 @@ puts "***--- ADMIN #3 CREATION ---***"
     city: "",
     biographie: "",
     formation: "",
+    departement: "Nord",
     photo: "",
     user_id: user.id,
   )
@@ -105,6 +108,7 @@ puts "***--- ADMIN #4 CREATION ---***"
     city: "",
     biographie: "",
     formation: "",
+    departement: "Nord",
     photo: "",
     user_id: user.id,
   )
@@ -131,6 +135,7 @@ puts "***--- ADMIN #5 CREATION ---***"
     city: "",
     biographie: "",
     formation: "",
+    departement: "Nord",
     photo: "",
     user_id: user.id,
   )
@@ -156,6 +161,7 @@ puts "***--- DENTIST #1 NORD CREATION ---***"
     city: "LA GORGUE",
     biographie: "",
     formation: "",
+    departement: "Nord",
     photo: "",
     user_id: user.id,
   )
@@ -181,6 +187,7 @@ puts "***--- DENTIST #2 NORD CREATION ---***"
     city: "VILLENEUVE D'ASCQ",
     biographie: "",
     formation: "",
+    departement: "Nord",
     photo: "",
     user_id: user.id,
   )
@@ -208,6 +215,7 @@ puts "***--- DENTIST #3 NORD CREATION ---***"
     biographie: "",
     formation: "",
     photo: "",
+    departement: "Nord",
     user_id: user.id,
   )
 art = Article.create!(
@@ -234,6 +242,7 @@ puts "***--- DENTIST #4 NORD CREATION ---***"
     biographie: "",
     formation: "",
     photo: "",
+    departement: "Nord",
     user_id: user.id,
   )
 art = Article.create!(
@@ -260,6 +269,7 @@ puts "***--- DENTIST #5 NORD CREATION ---***"
     biographie: "",
     formation: "Orthodontiste",
     photo: "",
+    departement: "Nord",
     user_id: user.id,
   )
   art = Article.create!(

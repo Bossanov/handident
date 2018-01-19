@@ -10,48 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180118135801) do
+ActiveRecord::Schema.define(version: 20180118153647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
-    t.string "article_title", null: false
-    t.text "article_content", null: false
+    t.string "article_title"
+    t.string "article_content"
     t.string "article_photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "profile_id"
-    t.string "status", default: "Pending"
+    t.string "status"
     t.index ["profile_id"], name: "index_articles_on_profile_id"
   end
 
   create_table "donations", force: :cascade do |t|
-    t.integer "value", null: false
+    t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "moyen", null: false
+    t.string "moyen"
     t.bigint "profile_id"
     t.index ["profile_id"], name: "index_donations_on_profile_id"
   end
 
   create_table "meetings", force: :cascade do |t|
-    t.string "reason", null: false
-    t.string "disponibility", null: false
+    t.string "reason"
+    t.string "disponibility"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "profile_id"
-    t.string "destinataire", null: false
+    t.string "destinataire"
     t.index ["profile_id"], name: "index_meetings_on_profile_id"
   end
 
   create_table "messages", force: :cascade do |t|
-    t.string "message_title", null: false
-    t.text "message_content", null: false
+    t.string "message_title"
+    t.text "message_content"
     t.string "message_photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "destinataire", null: false
+    t.string "destinataire"
     t.bigint "profile_id"
     t.index ["profile_id"], name: "index_messages_on_profile_id"
   end
@@ -73,14 +73,15 @@ ActiveRecord::Schema.define(version: 20180118135801) do
     t.string "formation"
     t.float "latitude"
     t.float "longitude"
+    t.string "departement"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string "review_title", null: false
-    t.text "review_content", null: false
-    t.integer "rating", null: false
-    t.string "review_status", default: "Pending"
+    t.string "review_title"
+    t.text "review_content"
+    t.integer "rating"
+    t.string "review_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "profile_id"
