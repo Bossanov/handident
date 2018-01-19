@@ -114,7 +114,20 @@
                   </li>
                   <li class="active"><a <%= link_to 'Formation et Prévention', pages_formation_path %></a>
                   </li>
-                  <li><%= link_to 'Partenaires', pages_partnerships_path %></a>
+                  <li><a <%= link_to 'Partenaires', pages_partnerships_path %></a>
+                    <div class="rd-navbar-megamenu">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <h6>Faites partie de l'aventure Handident</h6>
+                          <hr class="text-subline"/>
+                          <ul class="list-unstyled offset-lg-top-25">
+                            <li><a <%= link_to 'Faire un don', pages_partnerships_path %></a></li>
+                            <li><a <%= link_to 'Entreprises, soutenez-nous !', pages_partnerships_path %></a></li>
+                            <li><a <%= link_to 'Nos partenaires', pages_partnerships_path %></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
                   </li>
                   <li><a <%= link_to 'Contact', contacts_path %></a>
                   </li>
