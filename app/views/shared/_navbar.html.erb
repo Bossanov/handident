@@ -40,24 +40,24 @@
                 <div class="rd-navbar-mobile-brand"><a href="/"><%= image_tag "logo-dark.png", width:'160', height:'45', class:'img-responsive' %></a></div>
                 <!-- RD Navbar Nav-->
                 <ul class="rd-navbar-nav">
-                  <li><a href="/"><span>Accueil</span></a>
+                  <li class="<%= is_active?(root_path) %>"><%= link_to 'Acceuil', root_path %>
                   </li>
-                  <li><a <%= link_to 'A propos', pages_about_path %></a>
+                  <li class="<%= is_active?(pages_about_path) %>"><%= link_to 'A propos', pages_about_path %>
                   </li>
-                  <li><a <%= link_to 'News', pages_all_articles_categories_path %></a>
+                  <li class="<%= is_active?(pages_all_articles_categories_path) %>"><%= link_to 'News', pages_all_articles_categories_path %>
                   </li>
-                  <li><a <%= link_to 'Dentistes', profiles_path %></a>
+                  <li class="<%= is_active?(profiles_path) %>"><%= link_to 'Dentistes', profiles_path %>
                   </li>
-                  <li class="active"><a <%= link_to 'Formation et Prévention', pages_formation_path %></a>
+                  <li class="<%= is_active?(pages_formation_path) %>"><%= link_to 'Formation et Prévention', pages_formation_path %>
                   </li>
-                  <li><a <%= link_to 'Partenaires', pages_partnerships_path %></a>
+                  <li class="<%= is_active?(pages_partnerships_path) %><%= is_active?(pages_make_a_donation_path) %><%= is_active?(pages_support_us_path) %>"><%= link_to 'Partenaires', pages_partnerships_path %>
                     <div class="rd-navbar-megamenu">
                       <div class="row">
                         <div class="col-md-4">
                           <h6>Faites partie de l'aventure Handident</h6>
                           <hr class="text-subline"/>
                           <ul class="list-unstyled offset-lg-top-25">
-                            <li><a <%= link_to 'Faire un don', pages_make_a_donation_path %></a></li>
+                            <li><a <%= link_to 'Faites un don', pages_make_a_donation_path %></a></li>
                             <li><a <%= link_to 'Entreprises, soutenez-nous !', pages_support_us_path %></a></li>
                             <li><a <%= link_to 'Nos partenaires', pages_partnerships_path %></a></li>
                           </ul>
@@ -65,42 +65,45 @@
                       </div>
                     </div>
                   </li>
-                  <li><a <%= link_to 'Contact', contacts_path %></a>
+                  <li class="<%= is_active?(contacts_path) %>"><%= link_to 'Contact', contacts_path %>
                   </li>
                   <li>
                     <% if user_signed_in? %>
                       <% if current_user && current_user.profile %>
-                        <a <%= link_to 'Mon Compte', profile_path(current_user.profile) %></a>
-                        <div class="rd-navbar-megamenu">
-                          <div class="row">
-                            <div class="col-md-4">
-                              <h6> Bonjour <%= Profile.find(current_user.id).first_name ? Profile.find(current_user.id).first_name : ""%></h6>
-                              <hr class="text-subline"/>
-                              <ul class="list-unstyled offset-lg-top-25">
-                                <li><a <%= link_to 'Voir mon profil', profile_path(current_user.profile) %></a></li>
-                                <li><a <%= link_to 'Editer mon profil', edit_profile_path(current_user.profile) %></a></li>
-                                <li><a <%= link_to 'Se déconnecter', destroy_user_session_path, :method => 'delete' %></a></li>
-                              </ul>
+                        <li class="<%= is_active?(profile_path(current_user.profile)) %><%= is_active?(edit_profile_path(current_user.profile)) %> "><%= link_to 'Mon Compte', profile_path(current_user.profile) %>
+                          <div class="rd-navbar-megamenu">
+                            <div class="row">
+                              <div class="col-md-4">
+                                <h6> Bonjour <%= Profile.find(current_user.id).first_name ? Profile.find(current_user.id).first_name : ""%></h6>
+                                <hr class="text-subline"/>
+                                <ul class="list-unstyled offset-lg-top-25">
+                                  <li><a <%= link_to 'Voir mon profil', profile_path(current_user.profile) %></a></li>
+                                  <li><a <%= link_to 'Editer mon profil', edit_profile_path(current_user.profile) %></a></li>
+                                  <li><a <%= link_to 'Se déconnecter', destroy_user_session_path, :method => 'delete' %></a></li>
+                                </ul>
+                              </div>
                             </div>
                           </div>
-                        </div>
+                        </li>
                       <% else %>
-                        <a <%= link_to 'Mon Compte' %></a>
-                        <div class="rd-navbar-megamenu">
-                          <div class="row">
-                            <div class="col-md-4">
-                              <h6>Mes données</h6>
-                              <hr class="text-subline"/>
-                              <ul class="list-unstyled offset-lg-top-25">
-                                <li><a <%= link_to 'Créer mon profil', new_profile_path %></a></li>
-                                <li><a <%= link_to 'Se déconnecter', destroy_user_session_path, :method => 'delete' %></a></li>
-                              </ul>
+                        <li class="<%= is_active?(new_profile_path) %>"><%= link_to 'Mon Compte' %>
+                          <div class="rd-navbar-megamenu">
+                            <div class="row">
+                              <div class="col-md-4">
+                                <h6>Mes données</h6>
+                                <hr class="text-subline"/>
+                                <ul class="list-unstyled offset-lg-top-25">
+                                  <li><a <%= link_to 'Créer mon profil', new_profile_path %></a></li>
+                                  <li><a <%= link_to 'Se déconnecter', destroy_user_session_path, :method => 'delete' %></a></li>
+                                </ul>
+                              </div>
                             </div>
                           </div>
-                        </div>
+                        </li>
                       <% end %>
                     <% else %>
-                      <a <%= link_to 'Me connecter', new_user_session_path %></a>
+                      <li class="<%= is_active?(new_user_session_path) %><%= is_active?(new_user_registration_path) %><%= is_active?(new_user_password_path) %>"><%= link_to 'Me connecter', new_user_session_path %>
+                      </li>
                     <% end %>
                   </li>
                 </ul>
@@ -113,13 +116,29 @@
     <!-- Modern Breadcrumbs-->
     <section class="breadcrumb-modern context-dark text-md-left">
       <div class="shell section-34 section-md-top-160 section-md-bottom-41">
-        <h1 class="text-regular">Services</h1>
-        <ul class="list-inline list-inline-arrows p offset-top-34 offset-md-top-70">
-          <li><a href="index.html" class="text-white">Home</a></li>
-          <li>Services
-          </li>
-        </ul>
+        <% if current_page?(pages_about_path) %>
+          <h1 class="text-regular">A propos</h1>
+        <% elsif current_page?(pages_all_articles_categories_path) %>
+          <h1 class="text-regular">Les articles</h1>
+        <% elsif current_page?(profiles_path) %>
+          <h1 class="text-regular">Les dentistes partenaires</h1>
+        <% elsif current_page?(pages_formation_path) %>
+          <h1 class="text-regular">Formation et prévention</h1>
+        <% elsif current_page?(pages_make_a_donation_path) %>
+          <h1 class="text-regular">Faites un don</h1>
+        <% elsif current_page?(pages_support_us_path) %>
+          <h1 class="text-regular">Entreprise, aidez-nous !</h1>
+        <% elsif current_page?(pages_partnerships_path) %>
+          <h1 class="text-regular">Nos partenaires</h1>
+        <% elsif current_page?(contacts_path) %>
+          <h1 class="text-regular">Contactez-nous !</h1>
+        <% else  %>
+          <h1 class="text-regular">Titre à Changer</h1>
+        <% end  %>
       </div>
     </section>
   </header>
 </div>
+<!-- Java script-->
+<script src="assets/core.min.js"></script>
+<script src="assets/script.js"></script>
