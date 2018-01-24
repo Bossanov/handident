@@ -116,6 +116,15 @@
                               <% end %>
                             <% end %>
                           <% end %>
+                          <script>
+                            function getOption() {
+
+                              const city = document.querySelector("#index-city") ;
+                              @optioncity for each (optioncity) {
+                              city.insertAdjacentHTML('afterbegin','${optioncity}') ;
+                              } ;
+                            }
+                          </script>
                           <select id="index-doctor" data-minimum-results-for-search="Infinity" class="form-control", style="background-color: white">
                             <% result.sort %>
                             <% result.each do |dept| %>
@@ -140,23 +149,23 @@
                               <% end %>
                             <% end %>
                           </select>
+                          <% @profiles = Profile.all %>
+                          <% @optioncity = [] %>
+                            <% @profiles.each do |pro| %>
+                              <% if pro.category == "Dentiste" && pro.departement == @valuedept %>
+                                <% @valuecity = pro.city.upcase %>
+                                <% @optioncity << '<option value="#{@valuecity}"> <%=#{@valuecity}%> </option>' %>
+                              <% end %>
+                            <% end %>
+                          <input type="button" onclick="getOption()" value="Valider!">
                       </div>
                     </div>
                     <div class="group-item element-fullwidth">
                       <div class="form-group form-group-label-outside">
                         <label for="index-phone" class="form-label form-label-outside rd-input-label text-white-06">Ville</label>
                         <div class="select2-whitout-border shadow-drop-md">
-                          <select id="index-doctor" data-minimum-results-for-search="Infinity" class="form-control", style="background-color: white">
-                            <% @profiles = Profile.all %>
-                            <% value = 1 %>
-                            <% @profiles.each do |pro| %>
-                              <% if pro.category == "Dentiste" && pro.departement == @valuedept %>
-                                <% @valuecity = pro.city.upcase %>
+                          <select id="index-city" data-minimum-results-for-search="Infinity" class="form-control", style="background-color: white">
 
-                                <option value="#{value}"><%=pro.city.upcase%></option>
-
-                              <% end %>
-                            <% end %>
                           </select>
                         </div>
                       </div>

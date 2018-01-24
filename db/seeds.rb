@@ -278,6 +278,140 @@ puts "***--- DENTIST #5 NORD CREATION ---***"
     profile_id: prof.id,
   )
 
+puts "***--- DENTIST #1 PDC CREATION ---***"
+  user = User.create!(
+    email: "dentiste6@gmail.com",
+    password: "123456",
+
+  )
+  prof = Profile.create!(
+    first_name: "Peggy",
+    last_name: "SZPAK",
+    category: "Dentiste",
+    phone_number: "0321626974",
+    birthday: "",
+    address: "245 bis, rue Jean Jaurès",
+    post_code: 62122,
+    city: "LAPUGNOY",
+    biographie: "",
+    formation: "",
+    photo: "",
+    departement: "Pas-de-Calais",
+    user_id: user.id,
+  )
+  art = Article.create!(
+    article_title: "What is Lorem Ipsum?",
+    article_content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    profile_id: prof.id,
+  )
+
+puts "***--- DENTIST #2 PDC CREATION ---***"
+  user = User.create!(
+    email: "dentiste7@gmail.com",
+    password: "123456",
+
+  )
+  prof = Profile.create!(
+    first_name: "Chantal",
+    last_name: "ANDRE",
+    category: "Dentiste",
+    phone_number: "0320152424",
+    birthday: "",
+    address: "149, rue des Hauts Champs",
+    post_code: 62137,
+    city: "COULOGNE",
+    biographie: "",
+    formation: "",
+    photo: "",
+    departement: "Pas-de-Calais",
+    user_id: user.id,
+  )
+  art = Article.create!(
+    article_title: "What is Lorem Ipsum?",
+    article_content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    profile_id: prof.id,
+  )
+
+puts "***--- DENTIST #3 PDC CREATION ---***"
+  user = User.create!(
+    email: "dentiste8@gmail.com",
+    password: "123456",
+
+  )
+  prof = Profile.create!(
+    first_name: "Didier",
+    last_name: "CATENNE",
+    category: "Dentiste",
+    phone_number: "0320152424",
+    birthday: "",
+    address: "3, rue des Frères Camus",
+    post_code: 62219,
+    city: "LONGUENESSE",
+    biographie: "",
+    formation: "",
+    photo: "",
+    departement: "Pas-de-Calais",
+    user_id: user.id,
+  )
+  art = Article.create!(
+    article_title: "What is Lorem Ipsum?",
+    article_content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    profile_id: prof.id,
+  )
+
+puts "***--- DENTIST #4 PDC CREATION ---***"
+  user = User.create!(
+    email: "dentiste9@gmail.com",
+    password: "123456",
+
+  )
+  prof = Profile.create!(
+    first_name: "Anne-Sophie",
+    last_name: "TAURINES",
+    category: "Dentiste",
+    phone_number: "0320152424",
+    birthday: "",
+    address: "Maison Médicale les Glycines - 24 bis rue du professeur Clerc",
+    post_code: 62230,
+    city: "OUTREAU",
+    biographie: "",
+    formation: "",
+    photo: "",
+    departement: "Pas-de-Calais",
+    user_id: user.id,
+  )
+  art = Article.create!(
+    article_title: "What is Lorem Ipsum?",
+    article_content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    profile_id: prof.id,
+  )
+
+puts "***--- DENTIST #5 PDC CREATION ---***"
+  user = User.create!(
+    email: "dentiste10@gmail.com",
+    password: "123456",
+
+  )
+  prof = Profile.create!(
+    first_name: "Thierry",
+    last_name: "DELCAMBRRE",
+    category: "Dentiste",
+    phone_number: "0321282650",
+    birthday: "",
+    address: "62, boulevard Basly",
+    post_code: 62300,
+    city: "LENS",
+    biographie: "",
+    formation: "",
+    photo: "",
+    departement: "Pas-de-Calais",
+    user_id: user.id,
+  )
+  art = Article.create!(
+    article_title: "What is Lorem Ipsum?",
+    article_content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+    profile_id: prof.id,
+  )
 
 
 
