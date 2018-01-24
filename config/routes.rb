@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get 'pages/test'
   get 'pages/partnerships'
   get 'pages/all_articles_categories'
+  get 'pages/make_a_donation'
+  get 'pages/support_us'
 
   match '/contacts',     to: 'contacts#new', via: 'get'
   resources "contacts", only: [:new, :create]

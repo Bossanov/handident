@@ -15,6 +15,7 @@
 <% @article = Article.find(4) %>
 <% @profile = Profile.find(@article.profile_id) %>
 <p><%= link_to 'Articles #4', profile_article_path(@profile, @article), class: 'btn btn-rounded'%></p>
+<p><%= link_to 'Faire un don', pages_make_a_donation_path, class: 'btn btn-ellipse btn-white offset-top-14 offset-sm-top-41'%></p>
 
 
 <!-- Page-->
@@ -53,9 +54,8 @@
                 <div class="range range-xs-middle range-xs-center range-md-left">
                   <div class="cell-md-7 cell-lg-8 section-41 section-sm-98">
                     <div class="text-md-left">
-                      <h2 class="text-bold">Handident</h2>
                       <h2 class="text-bold">Coordonner pour mieux soigner</h2>
-                      <h4 class="text-regular veil reveal-md-block">Grâce à une mise en commun des énergies et des savoir-faire, LE RESEAU HANDIDENT souhaite promouvoir sur le territoire régional une démarche pilote qui met la personne au cœur du processus de soins.</h4><a href="make-an-appointment.html" class="btn btn-ellipse btn-white offset-top-14 offset-sm-top-41">faire un don</a>
+                      <h4 class="text-regular veil reveal-md-block">Grâce à une mise en commun des énergies et des savoir-faire, LE RESEAU HANDIDENT souhaite promouvoir sur le territoire régional une démarche pilote qui met la personne au cœur du processus de soins.</h4><a><%= link_to 'Faire un don', pages_make_a_donation_path, class: 'btn btn-ellipse btn-white offset-top-14 offset-sm-top-41'%></a>
                     </div>
                   </div>
                 </div>
@@ -71,7 +71,7 @@
                   <div class="cell-md-7 section-41 section-sm-98 to-front">
                     <div class="text-md-left">
                       <h2 class="text-bold">Solving Your Dental Health Problems</h2>
-                      <h4 class="text-regular veil reveal-md-block">We are committed to providing the highest quality of general dental care, cosmetic and implant dentistry, and excellent patient service in a friendly, efficient and caring environment.</h4><a href="make-an-appointment.html" class="btn btn-ellipse btn-white offset-top-14 offset-sm-top-41">make an appointment</a>
+                      <h4 class="text-regular veil reveal-md-block">We are committed to providing the highest quality of general dental care, cosmetic and implant dentistry, and excellent patient service in a friendly, efficient and caring environment.</h4><a><%= link_to 'Faire un don', pages_make_a_donation_path, class: 'btn btn-ellipse btn-white offset-top-14 offset-sm-top-41'%></a>
                     </div>
                   </div>
                 </div>
@@ -87,7 +87,7 @@
                   <div class="cell-md-7 cell-lg-8 section-41 section-sm-98">
                     <div class="text-md-left">
                       <h2 class="text-bold">20+ Years of Experience in Dental Care</h2>
-                      <h4 class="text-regular veil reveal-md-block">Our friendly and professional team of dentists and nurses uses the latest techniques and equipment to make your smile look as shiny as possible. We are passionate about what we do!</h4><a href="make-an-appointment.html" class="btn btn-ellipse btn-white offset-top-14 offset-sm-top-41">make an appointment</a>
+                      <h4 class="text-regular veil reveal-md-block">Our friendly and professional team of dentists and nurses uses the latest techniques and equipment to make your smile look as shiny as possible. We are passionate about what we do!</h4><a><%= link_to 'Faire un don', pages_make_a_donation_path, class: 'btn btn-ellipse btn-white offset-top-14 offset-sm-top-41'%></a>
                     </div>
                   </div>
                 </div>
