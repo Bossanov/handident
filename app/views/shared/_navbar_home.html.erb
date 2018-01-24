@@ -1,62 +1,120 @@
-<div class="navbar-wagon">
-  <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo-desc-white.png", height: 50 %>
-  <% end %>
-
-  <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
-
-    <% if user_signed_in? %>
-
-      <!-- Links when logged in -->
-      <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-
-      <!-- Avatar with dropdown menu -->
-      <div class="navbar-wagon-item">
-        <div class="dropdown">
-          <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-              <% end %>
-            </li>
-          </ul>
+<div class="page text-center">
+  <!-- Page Header-->
+  <header class="page-head">
+    <!-- RD Navbar minimal-->
+    <div class="rd-navbar-wrap">
+      <nav data-md-device-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-static" data-md-stick-up-offset="120px" data-lg-stick-up-offset="120px" class="rd-navbar rd-navbar-minimal rd-navbar-light " data-lg-auto-height="true" data-md-layout="rd-navbar-static" data-lg-layout="rd-navbar-static" data-lg-stick-up="true">
+        <div class="rd-navbar-inner">
+          <div class="rd-navbar-top-panel">
+            <!--Navbar Brand-->
+            <div class="rd-navbar-brand veil reveal-md-inline-block"><a href="/" class="veil reveal-lg-inline-block"><%= image_tag "logo-dark.png", width:'158', height:'45', class:'img-responsive' %></a></div>
+            <div>
+              <!-- Contact Info-->
+              <address class="contact-info reveal-sm-inline-block text-left offset-none">
+                <div class="p unit unit-spacing-xs unit-horizontal">
+                  <div class="unit-left"><span class="icon icon-xs icon-circle icon-java-filled mdi mdi-phone"></span></div>
+                  <div class="unit-body"><a class="text-gray-darker" style="text-decoration: none">+33.3.28.80.7.86</a><br/><a class="text-gray-darker" style="text-decoration: none">hello@handident.com</a></div>
+                </div>
+              </address>
+              <!-- Contact Info-->
+              <address class="contact-info reveal-sm-inline-block text-left">
+                <div class="p unit unit-horizontal unit-spacing-xs">
+                  <div class="unit-left"><span class="icon icon-xs icon-circle icon-java-filled mdi mdi-map-marker"></span></div>
+                  <div class="unit-body"><a class="text-gray-darker" style="text-decoration: none">10 rue du Petit Boulevard BP 20127<br/>59653 Villeneuve d'Ascq Cedex</a></div>
+                </div>
+              </address>
+            </div>
+          </div>
+          <!-- RD Navbar Panel-->
+          <div class="rd-navbar-panel">
+            <!-- RD Navbar Toggle-->
+            <button data-rd-navbar-toggle=".rd-navbar, .rd-navbar-nav-wrap" class="rd-navbar-toggle"><span></span></button>
+            <!--Navbar Brand-->
+            <div class="rd-navbar-brand veil-md"><a href="/"><%= image_tag "logo-dark.png", width:'160', height:'45', class:'img-responsive' %></a></div>
+<!--             <button data-rd-navbar-toggle=".rd-navbar, .rd-navbar-top-panel" class="rd-navbar-top-panel-toggle"><span></span></button> -->
+          </div>
+          <div class="rd-navbar-menu-wrap">
+            <div class="rd-navbar-nav-wrap">
+              <div class="rd-navbar-mobile-scroll">
+                <!--Navbar Brand Mobile-->
+                <div class="rd-navbar-mobile-brand"><a href="/"><%= image_tag "logo-dark.png", width:'160', height:'45', class:'img-responsive' %></a></div>
+                <!-- RD Navbar Nav-->
+                <ul class="rd-navbar-nav">
+                  <li class="<%= is_active?(root_path) %>"><%= link_to 'Accueil', root_path %>
+                  </li>
+                  <li class="<%= is_active?(pages_about_path) %>"><%= link_to 'A propos', pages_about_path %>
+                  </li>
+                  <li class="<%= is_active?(pages_all_articles_categories_path) %>"><%= link_to 'News', pages_all_articles_categories_path %>
+                  </li>
+                  <li class="<%= is_active?(profiles_path) %>"><%= link_to 'Dentistes', profiles_path %>
+                  </li>
+                  <li class="<%= is_active?(pages_formation_path) %>"><%= link_to 'Formation et Prévention', pages_formation_path %>
+                  </li>
+                  <li class="<%= is_active?(pages_partnerships_path) %><%= is_active?(pages_make_a_donation_path) %><%= is_active?(pages_support_us_path) %>"><%= link_to 'Partenaires', pages_partnerships_path %>
+                    <div class="rd-navbar-megamenu">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <h6>Faites partie de l'aventure Handident</h6>
+                          <hr class="text-subline"/>
+                          <ul class="list-unstyled offset-lg-top-25">
+                            <li><a <%= link_to 'Faites un don', pages_make_a_donation_path %></a></li>
+                            <li><a <%= link_to 'Entreprises, soutenez-nous !', pages_support_us_path %></a></li>
+                            <li><a <%= link_to 'Nos partenaires', pages_partnerships_path %></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="<%= is_active?(contacts_path) %>"><%= link_to 'Contact', contacts_path %>
+                  </li>
+                  <li>
+                    <% if user_signed_in? %>
+                      <% if current_user && current_user.profile %>
+                        <li class="<%= is_active?(profile_path(current_user.profile)) %><%= is_active?(edit_profile_path(current_user.profile)) %> "><%= link_to 'Mon Compte', profile_path(current_user.profile) %>
+                          <div class="rd-navbar-megamenu">
+                            <div class="row">
+                              <div class="col-md-4">
+                                <h6> Bonjour <%= Profile.find(current_user.id).first_name ? Profile.find(current_user.id).first_name : ""%></h6>
+                                <hr class="text-subline"/>
+                                <ul class="list-unstyled offset-lg-top-25">
+                                  <li><a <%= link_to 'Voir mon profil', profile_path(current_user.profile) %></a></li>
+                                  <li><a <%= link_to 'Editer mon profil', edit_profile_path(current_user.profile) %></a></li>
+                                  <li><a <%= link_to 'Se déconnecter', destroy_user_session_path, :method => 'delete' %></a></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      <% else %>
+                        <li class="<%= is_active?(new_profile_path) %>"><%= link_to 'Mon Compte' %>
+                          <div class="rd-navbar-megamenu">
+                            <div class="row">
+                              <div class="col-md-4">
+                                <h6>Mes données</h6>
+                                <hr class="text-subline"/>
+                                <ul class="list-unstyled offset-lg-top-25">
+                                  <li><a <%= link_to 'Créer mon profil', new_profile_path %></a></li>
+                                  <li><a <%= link_to 'Se déconnecter', destroy_user_session_path, :method => 'delete' %></a></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+                      <% end %>
+                    <% else %>
+                      <li class="<%= is_active?(new_user_session_path) %><%= is_active?(new_user_registration_path) %><%= is_active?(new_user_password_path) %>"><%= link_to 'Me connecter', new_user_session_path %>
+                      </li>
+                    <% end %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    <% else %>
-      <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <% end %>
-  </div>
-
-
-  <!-- Dropdown list appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
-      </ul>
+      </nav>
     </div>
-  </div>
+  </header>
 </div>
-
-
-
-
+<!-- Java script-->
+<script src="assets/core.min.js"></script>
+<script src="assets/script.js"></script>
