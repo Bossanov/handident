@@ -12,13 +12,10 @@
 <p><%= link_to 'A propos', pages_about_path, class: 'btn btn-rounded'%></p>
 <p><%= link_to 'Formation & Prévention', pages_formation_path, class: 'btn btn-rounded'%></p>
 <p><%= link_to 'Catégories des articles', pages_all_articles_categories_path, class: 'btn btn-rounded'%></p>
-<<<<<<< HEAD
-=======
-<% @article = Article.find(4) %>
-<% @profile = Profile.find(@article.profile_id) %>
-<p><%= link_to 'Articles #4', profile_article_path(@profile, @article), class: 'btn btn-rounded'%></p>
+
+
 <p><%= link_to 'Faire un don', pages_make_a_donation_path, class: 'btn btn-ellipse btn-white offset-top-14 offset-sm-top-41'%></p>
->>>>>>> dd70b85f4989babfd61593cd162d96008c5a0967
+
 
 
 <!-- Page-->
@@ -124,46 +121,58 @@
                           <% end %>
                           <script>
                             function getOption() {
+                            const city = document.getElementById("index-city");
+                            const deptdept = document.getElementById("index-doctor").value;
 
-                              const city = document.querySelector("#index-city") ;
-                              @optioncity for each (optioncity) {
-                              city.insertAdjacentHTML('afterbegin','${optioncity}') ;
-                              } ;
-                            }
+                            <% cityresult = [] %>
+                            <% @profiles.each do |pro| %>
+                              <% if pro.category == "Dentiste" %>
+                                <% until cityresult.include?(pro.city) %>
+                                  <% cityresult << pro.city %>
+                                <% end %>
+                              <% end %>
+                            <% end %>
+                            <% cityresult.each do |cit| %>
+                              city.insertAdjacentHTML("beforeend", '<option value=#{cit}> <%= cit %> </option>') ;
+                            <% end %>
+                            };
+
+                            function getOption2() {
+
+
+                            };
+
+
                           </script>
                           <select id="index-doctor" data-minimum-results-for-search="Infinity" class="form-control", style="background-color: white">
-                            <% result.sort %>
+                            <% result = result.sort %>
                             <% result.each do |dept| %>
                               <% if dept == "Aisne" %>
                                 <% @valuedept = "Aisne" %>
-                                <option value="#{@valuedept}"><%= dept %></option>
+                                <option value="Aisne"><%= dept %></option>
                                 <% elsif dept == "Nord" %>
                                 <% @valuedept = "Nord" %>
-                                <option value="#{@valuedept}"><%= dept %></option>
+                                <option value="Nord"><%= dept %></option>
                                 <% elsif dept == "Oise" %>
                                 <% @valuedept = "Oise" %>
-                                <option value="#{@valuedept}"><%= dept %></option>
+                                <option value="Oise"><%= dept %></option>
                                 <% elsif dept == "Pas-de-Calais" %>
                                 <% @valuedept = "Pas-de-Calais" %>
-                                <option value="#{@valuedept}"><%= dept %></option>
+                                <option value="Pas-de-Calais"><%= dept %></option>
                                 <% elsif dept == "Somme" %>
                                 <% @valuedept = "Somme" %>
-                                <option value="#{@valuedept}"><%= dept %></option>
+                                <option value="Somme"><%= dept %></option>
                                 <% else %>
                                 <% @valuedept = 0 %>
-                                <option value="#{@valuedept}"><%= dept %></option>
+                                <option value=""><%= dept %></option>
                               <% end %>
                             <% end %>
                           </select>
-                          <% @profiles = Profile.all %>
-                          <% @optioncity = [] %>
-                            <% @profiles.each do |pro| %>
-                              <% if pro.category == "Dentiste" && pro.departement == @valuedept %>
-                                <% @valuecity = pro.city.upcase %>
-                                <% @optioncity << '<option value="#{@valuecity}"> <%=#{@valuecity}%> </option>' %>
-                              <% end %>
-                            <% end %>
+
+
                           <input type="button" onclick="getOption()" value="Valider!">
+
+                        </div>
                       </div>
                     </div>
                     <div class="group-item element-fullwidth">
@@ -173,6 +182,8 @@
                           <select id="index-city" data-minimum-results-for-search="Infinity" class="form-control", style="background-color: white">
 
                           </select>
+                          <input type="button" onclick="getOption2()" value="Valider!">
+
                         </div>
                       </div>
                     </div>
