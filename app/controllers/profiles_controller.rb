@@ -53,6 +53,33 @@ class ProfilesController < ApplicationController
     end
   end
 
+
+  def citywithdept
+    res = []
+    result = Profile.where(departement: params["dept"], category: "Dentiste")
+    result.each do |dentiste|
+      res << {'id' => dentiste.id, 'city' => dentiste.city}
+    end
+    respond_to do |format|
+      format.json {
+    render json: res
+  }
+  end
+  end
+
+  def dentistwithcity
+    res = []
+    result = Profile.where(city: params["city"], category: "Dentiste")
+    result.each do |dentiste|
+      res << {'id' => dentiste.id, 'first_name' => dentiste.first_name, 'last_name' => dentiste.last_name}
+    end
+    respond_to do |format|
+      format.json {
+    render json: res
+  }
+  end
+end
+
   private
 
   def profile_params
