@@ -119,32 +119,8 @@
                               <% end %>
                             <% end %>
                           <% end %>
-                          <script>
-                            function getOption() {
-                            const city = document.getElementById("index-city");
-                            const deptdept = document.getElementById("index-doctor").value;
 
-                            <% cityresult = [] %>
-                            <% @profiles.each do |pro| %>
-                              <% if pro.category == "Dentiste" %>
-                                <% until cityresult.include?(pro.city) %>
-                                  <% cityresult << pro.city %>
-                                <% end %>
-                              <% end %>
-                            <% end %>
-                            <% cityresult.each do |cit| %>
-                              city.insertAdjacentHTML("beforeend", '<option value=#{cit}> <%= cit %> </option>') ;
-                            <% end %>
-                            };
-
-                            function getOption2() {
-
-
-                            };
-
-
-                          </script>
-                          <select id="index-doctor" data-minimum-results-for-search="Infinity" class="form-control", style="background-color: white">
+                          <select id="index-dept" data-minimum-results-for-search="Infinity" class="form-control", style="background-color: white">
                             <% result = result.sort %>
                             <% result.each do |dept| %>
                               <% if dept == "Aisne" %>
@@ -171,6 +147,44 @@
 
 
                           <input type="button" onclick="getOption()" value="Valider!">
+                          <script>
+                            function getOption() {
+                            const city = document.getElementById("index-city");
+                            const deptdept = document.getElementById("index-dept").value;
+                            city.innerHTML = "";
+
+                            fetch(`/citywithdept?dept=${deptdept}`)
+                              .then(response => response.json())
+                              .then((data) => {
+                            console.log(data);
+                            data.forEach((person) => {
+                            const item = `<option>${person.city}</option>` ;
+                            city.insertAdjacentHTML("beforeend", item);
+                              });
+                              });
+
+
+                            };
+
+                            function getOption2() {
+                            const name = document.getElementById("index-doctor");
+                            const citycity = document.getElementById("index-city").value;
+                            name.innerHTML = "";
+
+                            fetch(`/dentistwithcity?city=${citycity}`)
+                              .then(response => response.json())
+                              .then((data) => {
+                            console.log(data);
+                            data.forEach((person) => {
+                            const item = `<option>${person.first_name} ${person.last_name}</option>` ;
+                            name.insertAdjacentHTML("beforeend", item);
+                              });
+                              });
+
+                            };
+
+
+                          </script>
 
                         </div>
                       </div>
@@ -192,14 +206,7 @@
                         <label for="index-doctor" class="form-label form-label-outside text-white-06">Docteur</label>
                         <div class="select2-whitout-border shadow-drop-md">
                           <select id="index-doctor" data-minimum-results-for-search="Infinity" class="form-control", style="background-color: white">
-                            <% @profiles = Profile.all %>
-                            <% value = 1 %>
-                            <% @profiles.each do |pro| %>
-                              <% if pro.category == "Dentiste" && pro.departement == @valuedept && pro.city == @valuecity%>
-                                <option value="#{value}">Dr <%=pro.last_name.upcase%> <%=pro.first_name.capitalize%></option>
-                                <% value += 1 %>
-                              <% end %>
-                            <% end %>
+
                           </select>
                         </div>
                       </div>

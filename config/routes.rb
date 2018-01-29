@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :profiles do
-
     resources :articles
     resources :donations
     resources :reviews
@@ -12,7 +11,8 @@ Rails.application.routes.draw do
   end
 
   root to: 'pages#home'
-
+  get 'citywithdept', to: 'profiles#citywithdept'
+  get 'dentistwithcity', to: 'profiles#dentistwithcity'
   get 'pages/about'
   get 'pages/formation'
   get 'pages/test'
