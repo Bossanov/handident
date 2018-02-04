@@ -111,7 +111,6 @@
                         <div class="select2-whitout-border shadow-drop-md">
                           <% @profiles = Profile.all %>
                           <% result = [] %>
-
                           <% @profiles.each do |pro| %>
                             <% if pro.category == "Dentiste" %>
                               <% until result.include?(pro.departement) %>
@@ -156,7 +155,7 @@
                             fetch(`/citywithdept?dept=${deptdept}`)
                               .then(response => response.json())
                               .then((data) => {
-                            console.log(data);
+
                             data.forEach((person) => {
                             const item = `<option>${person.city}</option>` ;
                             city.insertAdjacentHTML("beforeend", item);
@@ -167,6 +166,7 @@
                             };
 
                             function getOption2() {
+                            const boutton = document.getElementById("bouttonsearch");
                             const name = document.getElementById("index-doctor");
                             const citycity = document.getElementById("index-city").value;
                             name.innerHTML = "";
@@ -174,16 +174,24 @@
                             fetch(`/dentistwithcity?city=${citycity}`)
                               .then(response => response.json())
                               .then((data) => {
-                            console.log(data);
+
                             data.forEach((person) => {
-                            const item = `<option>${person.first_name} ${person.last_name}</option>` ;
+                            const item = `<option value ="${person.id}">${person.first_name} ${person.last_name}</option>` ;
                             name.insertAdjacentHTML("beforeend", item);
                               });
                               });
+                            boutton.insertAdjacentHTML("beforeend", '<button type="button" onclick="getOption3()" class="btn-fullwidth btn-ellipse btn btn-primary">Afficher</button>');
 
                             };
 
+                            function getOption3() {
+                            const citycity = document.getElementById("index-city").value;
+                            const deptdept = document.getElementById("index-dept").value;
+                            const nameid = document.getElementById("index-doctor").value;
+                            document.location.href=`/getSearch?id=${nameid}&city=${citycity}&dept=${deptdept}`;
 
+
+                            };
                           </script>
 
                         </div>
@@ -211,8 +219,9 @@
                         </div>
                       </div>
                     </div>
-                    <div class="group-item element-fullwidth offset-top-20 text-center text-md-left">
-                      <button type="button" class="btn-fullwidth btn-ellipse btn btn-primary">chercher</button>
+
+                    <div id="bouttonsearch" class="group-item element-fullwidth offset-top-20 text-center text-md-left">
+
                     </div>
                   </div>
                 </form>

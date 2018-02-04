@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'citywithdept', to: 'profiles#citywithdept'
   get 'dentistwithcity', to: 'profiles#dentistwithcity'
+  get 'getSearch', to: 'profiles#getSearch'
   get 'pages/about'
   get 'pages/formation'
   get 'pages/test'
