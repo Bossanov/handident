@@ -12,9 +12,10 @@
 <p><%= link_to 'A propos', pages_about_path, class: 'btn btn-rounded'%></p>
 <p><%= link_to 'Formation & Prévention', pages_formation_path, class: 'btn btn-rounded'%></p>
 <p><%= link_to 'Catégories des articles', pages_all_articles_categories_path, class: 'btn btn-rounded'%></p>
-<% @article = Article.find(4) %>
-<% @profile = Profile.find(@article.profile_id) %>
-<p><%= link_to 'Articles #4', profile_article_path(@profile, @article), class: 'btn btn-rounded'%></p>
+
+
+<p><%= link_to 'Faire un don', pages_make_a_donation_path, class: 'btn btn-ellipse btn-white offset-top-14 offset-sm-top-41'%></p>
+
 
 
 <!-- Page-->
@@ -53,9 +54,8 @@
                 <div class="range range-xs-middle range-xs-center range-md-left">
                   <div class="cell-md-7 cell-lg-8 section-41 section-sm-98">
                     <div class="text-md-left">
-                      <h2 class="text-bold">Handident</h2>
                       <h2 class="text-bold">Coordonner pour mieux soigner</h2>
-                      <h4 class="text-regular veil reveal-md-block">Grâce à une mise en commun des énergies et des savoir-faire, LE RESEAU HANDIDENT souhaite promouvoir sur le territoire régional une démarche pilote qui met la personne au cœur du processus de soins.</h4><a href="make-an-appointment.html" class="btn btn-ellipse btn-white offset-top-14 offset-sm-top-41">faire un don</a>
+                      <h4 class="text-regular veil reveal-md-block">Grâce à une mise en commun des énergies et des savoir-faire, LE RESEAU HANDIDENT souhaite promouvoir sur le territoire régional une démarche pilote qui met la personne au cœur du processus de soins.</h4><a><%= link_to 'Faire un don', pages_make_a_donation_path, class: 'btn btn-ellipse btn-white offset-top-14 offset-sm-top-41'%></a>
                     </div>
                   </div>
                 </div>
@@ -71,7 +71,7 @@
                   <div class="cell-md-7 section-41 section-sm-98 to-front">
                     <div class="text-md-left">
                       <h2 class="text-bold">Solving Your Dental Health Problems</h2>
-                      <h4 class="text-regular veil reveal-md-block">We are committed to providing the highest quality of general dental care, cosmetic and implant dentistry, and excellent patient service in a friendly, efficient and caring environment.</h4><a href="make-an-appointment.html" class="btn btn-ellipse btn-white offset-top-14 offset-sm-top-41">make an appointment</a>
+                      <h4 class="text-regular veil reveal-md-block">We are committed to providing the highest quality of general dental care, cosmetic and implant dentistry, and excellent patient service in a friendly, efficient and caring environment.</h4><a><%= link_to 'Faire un don', pages_make_a_donation_path, class: 'btn btn-ellipse btn-white offset-top-14 offset-sm-top-41'%></a>
                     </div>
                   </div>
                 </div>
@@ -87,7 +87,7 @@
                   <div class="cell-md-7 cell-lg-8 section-41 section-sm-98">
                     <div class="text-md-left">
                       <h2 class="text-bold">20+ Years of Experience in Dental Care</h2>
-                      <h4 class="text-regular veil reveal-md-block">Our friendly and professional team of dentists and nurses uses the latest techniques and equipment to make your smile look as shiny as possible. We are passionate about what we do!</h4><a href="make-an-appointment.html" class="btn btn-ellipse btn-white offset-top-14 offset-sm-top-41">make an appointment</a>
+                      <h4 class="text-regular veil reveal-md-block">Our friendly and professional team of dentists and nurses uses the latest techniques and equipment to make your smile look as shiny as possible. We are passionate about what we do!</h4><a><%= link_to 'Faire un don', pages_make_a_donation_path, class: 'btn btn-ellipse btn-white offset-top-14 offset-sm-top-41'%></a>
                     </div>
                   </div>
                 </div>
@@ -107,25 +107,106 @@
                   <div class="group-12 group-top">
                     <div class="group-item element-fullwidth">
                       <div class="form-group form-group-label-outside">
-                        <label for="index-name" class="form-label form-label-outside rd-input-label text-white-06">Ville</label>
+                        <label for="index-name" class="form-label form-label-outside rd-input-label text-white-06">Département</label>
                         <div class="select2-whitout-border shadow-drop-md">
-                          <select id="index-doctor" data-minimum-results-for-search="Infinity" class="form-control", style="background-color: white">
-                            <% @profiles = Profile.all %>
-                            <% value = 1 %>
-                            <% @profiles.each do |pro| %>
-                              <% if pro.category == "Dentiste" %>
-                                <option value="#{value}"><%=pro.city.upcase%></option>
-                                <% value += 1 %>
+                          <% @profiles = Profile.all %>
+                          <% result = [] %>
+                          <% @profiles.each do |pro| %>
+                            <% if pro.category == "Dentiste" %>
+                              <% until result.include?(pro.departement) %>
+                                <% result << pro.departement %>
+                              <% end %>
+                            <% end %>
+                          <% end %>
+
+                          <select id="index-dept" data-minimum-results-for-search="Infinity" class="form-control", style="background-color: white">
+                            <% result = result.sort %>
+                            <% result.each do |dept| %>
+                              <% if dept == "Aisne" %>
+                                <% @valuedept = "Aisne" %>
+                                <option value="Aisne"><%= dept %></option>
+                                <% elsif dept == "Nord" %>
+                                <% @valuedept = "Nord" %>
+                                <option value="Nord"><%= dept %></option>
+                                <% elsif dept == "Oise" %>
+                                <% @valuedept = "Oise" %>
+                                <option value="Oise"><%= dept %></option>
+                                <% elsif dept == "Pas-de-Calais" %>
+                                <% @valuedept = "Pas-de-Calais" %>
+                                <option value="Pas-de-Calais"><%= dept %></option>
+                                <% elsif dept == "Somme" %>
+                                <% @valuedept = "Somme" %>
+                                <option value="Somme"><%= dept %></option>
+                                <% else %>
+                                <% @valuedept = 0 %>
+                                <option value=""><%= dept %></option>
                               <% end %>
                             <% end %>
                           </select>
+
+
+                          <input type="button" onclick="getOption()" value="Valider!">
+                          <script>
+                            function getOption() {
+                            const city = document.getElementById("index-city");
+                            const deptdept = document.getElementById("index-dept").value;
+                            city.innerHTML = "";
+
+                            fetch(`/citywithdept?dept=${deptdept}`)
+                              .then(response => response.json())
+                              .then((data) => {
+
+                            data.forEach((person) => {
+                            const item = `<option>${person.city}</option>` ;
+                            city.insertAdjacentHTML("beforeend", item);
+                              });
+                              });
+
+
+                            };
+
+                            function getOption2() {
+                            const boutton = document.getElementById("bouttonsearch");
+                            const name = document.getElementById("index-doctor");
+                            const citycity = document.getElementById("index-city").value;
+                            name.innerHTML = "";
+
+                            fetch(`/dentistwithcity?city=${citycity}`)
+                              .then(response => response.json())
+                              .then((data) => {
+
+                            data.forEach((person) => {
+                            const item = `<option value ="${person.id}">${person.first_name} ${person.last_name}</option>` ;
+                            name.insertAdjacentHTML("beforeend", item);
+                              });
+                              });
+                            boutton.insertAdjacentHTML("beforeend", '<button type="button" onclick="getOption3()" class="btn-fullwidth btn-ellipse btn btn-primary">Afficher</button>');
+
+                            };
+
+                            function getOption3() {
+                            const citycity = document.getElementById("index-city").value;
+                            const deptdept = document.getElementById("index-dept").value;
+                            const nameid = document.getElementById("index-doctor").value;
+                            document.location.href=`/getSearch?id=${nameid}&city=${citycity}&dept=${deptdept}`;
+
+
+                            };
+                          </script>
+
                         </div>
                       </div>
                     </div>
                     <div class="group-item element-fullwidth">
                       <div class="form-group form-group-label-outside">
-                        <label for="index-phone" class="form-label form-label-outside rd-input-label text-white-06">Département</label>
-                        <input id="index-phone" type="text" data-constraints="@Numeric @Required" class="form-control form-control-white form-border-none">
+                        <label for="index-phone" class="form-label form-label-outside rd-input-label text-white-06">Ville</label>
+                        <div class="select2-whitout-border shadow-drop-md">
+                          <select id="index-city" data-minimum-results-for-search="Infinity" class="form-control", style="background-color: white">
+
+                          </select>
+                          <input type="button" onclick="getOption2()" value="Valider!">
+
+                        </div>
                       </div>
                     </div>
                     <div class="group-item element-fullwidth">
@@ -133,20 +214,14 @@
                         <label for="index-doctor" class="form-label form-label-outside text-white-06">Docteur</label>
                         <div class="select2-whitout-border shadow-drop-md">
                           <select id="index-doctor" data-minimum-results-for-search="Infinity" class="form-control", style="background-color: white">
-                            <% @profiles = Profile.all %>
-                            <% value = 1 %>
-                            <% @profiles.each do |pro| %>
-                              <% if pro.category == "Dentiste" %>
-                                <option value="#{value}">Dr <%=pro.last_name.upcase%> <%=pro.first_name.capitalize%></option>
-                                <% value += 1 %>
-                              <% end %>
-                            <% end %>
+
                           </select>
                         </div>
                       </div>
                     </div>
-                    <div class="group-item element-fullwidth offset-top-20 text-center text-md-left">
-                      <button type="button" class="btn-fullwidth btn-ellipse btn btn-primary">chercher</button>
+
+                    <div id="bouttonsearch" class="group-item element-fullwidth offset-top-20 text-center text-md-left">
+
                     </div>
                   </div>
                 </form>

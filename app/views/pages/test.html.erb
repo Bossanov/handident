@@ -1,99 +1,207 @@
-<div class="page text-center">
-  <!-- Page Header-->
-  <header class="page-head">
-    <!-- RD Navbar minimal-->
-    <div class="rd-navbar-wrap">
-      <nav data-md-device-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-static" data-md-stick-up-offset="120px" data-lg-stick-up-offset="120px" class="rd-navbar rd-navbar-minimal rd-navbar-light " data-lg-auto-height="true" data-md-layout="rd-navbar-static" data-lg-layout="rd-navbar-static" data-lg-stick-up="true">
-        <div class="rd-navbar-inner">
-          <div class="rd-navbar-top-panel">
-            <!--Navbar Brand-->
-            <div class="rd-navbar-brand veil reveal-md-inline-block"><a href="/" class="veil reveal-lg-inline-block"><%= image_tag "logo-dark.png", width:'158', height:'45', class:'img-responsive' %></a></div>
-            <div>
-              <!-- Contact Info-->
-              <address class="contact-info reveal-sm-inline-block text-left offset-none">
-                <div class="p unit unit-spacing-xs unit-horizontal">
-                  <div class="unit-left"><span class="icon icon-xs icon-circle icon-java-filled mdi mdi-phone"></span></div>
-                  <div class="unit-body"><a class="text-gray-darker" style="text-decoration: none">+33.3.28.80.7.86</a><br/><a class="text-gray-darker" style="text-decoration: none">hello@handident.com</a></div>
+    <!-- Page-->
+    <div class="page text-center">
+      <!-- Page Head-->
+      <header class="page-head rd-navbar-sidebar-toggle-wrap">
+        <!-- RD Navbar Transparent-->
+        <div class="rd-navbar-wrap">
+          <nav class="rd-navbar rd-navbar-sidebar-toggle rd-navbar-light" data-lg-auto-height="true" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-fixed" data-lg-stick-up="false" data-lg-hover-on="false">
+            <div class="rd-navbar-inner">
+              <!-- RD Navbar Panel-->
+              <div class="rd-navbar-panel">
+                <!-- RD Navbar Toggle-->
+                <button data-rd-navbar-toggle=".rd-navbar, .rd-navbar-nav-wrap" class="rd-navbar-toggle"><span></span></button>
+                <!-- RD Navbar Toggle-->
+                <button data-rd-navbar-toggle=".rd-navbar, .swiper-top-panel" class="rd-navbar-top-panel-toggle"><span></span></button>
+              </div>
+              <div class="rd-navbar-menu-wrap">
+                <div class="rd-navbar-nav-wrap">
+                  <div class="rd-navbar-mobile-scroll-holder">
+                    <div class="rd-navbar-mobile-scroll">
+                      <!--Navbar Brand Mobile-->
+                      <div class="rd-navbar-mobile-brand"><a href="index.html"><img width='160' height='45' class='img-responsive' src='/assets/logo-dark.png' alt=''/></a></div>
+                      <!-- RD Navbar Nav-->
+                      <ul class="rd-navbar-nav">
+                        <li class="active"><a href="index.html"><span>Home</span></a>
+                        </li>
+                        <li><a href="about.html"><span>About</span></a>
+                        </li>
+                        <li><a href="our-team.html"><span>Team</span></a>
+                        </li>
+                        <li><a href="#"><span>Pages</span></a>
+                          <ul class="rd-navbar-dropdown">
+                            <li><a href="typography.html"><span class="rd-navbar-icon"></span><span class="text-middle">Typography</span></a></li>
+                            <li><a href="forms.html"><span class="rd-navbar-icon"></span><span class="text-middle">Forms</span></a></li>
+                            <li><a href="buttons.html"><span class="rd-navbar-icon"></span><span class="text-middle">Buttons</span></a></li>
+                            <li><a href="grid-system.html"><span class="rd-navbar-icon"></span><span class="text-middle">Grid</span></a></li>
+                            <li><a href="tabs-and-accordions.html"><span class="rd-navbar-icon"></span><span class="text-middle">Tabs &amp; Accordions</span></a></li>
+                            <li><a href="infographics.html"><span class="rd-navbar-icon"></span><span class="text-middle">Progress Bars</span></a></li>
+                            <li><a href="icons.html"><span class="rd-navbar-icon"></span><span class="text-middle">Icons</span></a></li>
+                          </ul>
+                        </li>
+                        <li><a href="services.html"><span>Services</span></a>
+                        </li>
+                        <li><a href="departments.html"><span>Departments</span></a>
+                        </li>
+                        <li><a href="timetable.html"><span>Timetable</span></a>
+                        </li>
+                        <li><a href="grid-gallery.html"><span>Gallery</span></a>
+                          <ul class="rd-navbar-dropdown">
+                            <li><a href="grid-gallery.html"><span class="text-middle">Grid Gallery</span></a>
+                            </li>
+                            <li><a href="grid-gallery-no-padding.html"><span class="text-middle">Gallery Without Padding</span></a>
+                            </li>
+                            <li><a href="masonry-gallery.html"><span class="text-middle">Masonry Gallery</span></a>
+                            </li>
+                            <li><a href="cobbles-gallery.html"><span class="text-middle">Cobbles Gallery</span></a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li><a href="blog-masonry.html"><span>Blog</span></a>
+                          <ul class="rd-navbar-dropdown">
+                            <li><a href="blog-masonry.html"><span class="text-middle">Masonry blog</span></a>
+                            </li>
+                            <li><a href="blog-modern.html"><span class="text-middle">Modern blog</span></a>
+                            </li>
+                            <li><a href="blog-classic.html"><span class="text-middle">Classic blog</span></a>
+                            </li>
+                            <li><a href="blog-grid.html"><span class="text-middle">Grid blog</span></a>
+                            </li>
+                            <li><a href="single-post.html"><span class="text-middle">Single post</span></a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li><a href="contacts.html"><span>Contacts</span></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-              </address>
-              <!-- Contact Info-->
-              <address class="contact-info reveal-sm-inline-block text-left">
-                <div class="p unit unit-horizontal unit-spacing-xs">
-                  <div class="unit-left"><span class="icon icon-xs icon-circle icon-java-filled mdi mdi-map-marker"></span></div>
-                  <div class="unit-body"><a class="text-gray-darker" style="text-decoration: none">10 rue du Petit Boulevard BP 20127<br/>59653 Villeneuve d'Ascq Cedex</a></div>
-                </div>
-              </address>
+              </div>
             </div>
-          </div>
-          <!-- RD Navbar Panel-->
-          <div class="rd-navbar-panel">
-            <!-- RD Navbar Toggle-->
-            <button data-rd-navbar-toggle=".rd-navbar, .rd-navbar-nav-wrap" class="rd-navbar-toggle"><span></span></button>
-            <!--Navbar Brand-->
-            <div class="rd-navbar-brand veil-md"><a href="/"><%= image_tag "logo-dark.png", width:'160', height:'45', class:'img-responsive' %></a></div>
-<!--             <button data-rd-navbar-toggle=".rd-navbar, .rd-navbar-top-panel" class="rd-navbar-top-panel-toggle"><span></span></button> -->
-          </div>
-          <div class="rd-navbar-menu-wrap">
-            <div class="rd-navbar-nav-wrap">
-              <div class="rd-navbar-mobile-scroll">
-                <!--Navbar Brand Mobile-->
-                <div class="rd-navbar-mobile-brand"><a href="/"><%= image_tag "logo-dark.png", width:'160', height:'45', class:'img-responsive' %></a></div>
-                <!-- RD Navbar Nav-->
-                <ul class="rd-navbar-nav">
-                  <li><a href="/"><span>Accueil</span></a>
-                  </li>
-                  <li><a <%= link_to 'A propos', pages_about_path %></a>
-                  </li>
-                  <li><a <%= link_to 'News', pages_all_articles_categories_path %></a>
-                  </li>
-                  <li><a <%= link_to 'Professionnels', profiles_path %></a>
-                  </li>
-                  <li class="active"><a <%= link_to 'Formation et Prévention', pages_formation_path %></a>
-                  </li>
-                  <li><a href="/"><span>Partenaires</span></a>
-                  </li>
-                  <li>
-                    <% if user_signed_in? %>
-                      <% if current_user && current_user.profile %>
-                        <a <%= link_to 'Mon Compte', profile_path(current_user.profile) %></a>
-                        <div class="rd-navbar-megamenu">
-                          <div class="row">
-                            <div class="col-md-4">
-                              <h6> Bonjour <%= Profile.find(current_user.id).first_name %></h6>
-                              <hr class="text-subline"/>
-                              <ul class="list-unstyled offset-lg-top-25">
-                                <li><a <%= link_to 'Voir mon profil', profile_path(current_user.profile) %></a></li>
-                                <li><a <%= link_to 'Editer mon profil', edit_profile_path(current_user.profile) %></a></li>
-                                <li><a <%= link_to 'Se déconnecter', destroy_user_session_path, :method => 'delete' %></a></li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      <% else %>
-                        <a <%= link_to 'Mon Compte' %></a>
-                        <div class="rd-navbar-megamenu">
-                          <div class="row">
-                            <div class="col-md-4">
-                              <h6>Mes données</h6>
-                              <hr class="text-subline"/>
-                              <ul class="list-unstyled offset-lg-top-25">
-                                <li><a <%= link_to 'Créer mon profil', new_profile_path %></a></li>
-                                <li><a <%= link_to 'Se déconnecter', destroy_user_session_path, :method => 'delete' %></a></li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      <% end %>
-                    <% else %>
-                      <a <%= link_to 'Me connecter', new_user_session_path %></a>
-                    <% end %>
-                  </li>
-                </ul>
+          </nav>
+        </div>
+        <!--Swiper-->
+        <div data-loop="true" data-height="" data-slide-effect="fade" data-dragable="false" data-min-height="400px" class="swiper-container swiper-slider bg-white">
+          <div class="swiper-top-panel">
+            <div class="shell">
+              <div class="swiper-top-panel-left"><a href="index.html" class="veil reveal-lg-inline-block"><img width='158' height='45' class='img-responsive' src='/assets/logo.png' alt=''/></a></div>
+              <div class="swiper-top-panel-center">
+                <!-- Contact Info-->
+                <address class="contact-info reveal-sm-inline-block text-left offset-none">
+                  <div class="p unit unit-spacing-xs unit-horizontal">
+                    <div class="unit-left"><span class="icon icon-xs icon-circle icon-java-filled mdi mdi-phone"></span></div>
+                    <div class="unit-body"><a href="callto:#" class="text-white">1-800-1234-567</a><br><a href="callto:#" class="text-white">1-800-3214-654</a></div>
+                  </div>
+                </address>
+              </div>
+              <div class="swiper-top-panel-right">
+                <address class="contact-info reveal-sm-inline-block text-left">
+                  <div class="p unit unit-horizontal unit-spacing-xs">
+                    <div class="unit-left"><span class="icon icon-xs icon-circle icon-java-filled mdi mdi-map-marker"></span></div>
+                    <div class="unit-body"><a href="#" class="text-white">2130 Fulton Street San Diego<br>CA 94117-1080 USA</a></div>
+                  </div>
+                </address>
               </div>
             </div>
           </div>
+          <div class="swiper-wrapper context-dark text-center">
+            <div id="page-loader" data-slide-bg="/assets/backgrounds/background-02-1920x800.jpg" class="swiper-slide">
+              <div class="swiper-caption">
+                <div class="swiper-slide-caption">
+                  <div class="shell shell-fullheight">
+                    <div class="range range-xs-middle range-xs-center range-md-left">
+                      <div class="cell-md-7 cell-lg-8 section-41 section-sm-98">
+                        <div class="text-md-left">
+                          <h2 class="text-bold">High Quality Dental Care at Affordable Prices</h2>
+                          <h4 class="text-regular veil reveal-md-block">Our entire team is dedicated to providing you with the highest standard of quality dental care with services that are tailored to meet the specific needs of every member of your family.</h4><a href="make-an-appointment.html" class="btn btn-ellipse btn-white offset-top-14 offset-sm-top-41">make an appointment</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div data-slide-bg="/assets/backgrounds/background-01-1920x800.jpg" class="swiper-slide">
+              <div class="swiper-caption">
+                <div class="swiper-slide-caption">
+                  <div class="shell shell-fullheight">
+                    <div class="range range-xs-middle range-xs-center range-md-left">
+                      <div class="cell-md-7 section-41 section-sm-98 to-front">
+                        <div class="text-md-left">
+                          <h2 class="text-bold">Solving Your Dental Health Problems</h2>
+                          <h4 class="text-regular veil reveal-md-block">We are committed to providing the highest quality of general dental care, cosmetic and implant dentistry, and excellent patient service in a friendly, efficient and caring environment.</h4><a href="make-an-appointment.html" class="btn btn-ellipse btn-white offset-top-14 offset-sm-top-41">make an appointment</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div data-slide-bg="/assets/backgrounds/background-03-1920x800.jpg" class="swiper-slide">
+              <div class="swiper-caption">
+                <div class="swiper-slide-caption">
+                  <div class="shell shell-fullheight">
+                    <div class="range range-xs-middle range-xs-center range-md-left">
+                      <div class="cell-md-7 cell-lg-8 section-41 section-sm-98">
+                        <div class="text-md-left">
+                          <h2 class="text-bold">20+ Years of Experience in Dental Care</h2>
+                          <h4 class="text-regular veil reveal-md-block">Our friendly and professional team of dentists and nurses uses the latest techniques and equipment to make your smile look as shiny as possible. We are passionate about what we do!</h4><a href="make-an-appointment.html" class="btn btn-ellipse btn-white offset-top-14 offset-sm-top-41">make an appointment</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="shell text-left">
+              <div class="range range-xs-center range-xs-middle range-lg-right section-relative">
+                <div class="cell-xs-10 cell-sm-7 cell-md-5 cell-lg-4 offset-top-40 offset-top-0 swiper-center-caption swiper-center-caption-centered">
+                  <!-- Panel-->
+                  <div class="panel panel-lg panel-lg-vertical bg-overlay-gray-dark text-lg-left">
+                    <h4 class="text-white">Free Consultation</h4>
+                    <form data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php" novalidate="novalidate" class="rd-mailform offset-top-24">
+                      <div class="group-12 group-top">
+                        <div class="group-item element-fullwidth">
+                          <div class="form-group form-group-label-outside">
+                            <label for="index-name" class="form-label form-label-outside rd-input-label text-white-06">Name</label>
+                            <input id="index-name" type="text" data-constraints="@Required" class="form-control form-control-white form-border-none">
+                          </div>
+                        </div>
+                        <div class="group-item element-fullwidth">
+                          <div class="form-group form-group-label-outside">
+                            <label for="index-phone" class="form-label form-label-outside rd-input-label text-white-06">Phone</label>
+                            <input id="index-phone" type="text" data-constraints="@Numeric @Required" class="form-control form-control-white form-border-none">
+                          </div>
+                        </div>
+                        <div class="group-item element-fullwidth">
+                          <div class="form-group form-group-select-white text-left">
+                            <label for="index-doctor" class="form-label form-label-outside text-white-06">Doctor</label>
+                            <div class="select2-whitout-border shadow-drop-md">
+                              <select id="index-doctor" data-minimum-results-for-search="Infinity" class="form-control">
+                                <option value="1">Dentist</option>
+                                <option value="2">Pediatric Dentist</option>
+                                <option value="3">Orthodontist</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="group-item element-fullwidth offset-top-20 text-center text-md-left">
+                          <button type="button" class="btn-fullwidth btn-ellipse btn btn-primary">book a consultation</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
         </div>
-      </nav>
+      </header>
     </div>
-  </header>
-</div>
+<!-- Java script-->
+<script src="http://localhost:3000/assets/core.min.js"></script>
+<script src="http://localhost:3000/assets/script.js"></script>
+
