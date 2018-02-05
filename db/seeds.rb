@@ -25,8 +25,8 @@ CSV.foreach("/Users/antoinestaumont/code/Bossanov/handident/db/test.csv") do |ro
     password: "123456"
     )
     prof = Profile.create!(
-    first_name: row[7].capitalize,
-    last_name: row[6].upcase,
+    first_name: row[6],
+    last_name: row[5],
     phone_number: row[10],
     address: row[7],
     post_code: row[8].to_i,
@@ -126,34 +126,8 @@ art = Article.create!(
     article_content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     profile_id: prof.id,
   )
+
 puts "***--- ADMIN #4 CREATION ---***"
-  user = User.create!(
-    email: "bruno.andries@yahoo.fr",
-    password: "123456",
-
-  )
-  prof = Profile.create!(
-    first_name: "Bruno",
-    last_name: "ANDRIES",
-    category: "admin",
-    phone_number: "0688188812",
-    birthday: "",
-    address: "",
-    post_code: 0,
-    city: "",
-    biographie: "",
-    formation: "",
-    departement: "Nord",
-    photo: "",
-    user_id: user.id,
-  )
-art = Article.create!(
-    article_title: "What is Lorem Ipsum?",
-    article_content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    profile_id: prof.id,
-  )
-
-puts "***--- ADMIN #5 CREATION ---***"
   user = User.create!(
     email: "ordre.npdc.mission@gmail.com",
     password: "123456",
