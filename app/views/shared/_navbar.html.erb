@@ -40,13 +40,25 @@
                 <div class="rd-navbar-mobile-brand"><a href="/"><%= image_tag "logo-dark.png", width:'160', height:'45', class:'img-responsive' %></a></div>
                 <!-- RD Navbar Nav-->
                 <ul class="rd-navbar-nav">
-                  <li class="<%= is_active?(root_path) %>"><%= link_to 'Acceuil', root_path %>
+                  <li class="<%= is_active?(root_path) %>"><%= link_to 'Accueil', root_path %>
                   </li>
                   <li class="<%= is_active?(pages_about_path) %>"><%= link_to 'A propos', pages_about_path %>
                   </li>
                   <li class="<%= is_active?(pages_all_articles_categories_path) %>"><%= link_to 'News', pages_all_articles_categories_path %>
                   </li>
-                  <li class="<%= is_active?(profiles_path) %>"><%= link_to 'Dentistes', profiles_path %>
+                  <li class="<%= is_active?(profiles_path) %> <%= is_active?(pages_soins_path) %>"><%= link_to 'Se soigner', profiles_path %>
+                    <div class="rd-navbar-megamenu">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <h6>Notre but est d'améliorer l'offre de soins</h6>
+                          <hr class="text-subline"/>
+                          <ul class="list-unstyled offset-lg-top-25">
+                            <li><a <%= link_to 'Cabinets dentaires libéraux', profiles_path %></a></li>
+                            <li><a <%= link_to 'Soins spécifiques en USOS', pages_soins_path %></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
                   </li>
                   <li class="<%= is_active?(pages_formation_path) %>"><%= link_to 'Formation / Prévention', pages_formation_path %>
                   </li>
@@ -132,6 +144,8 @@
           <h1 class="text-regular">Nos partenaires</h1>
         <% elsif current_page?(contacts_path) %>
           <h1 class="text-regular">Contactez-nous !</h1>
+        <% elsif current_page?(pages_soins_path) %>
+          <h1 class="text-regular">Améliorer l'offre de soins</h1>
         <% else  %>
           <h1 class="text-regular">Titre à Changer</h1>
         <% end  %>
