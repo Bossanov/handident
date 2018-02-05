@@ -120,28 +120,32 @@
                           <% end %>
 
                           <select id="index-dept" data-minimum-results-for-search="Infinity" class="form-control", style="background-color: white">
-                            <% result = result.sort %>
-                            <% result.each do |dept| %>
-                              <% if dept == "Aisne" %>
-                                <% @valuedept = "Aisne" %>
-                                <option value="Aisne"><%= dept %></option>
-                                <% elsif dept == "Nord" %>
-                                <% @valuedept = "Nord" %>
-                                <option value="Nord"><%= dept %></option>
-                                <% elsif dept == "Oise" %>
-                                <% @valuedept = "Oise" %>
-                                <option value="Oise"><%= dept %></option>
-                                <% elsif dept == "Pas-de-Calais" %>
-                                <% @valuedept = "Pas-de-Calais" %>
-                                <option value="Pas-de-Calais"><%= dept %></option>
-                                <% elsif dept == "Somme" %>
-                                <% @valuedept = "Somme" %>
-                                <option value="Somme"><%= dept %></option>
-                                <% else %>
-                                <% @valuedept = 0 %>
-                                <option value=""><%= dept %></option>
+                            <% excl_nil_result = result.reject{|s| s.to_s == ''}  %>
+                            <% if excl_nil_result[0].nil?  %>
+                            <% else  %>
+                              <% excl_nil_result = excl_nil_result.sort %>
+                              <% excl_nil_result.each do |dept| %>
+                                <% if dept == "Aisne" %>
+                                  <% @valuedept = "Aisne" %>
+                                  <option value="Aisne"><%= dept %></option>
+                                  <% elsif dept == "Nord" %>
+                                  <% @valuedept = "Nord" %>
+                                  <option value="Nord"><%= dept %></option>
+                                  <% elsif dept == "Oise" %>
+                                  <% @valuedept = "Oise" %>
+                                  <option value="Oise"><%= dept %></option>
+                                  <% elsif dept == "Pas-de-Calais" %>
+                                  <% @valuedept = "Pas-de-Calais" %>
+                                  <option value="Pas-de-Calais"><%= dept %></option>
+                                  <% elsif dept == "Somme" %>
+                                  <% @valuedept = "Somme" %>
+                                  <option value="Somme"><%= dept %></option>
+                                  <% else %>
+                                  <% @valuedept = 0 %>
+                                  <option value=""><%= dept %></option>
+                                <% end %>
                               <% end %>
-                            <% end %>
+                            <% end  %>
                           </select>
 
 
@@ -297,7 +301,7 @@
             </div>
           </div>
         </div>
-        <div class="offset-top-70"><a href="services.html" class="btn btn-ellipse btn-primary">Voir les soins</a></div>
+        <div class="offset-top-70"><a><%= link_to 'Voir les soins', pages_soins_path, class: 'btn btn-ellipse btn-primary'%></a></div>
       </div>
     </section>
     <!-- testimonials-->
@@ -628,7 +632,7 @@
     <div id="map" style="width: 100%; height: 400px;"></div>
     <% content_for(:after_js) do %>
       <%= javascript_tag do %>
-        var handler = Gmaps.build('Google');
+        var handler = Gmaps.build('Google')
         handler.buildMap({ internal: { id: 'map' } }, function() {
         markers = handler.addMarkers(
           [

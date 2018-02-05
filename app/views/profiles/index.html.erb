@@ -8,6 +8,7 @@
           <!-- 4 columns layout-->
               <section class="section-98 section-sm-110">
               <div class="shell">
+
                 <h2>Trier par département</h2>
                 <input type="button" onclick="nord()"  value="Nord">
                 <script type="text/javascript">
@@ -25,6 +26,9 @@
                     choicepdc.insertAdjacentHTML("beforeend", itempdc);
                   };
                   </script>
+
+                <h2> <%= @profiles.count %> professionnels à votre écoute</h2>
+
                 <hr class="divider divider-lg bg-secondary">
                 <div id="choicedpt">
 
