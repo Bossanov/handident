@@ -40,7 +40,7 @@
                     <p><%= link_to 'Rédiger un article', new_profile_article_path(@profile), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
                   <% end %>
                   <p><%= link_to 'Voir les profils', profiles_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
-                  <p><%= link_to 'Donner votre avis', profiles_path, class: 'btn-fullwidth btn-ellipse btn btn-primary' %></p>
+                  <p><%= link_to 'Donner votre avis', new_profile_review_path(:profile_id), class: 'btn-fullwidth btn-ellipse btn btn-primary' %></p>
               </div>
             <% end  %>
           </div>
