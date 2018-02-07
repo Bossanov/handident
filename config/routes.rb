@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'getSearch', to: 'profiles#getSearch'
   get 'pages/about'
   get 'pages/formation'
+  get 'pages/formation1'
   get 'pages/test'
   get 'pages/partnerships'
   get 'pages/soins'
