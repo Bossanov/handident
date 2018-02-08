@@ -13,6 +13,7 @@
                 <form data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php" novalidate="novalidate" class="rd-mailform text-left">
                   <div class="form-group form-group-label-outside offset-top-20">
                     <%= f.input :article_title , id:"contacts-last-name", type:"text", name:"Adresse", required: true, class: "form-control form-control-last-child" %>
+                    <%= f.input :theme, collection: ["Meopa", "Evènement", "HAS", "Santé et handicap", "Culture", "Vie associative"], class: "form-control form-control-last-child" %>
                   </div>
                   <div class="form-group form-group-label-outside offset-top-20">
                     <%= f.input :article_content , :as => :text, input_html: {style: 'max-height:1500px;'}, required: true, class: "form-control form-control-last-child" %>

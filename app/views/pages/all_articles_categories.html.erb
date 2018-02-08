@@ -12,15 +12,20 @@
               <div class="isotope-filters isotope-filters-horizontal">
                 <ul class="list-inline list-inline-sm">
                   <li class="veil-md">
-                    <p>Choose your category:</p>
+                    <p>Choisissez votre thème:</p>
                   </li>
                   <li class="section-relative">
                     <button data-custom-toggle="isotope-1" data-custom-toggle-disable-on-blur="true" class="isotope-filters-toggle btn btn-sm btn-default">Filter<span class="caret"></span></button>
                     <ul id="isotope-1" class="list-sm-inline isotope-filters-list">
-                      <li><a data-isotope-filter="*" data-isotope-group="gallery" href="#" class="active">All</a></li>
-                      <li><a data-isotope-filter="tab 1" data-isotope-group="gallery" href="#">tab 1</a></li>
-                      <li><a data-isotope-filter="tab 2" data-isotope-group="gallery" href="#">tab 2</a></li>
-                      <li><a data-isotope-filter="tab 3" data-isotope-group="gallery" href="#">tab 3</a></li>
+                      <li><a data-isotope-filter="*" data-isotope-group="gallery" href="#" class="active">Tous les articles</a></li>
+                      <li><a data-isotope-filter="Meopa" data-isotope-group="gallery" href="#">MEOPA</a></li>
+                      <li><a data-isotope-filter="Evenement" data-isotope-group="gallery" href="#">Evenement</a></li>
+                      <li><a data-isotope-filter="HAS" data-isotope-group="gallery" href="#">HAS</a></li>
+                      <li><a data-isotope-filter="Sante" data-isotope-group="gallery" href="#">Santé et handicap</a></li>
+                      <li><a data-isotope-filter="Culture" data-isotope-group="gallery" href="#">Culture</a></li>
+                      <li><a data-isotope-filter="Vie" data-isotope-group="gallery" href="#">Vie associative</a></li>
+
+
                     </ul>
                   </li>
                 </ul>
@@ -30,78 +35,68 @@
             <div class="col-lg-12 offset-top-34">
               <div data-isotope-layout="fitRows" data-isotope-group="gallery" class="isotope">
                 <div data-photo-swipe-gallery="gallery" class="row">
-                  <div data-filter="tab 1" class="col-xs-12 col-sm-6 col-md-4 isotope-item"><a class="thumbnail-custom" data-photo-swipe-item="" data-size="1200x800" href="images/gallery/originals/gallery-01_original.jpg">
-                    <figure><%= image_tag "gallery/gallery-01-370x240.jpg", width:'370', height:'240', alt:"" %>
-                      <figcaption class="thumbnail-custom-caption text-center">
-                        <h4 class="thumbnail-custom-title text-white">General Dentistry</h4>
-                        <hr class="divider divider-xs bg-white">
-                      </figcaption>
-                    </figure></a>
-                  </div>
-                  <div data-filter="tab 3" class="col-xs-12 col-sm-6 col-md-4 isotope-item"><a class="thumbnail-custom" data-photo-swipe-item="" data-size="1200x800" href="images/gallery/originals/gallery-02_original.jpg">
-                    <figure><%= image_tag "gallery/gallery-02-370x240.jpg", width:'370', height:'240', alt:"" %>
-                      <figcaption class="thumbnail-custom-caption text-center">
-                        <h4 class="thumbnail-custom-title text-white">Cosmetic Dentistry</h4>
-                        <hr class="divider divider-xs bg-white">
-                      </figcaption>
-                    </figure></a>
-                  </div>
-                  <div data-filter="tab 2" class="col-xs-12 col-sm-6 col-md-4 isotope-item"><a class="thumbnail-custom" data-photo-swipe-item="" data-size="1200x800" href="images/gallery/originals/gallery-03_original.jpg">
-                    <figure><%= image_tag "gallery/gallery-03-370x240.jpg", width:'370', height:'240', alt:"" %>
-                      <figcaption class="thumbnail-custom-caption text-center">
-                        <h4 class="thumbnail-custom-title text-white">Dental Implants</h4>
-                        <hr class="divider divider-xs bg-white">
-                      </figcaption>
-                    </figure></a>
-                  </div>
-                  <div data-filter="tab 2" class="col-xs-12 col-sm-6 col-md-4 isotope-item"><a class="thumbnail-custom" data-photo-swipe-item="" data-size="1200x800" href="images/gallery/originals/gallery-04_original.jpg">
-                    <figure><%= image_tag "gallery/gallery-04-370x240.jpg", width:'370', height:'240', alt:"" %>
-                      <figcaption class="thumbnail-custom-caption text-center">
-                        <h4 class="thumbnail-custom-title text-white">Teeth Whitening</h4>
-                        <hr class="divider divider-xs bg-white">
-                      </figcaption>
-                    </figure></a>
-                  </div>
-                  <div data-filter="tab 2" class="col-xs-12 col-sm-6 col-md-4 isotope-item"><a class="thumbnail-custom" data-photo-swipe-item="" data-size="1200x800" href="images/gallery/originals/gallery-05_original.jpg">
-                    <figure><%= image_tag "gallery/gallery-05-370x240.jpg", width:'370', height:'240', alt:"" %>
-                      <figcaption class="thumbnail-custom-caption text-center">
-                        <h4 class="thumbnail-custom-title text-white">Dental Crowns</h4>
-                        <hr class="divider divider-xs bg-white">
-                      </figcaption>
-                    </figure></a>
-                  </div>
-                  <div data-filter="tab 1" class="col-xs-12 col-sm-6 col-md-4 isotope-item"><a class="thumbnail-custom" data-photo-swipe-item="" data-size="1200x800" href="images/gallery/originals/gallery-06_original.jpg">
-                    <figure><%= image_tag "gallery/gallery-06-370x240.jpg", width:'370', height:'240', alt:"" %>
-                      <figcaption class="thumbnail-custom-caption text-center">
-                        <h4 class="thumbnail-custom-title text-white">Dentures</h4>
-                        <hr class="divider divider-xs bg-white">
-                      </figcaption>
-                    </figure></a>
-                  </div>
-                  <div data-filter="tab 1" class="col-xs-12 col-sm-6 col-md-4 isotope-item"><a class="thumbnail-custom" data-photo-swipe-item="" data-size="1200x800" href="images/gallery/originals/gallery-07_original.jpg">
-                    <figure><%= image_tag "gallery/gallery-07-370x240.jpg", width:'370', height:'240', alt:"" %>
-                      <figcaption class="thumbnail-custom-caption text-center">
-                        <h4 class="thumbnail-custom-title text-white">Preventive Care</h4>
-                        <hr class="divider divider-xs bg-white">
-                      </figcaption>
-                    </figure></a>
-                  </div>
-                  <div data-filter="tab 1" class="col-xs-12 col-sm-6 col-md-4 isotope-item"><a class="thumbnail-custom" data-photo-swipe-item="" data-size="1200x800" href="images/gallery/originals/gallery-08_original.jpg">
-                    <figure><%= image_tag "gallery/gallery-08-370x240.jpg", width:'370', height:'240', alt:"" %>
-                      <figcaption class="thumbnail-custom-caption text-center">
-                        <h4 class="thumbnail-custom-title text-white">Dental Hygiene</h4>
-                        <hr class="divider divider-xs bg-white">
-                      </figcaption>
-                    </figure></a>
-                  </div>
-                  <div data-filter="tab 1" class="col-xs-12 col-sm-6 col-md-4 isotope-item"><a class="thumbnail-custom" data-photo-swipe-item="" data-size="1200x800" href="images/gallery/originals/gallery-09_original.jpg">
-                    <figure><%= image_tag "gallery/gallery-09-370x240.jpg", width:'370', height:'240', alt:"" %>
-                      <figcaption class="thumbnail-custom-caption text-center">
-                        <h4 class="thumbnail-custom-title text-white">Fluoride Therapy</h4>
-                        <hr class="divider divider-xs bg-white">
-                      </figcaption>
-                    </figure></a>
-                  </div>
+
+                  <% @articles = Article.all %>
+
+                  <% @articles.each do |article| %>
+
+                    <% if article.theme == "Meopa" %>
+                      <div data-filter="Meopa" class="col-xs-12 col-sm-6 col-md-4 isotope-item"><a class="thumbnail-custom" data-photo-swipe-item="" data-size="1200x800" href="images/gallery/originals/gallery-01_original.jpg">
+                        <figure><%= image_tag "gallery/gallery-01-370x240.jpg", width:'370', height:'240', alt:"" %>
+                          <figcaption class="thumbnail-custom-caption text-center">
+                            <h4 class="thumbnail-custom-title text-white"><%= article.article_title%></h4>
+                            <hr class="divider divider-xs bg-white">
+                          </figcaption>
+                        </figure></a>
+                      </div>
+
+                    <% elsif article.theme == "Evènement" %>
+                      <div data-filter="Evenement" class="col-xs-12 col-sm-6 col-md-4 isotope-item"><a class="thumbnail-custom" data-photo-swipe-item="" data-size="1200x800" href="images/gallery/originals/gallery-01_original.jpg">
+                        <figure><%= image_tag "gallery/gallery-01-370x240.jpg", width:'370', height:'240', alt:"" %>
+                          <figcaption class="thumbnail-custom-caption text-center">
+                            <h4 class="thumbnail-custom-title text-white"><%= article.article_title%></h4>
+                            <hr class="divider divider-xs bg-white">
+                          </figcaption>
+                        </figure></a>
+                      </div>
+                    <% elsif article.theme == "HAS" %>
+                      <div data-filter="HAS" class="col-xs-12 col-sm-6 col-md-4 isotope-item"><a class="thumbnail-custom" data-photo-swipe-item="" data-size="1200x800" href="images/gallery/originals/gallery-01_original.jpg">
+                        <figure><%= image_tag "gallery/gallery-01-370x240.jpg", width:'370', height:'240', alt:"" %>
+                          <figcaption class="thumbnail-custom-caption text-center">
+                            <h4 class="thumbnail-custom-title text-white"><%= article.article_title%></h4>
+                            <hr class="divider divider-xs bg-white">
+                          </figcaption>
+                        </figure></a>
+                      </div>
+                    <% elsif article.theme == "Santé et handicap" %>
+                      <div data-filter="Sante" class="col-xs-12 col-sm-6 col-md-4 isotope-item"><a class="thumbnail-custom" data-photo-swipe-item="" data-size="1200x800" href="images/gallery/originals/gallery-01_original.jpg">
+                        <figure><%= image_tag "gallery/gallery-01-370x240.jpg", width:'370', height:'240', alt:"" %>
+                          <figcaption class="thumbnail-custom-caption text-center">
+                            <h4 class="thumbnail-custom-title text-white"><%= article.article_title%></h4>
+                            <hr class="divider divider-xs bg-white">
+                          </figcaption>
+                        </figure></a>
+                      </div>
+                    <% elsif article.theme == "Culture" %>
+                      <div data-filter="Culture" class="col-xs-12 col-sm-6 col-md-4 isotope-item"><a class="thumbnail-custom" data-photo-swipe-item="" data-size="1200x800" href="images/gallery/originals/gallery-01_original.jpg">
+                        <figure><%= image_tag "gallery/gallery-01-370x240.jpg", width:'370', height:'240', alt:"" %>
+                          <figcaption class="thumbnail-custom-caption text-center">
+                            <h4 class="thumbnail-custom-title text-white"><%= article.article_title%></h4>
+                            <hr class="divider divider-xs bg-white">
+                          </figcaption>
+                        </figure></a>
+                      </div>
+                    <% elsif article.theme == "Vie associative" %>
+                      <div data-filter="Vie" class="col-xs-12 col-sm-6 col-md-4 isotope-item"><a class="thumbnail-custom" data-photo-swipe-item="" data-size="1200x800" href="images/gallery/originals/gallery-01_original.jpg">
+                        <figure><%= image_tag "gallery/gallery-01-370x240.jpg", width:'370', height:'240', alt:"" %>
+                          <figcaption class="thumbnail-custom-caption text-center">
+                            <h4 class="thumbnail-custom-title text-white"><%= article.article_title%></h4>
+                            <hr class="divider divider-xs bg-white">
+                          </figcaption>
+                        </figure></a>
+                      </div>
+                    <% end %>
+                  <% end %>
                 </div>
               </div>
             </div>
