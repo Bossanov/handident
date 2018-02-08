@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'pages/formation1'
   get 'pages/test'
   get 'pages/partnerships'
+  get 'reviews/allreviews'
   get 'pages/soins'
   get 'pages/all_articles_categories'
   get 'pages/make_a_donation'

@@ -7,7 +7,7 @@
         <div class="shell">
           <div class="range range-xs-center range-lg-left">
             <div class="cell-sm-8">
-              <h4 class="text-md-left">Publier un article</h4>
+              <h4 class="text-md-left">Publier un témoignage</h4>
               <hr class="text-subline">
               <div class="offset-top-30">
                 <form data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php" novalidate="novalidate" class="rd-mailform text-left">
@@ -21,7 +21,7 @@
                     <%= f.input :rating, collection: 1..5, id:"contacts-last-name", type:"text", name:"Adresse", required: true, class: "form-control form-control-last-child" %>
                   </div>
                   <div class="offset-top-18 offset-sm-top-30 text-center text-sm-left">
-                    <%= f.button :submit, class:"btn-fullwidth btn btn-ellipse btn-primary", style:"font-weight:bold", value:"Pubier mon commentaire" %>
+                    <%= f.button :submit, class:"btn-fullwidth btn btn-ellipse btn-primary", style:"font-weight:bold", value:"Pubier mon témoignage" %>
                     <p><%= link_to 'Annuler', profile_path(current_user.profile), class: 'btn-fullwidth btn btn-ellipse btn-white', style:"margin-top:20px"%></p>
                   </div>
                 </form>
