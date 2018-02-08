@@ -6,6 +6,17 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     @profile.user = current_user
+    if @profile.post_code.to_i < 60000 && @profile.post_code.to_i > 58999
+      @profile.departement = "Nord"
+    elsif @profile.post_code.to_i < 63000 && @profile.post_code.to_i > 61999
+      @profile.departement = "Pas-de-Calais"
+    elsif @profile.post_code.to_i < 3000 && @profile.post_code.to_i > 1999
+      @profile.departement = "Aisne"
+    elsif @profile.post_code.to_i < 81000 && @profile.post_code.to_i > 79999
+      @profile.departement = "Somme"
+    elsif @profile.post_code.to_i < 61000 && @profile.post_code.to_i > 59999
+      @profile.departement = "Oise"
+    end
     if @profile.save
       flash[:notice] = 'Votre profil a correctement été créé. Merci.'
       redirect_to profile_path(@profile)
@@ -47,6 +58,17 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = current_user.profile
+    if @profile.post_code.to_i < 60000 && @profile.post_code.to_i > 58999
+      @profile.departement = "Nord"
+    elsif @profile.post_code.to_i < 63000 && @profile.post_code.to_i > 61999
+      @profile.departement = "Pas-de-Calais"
+    elsif @profile.post_code.to_i < 3000 && @profile.post_code.to_i > 1999
+      @profile.departement = "Aisne"
+    elsif @profile.post_code.to_i < 81000 && @profile.post_code.to_i > 79999
+      @profile.departement = "Somme"
+    elsif @profile.post_code.to_i < 61000 && @profile.post_code.to_i > 59999
+      @profile.departement = "Oise"
+    end
     if @profile.update(profile_params)
       flash[:notice] = 'Votre profil a correctement été actualisé. Merci.'
       redirect_to profile_path(@profile)
