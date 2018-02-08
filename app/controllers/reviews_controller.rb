@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def allreviews
+  def all
     @reviews =Review.all
   end
 

@@ -22,7 +22,7 @@
           <div class="cell-xs-10 cell-md-4">
             <!-- Member block type 5-->
             <% if @profile.photo_url.nil? %>
-              <div class="member-block-type-5 inset-md-right-20"><img src="http://res.cloudinary.com/dz83jh064/image/upload/v1517834940/dental-care-tools_925x_aew574.jpg" width="320" height="320" alt="" class="img-responsive center-block"/> <!-- options available with cloudinary crop: :thumb, gravity: :face -->
+              <div class="member-block-type-5 inset-md-right-20"><img src="http://res.cloudinary.com/dz83jh064/image/upload/v1517825470/images_z0whi1.png" width="320" height="320" alt="" class="img-responsive center-block"/> <!-- options available with cloudinary crop: :thumb, gravity: :face -->
                 <!-- ajouter une restriction sur l'accès à l'edit du profile -->
                   <% if current_user.present? && @profile.id == current_user.profile.id %>
                     <p><%= link_to 'éditer mon profil', edit_profile_path(@profile), class: 'btn-fullwidth btn btn-ellipse btn-white offset-sm-top-41 offset-top-41 offset-md-top-60'%></p>
@@ -95,6 +95,7 @@
               </div>
             <% else  %>
               <% @articles.each do |article| %>
+              <% @profile = Profile.find(article.profile_id) %>
                 <div class="cell-xs-10 cell-sm-8 cell-md-4">
                   <!-- Post Modern-->
                   <article class="post post-modern post-modern-classic">
