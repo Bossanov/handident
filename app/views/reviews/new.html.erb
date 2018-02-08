@@ -1,32 +1,38 @@
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 col-sm-offset-3">
+<div class="page text-center">
+  <!-- Page Content-->
+  <main class="page-content section-98 section-sm-110" >
+    <!-- Contact us-->
+    <section class="offset-top-90 offset-md-top-130">
       <%= simple_form_for [@profile, @review] do |f| %>
-        <form class="row" method="post">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <%= f.input :review_title , class: "form-control" %>
+        <div class="shell">
+          <div class="range range-xs-center range-lg-left">
+            <div class="cell-sm-8">
+              <h4 class="text-md-left">Publier un article</h4>
+              <hr class="text-subline">
+              <div class="offset-top-30">
+                <form data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php" novalidate="novalidate" class="rd-mailform text-left">
+                  <div class="form-group form-group-label-outside offset-top-20">
+                    <%= f.input :review_title , id:"contacts-last-name", type:"text", name:"Adresse", required: true, class: "form-control form-control-last-child" %>
+                  </div>
+                  <div class="form-group form-group-label-outside offset-top-20">
+                    <%= f.input :review_content , :as => :text, input_html: {style: 'max-height:1500px;'}, required: true, class: "form-control form-control-last-child" %>
+                  </div>
+                  <div class="form-group form-group-label-outside offset-top-20">
+                    <%= f.input :rating, collection: 1..5, id:"contacts-last-name", type:"text", name:"Adresse", required: true, class: "form-control form-control-last-child" %>
+                  </div>
+                  <div class="offset-top-18 offset-sm-top-30 text-center text-sm-left">
+                    <%= f.button :submit, class:"btn-fullwidth btn btn-ellipse btn-primary", style:"font-weight:bold", value:"Pubier mon commentaire" %>
+                    <p><%= link_to 'Annuler', profile_path(current_user.profile), class: 'btn-fullwidth btn btn-ellipse btn-white', style:"margin-top:20px"%></p>
+                  </div>
+                </form>
               </div>
             </div>
-            <div class="col-sm-12">
-              <div class="form-group">
-                <%= f.input :review_content , input_html: {style: 'height:200px;'}, class: "form-control" %>
-              </div>
-            </div>
-            <div class="col-sm-12">
-              <div class="form-group">
-                <%= f.input :rating, collection: 1..5,  class: "form-control" %>
-              </div>
-            </div>
-          <div class="col-md-12 text-center padding-bottom-100">
-            <%= f.button :submit, class:"btn btn-primary" %>
-            <br>
-            <br>
           </div>
-        </form>
+        </div>
       <% end %>
-    </div>
-  </div>
+    </section>
+  </main>
 </div>
-
+<!-- Java script-->
+<script src="js/core.min.js"></script>
+<script src="js/script.js"></script>
