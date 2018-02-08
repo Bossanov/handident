@@ -1,0 +1,69 @@
+    <!-- Page-->
+    <div class="page text-center">
+      <!-- Page Contents-->
+      <main class="page-content">
+        <!-- Masonry Blog-->
+        <div id="fb-root"></div>
+        <section class="section-98 section-sm-110">
+          <div class="shell">
+            <div class="range range-xs-center">
+              <div class="cell-md-10 cell-lg-8">
+                <div class="range range-xs-center">
+                  <% @articles.each do |article| %>
+                    <% @profile = Profile.find(article.profile_id)  %>
+                    <div class="cell-sm-6">
+                      <!-- Post Modern-->
+                      <article class="post post-modern post-modern-classic">
+                        <!-- Post media-->
+                        <header class="post-media"><%= image_tag article.article_photo, width:"370", height:"240", class:"img-responsive img-cover" %>
+                        </header>
+                        <!-- Post content-->
+                        <section class="post-content text-left">
+                          <!-- Post Title-->
+                          <div class="post-title offset-top-8">
+                            <h4 class="text-bold"> <%= link_to article.article_title, profile_article_path(@profile, article)%> </h4>
+                          </div>
+                          <ul class="list-inline list-inline-dashed">
+                            <li><%= article.created_at %></li>
+                            <li><a href="blog-masonry.html" class="text-secondary">Oral Health</a></li>
+                          </ul>
+                          <!-- Post Body-->
+                          <div class="post-body" style="margin-bottom: 30px;">
+                            <p><%= article.article_content.first(200) %> ...</p>
+                          </div>
+                        </section>
+                      </article>
+                    </div>
+                  <% end  %>
+                </div>
+              </div>
+              <div class="cell-sm-10 cell-md-8 cell-lg-4 offset-top-66 offset-md-top-90 offset-lg-top-0">
+                <div class="blog-grid-sidebar inset-lg-left-30">
+                  <!-- Aside-->
+                  <aside class="text-left">
+                    <!-- Recent Posts-->
+                    <div class="offset-top-30 offset-md-top-60">
+                      <h3>Recent Blog Posts</h3>
+                      <hr class="text-subline">
+                    </div>
+                    <div class="offset-top-14 offset-md-top-20">
+                      <!-- List Marked-->
+                      <ul class="list list-marked list-marked-icon text-dark inset-left-0 list-marked-gray">
+                        <% @articles.last(2).each do |article| %>
+                          <li><a class="text-java text-bold"><%= link_to article.article_title, profile_article_path(@profile, article)%></a><br>
+                            <time datetime="2017-04-30" class="text-gray-dark"><%= article.created_at %></time>
+                          </li>
+                        <% end  %>
+                      </ul>
+                    </div>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <!-- Java script-->
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>

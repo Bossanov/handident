@@ -46,7 +46,10 @@ class ArticlesController < ApplicationController
     @article.update(article_params)
     redirect_to root_path
     flash[:notice] = 'Votre article a été modifié, merci !'
+  end
 
+  def all
+    @articles = Article.all
   end
 
   private
