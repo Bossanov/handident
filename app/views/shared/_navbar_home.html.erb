@@ -74,7 +74,9 @@
                           <div class="rd-navbar-megamenu">
                             <div class="row">
                               <div class="col-md-4">
-                                <h6> Bonjour <%= Profile.find(current_user.id).first_name ? Profile.find(current_user.id).first_name : ""%></h6>
+
+                                <h6> Bonjour <%= current_user.profile.first_name %></h6>
+
                                 <hr class="text-subline"/>
                                 <ul class="list-unstyled offset-lg-top-25">
                                   <li><a <%= link_to 'Voir mon profil', profile_path(current_user.profile) %></a></li>

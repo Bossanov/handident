@@ -9,31 +9,21 @@
               <section class="section-98 section-sm-110">
               <div class="shell">
 
-                <h2>Trier par département</h2>
-                <input type="button" onclick="nord()"  value="Nord">
-                <script type="text/javascript">
-                  function nord() {
-                    const choicenord = document.getElementById("choicedpt");
-                    const itemnord = "<%= render 'shared/cardsnord' %>" ;
-                    choicenord.insertAdjacentHTML("beforeend", itemnord);
-                  };
-                </script>
-                <input type="button" onclick="pdc()" value="Pas-de-Calais">
-                <script type="text/javascript">
-                  function pdc() {
-                    const choicepdc = document.getElementById("choicedpt");
-                    const itempdc = "<%= render 'shared/cardspdc' %>";
-                    choicepdc.insertAdjacentHTML("beforeend", itempdc);
-                  };
-                  </script>
+                <h2>Choisissez votre département</h2>
+
+                <input type="submit" id="deptpdc" value="Pas-de-Calais" class="btn btn-primary">
+                <input type="submit" id="deptnord" value="Nord" class="btn btn-primary">
 
                 <h2> <%= @profiles.count %> professionnels à votre écoute</h2>
 
                 <hr class="divider divider-lg bg-secondary">
-                <div id="choicedpt">
+                <div class="offset-top-41 offset-lg-top-60">
+                  <div class="range range-xs-center" id="choicedpt">
+
 
 
                 </div>
+              </div>
               </div>
             </section>
         </main>
@@ -60,5 +50,18 @@
   </div>
 </div>
 <!-- Java script-->
-<script src="/app/assets/js/core.min.js"></script>
-<script src="/app/assets/js/script.js"></script>
+<script src="/assets/core.min.js"></script>
+<script src="/assets/script.js"></script>
+<script>
+  const pdc = document.getElementById("deptpdc");
+  pdc.addEventListener("click", (event) => {
+    const choice = document.getElementById("choicedpt");
+    choice.innerHTML = "<%= j render 'shared/cardspdc' %>";
+  });
+  const nord = document.getElementById("deptnord");
+  nord.addEventListener("click", (event) => {
+    const choice = document.getElementById("choicedpt");
+    choice.innerHTML = "<%= j render 'shared/cardsnord' %>";
+  });
+
+</script>
