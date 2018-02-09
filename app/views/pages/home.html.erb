@@ -156,13 +156,21 @@
                             selectdept.addEventListener("change", (event) => {
                               const city = document.getElementById("index-city");
                               const deptdept = document.getElementById("index-dept").value;
+                              const name = document.getElementById("index-doctor");
+                              while (name.firstChild) {
+                                  name.removeChild(name.firstChild);
+                                };
+
                               city.innerHTML = "";
+
+
 
                               fetch(`/citywithdept?dept=${deptdept}`)
                                 .then(response => response.json())
                                 .then((data) => {
                                   data.forEach((person) => {
                                   const item = `<option id="${person.city}" value="${person.city}">${person.city}</option>` ;
+
                                   city.insertAdjacentHTML("beforeend", item);
                                   });
                                 });
@@ -173,13 +181,17 @@
                               const boutton = document.getElementById("bouttonsearch");
                               const name = document.getElementById("index-doctor");
                               const citycity = document.getElementById("index-city").value;
+
                               name.innerHTML = "";
                               fetch(`/dentistwithcity?city=${citycity}`)
                                 .then(response => response.json())
                                 .then((data) => {
 
+                                  name.innerHTML="";
                                   data.forEach((person) => {
                                     const item = `<option value ="${person.id}">${person.first_name} ${person.last_name}</option>` ;
+
+
                                     name.insertAdjacentHTML("beforeend", item);
                                   });
                                 });
@@ -187,8 +199,9 @@
                                   boutton.removeChild(boutton.firstChild);
                                 };
                               boutton.insertAdjacentHTML("beforeend", '<button type="button" onclick="getOption3()" class="btn-fullwidth btn-ellipse btn btn-primary">Afficher</button>');
-                              });
                             name.innerHTML = "";
+                              });
+
                             });
                             function getOption3() {
                             const citycity = document.getElementById("index-city").value;
