@@ -80,10 +80,14 @@ class ProfilesController < ApplicationController
 
 
   def citywithdept
+    citylist = []
     res = []
     result = Profile.where(departement: params["dept"], category: "Dentiste")
     result.each do |dentiste|
-      res << {'id' => dentiste.id, 'city' => dentiste.city}
+      until citylist.include?(dentiste.city)
+        res << {'id' => dentiste.id, 'city' => dentiste.city}
+        citylist << dentiste.city
+      end
     end
     respond_to do |format|
       format.json {

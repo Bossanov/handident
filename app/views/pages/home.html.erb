@@ -206,7 +206,7 @@
             <div class="cell-xs-10 cell-sm-7 cell-md-5 cell-lg-4 offset-top-40 offset-top-0 swiper-center-caption swiper-center-caption-centered">
               <!-- Panel-->
               <div class="panel panel-lg panel-lg-vertical bg-overlay-gray-dark text-lg-left">
-                <h4 class="text-white">Chercher un docteur</h4>
+                <h4 class="text-white">Rechercher un docteur:</h4>
                 <form data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php" novalidate="novalidate" class="rd-mailform offset-top-24">
                   <div class="group-12 group-top">
                     <div class="group-item element-fullwidth">
@@ -224,6 +224,7 @@
                           <% end %>
 
                           <select id="index-dept" data-minimum-results-for-search="Infinity" class="form-control", style="background-color: white">
+                            <option value=""><%= %></option>
                             <% excl_nil_result = result.reject{|s| s.to_s == ''}  %>
                             <% if excl_nil_result[0].nil?  %>
                             <% else  %>
@@ -253,45 +254,49 @@
                           </select>
 
 
-                          <input type="button" onclick="getOption()" value="Valider!">
+
                           <script>
-                            function getOption() {
-                            const city = document.getElementById("index-city");
-                            const deptdept = document.getElementById("index-dept").value;
-                            city.innerHTML = "";
+                            const selectdept= document.getElementById("index-dept");
+                            selectdept.addEventListener("change", (event) => {
+                              const city = document.getElementById("index-city");
+                              const deptdept = document.getElementById("index-dept").value;
+                              city.innerHTML = "";
 
-                            fetch(`/citywithdept?dept=${deptdept}`)
-                              .then(response => response.json())
-                              .then((data) => {
+                              fetch(`/citywithdept?dept=${deptdept}`)
+                                .then(response => response.json())
+                                .then((data) => {
+                                  data.forEach((person) => {
+                                  const item = `<option id="${person.city}" value="${person.city}">${person.city}</option>` ;
+                                  city.insertAdjacentHTML("beforeend", item);
+                                  });
+                                });
 
-                            data.forEach((person) => {
-                            const item = `<option>${person.city}</option>` ;
-                            city.insertAdjacentHTML("beforeend", item);
+
+
+                            city.addEventListener("change", (event) => {
+
+                              const boutton = document.getElementById("bouttonsearch");
+                              const name = document.getElementById("index-doctor");
+                              const citycity = document.getElementById("index-city").value;
+
+                              name.innerHTML = "";
+
+                              fetch(`/dentistwithcity?city=${citycity}`)
+                                .then(response => response.json())
+                                .then((data) => {
+
+                                  data.forEach((person) => {
+                                    const item = `<option value ="${person.id}">${person.first_name} ${person.last_name}</option>` ;
+                                    name.insertAdjacentHTML("beforeend", item);
+                                  });
+                                });
+                                while (boutton.firstChild) {
+                                  boutton.removeChild(boutton.firstChild);
+                                };
+                              boutton.insertAdjacentHTML("beforeend", '<button type="button" onclick="getOption3()" class="btn-fullwidth btn-ellipse btn btn-primary">Afficher</button>');
                               });
-                              });
-
-
-                            };
-
-                            function getOption2() {
-                            const boutton = document.getElementById("bouttonsearch");
-                            const name = document.getElementById("index-doctor");
-                            const citycity = document.getElementById("index-city").value;
                             name.innerHTML = "";
-
-                            fetch(`/dentistwithcity?city=${citycity}`)
-                              .then(response => response.json())
-                              .then((data) => {
-
-                            data.forEach((person) => {
-                            const item = `<option value ="${person.id}">${person.first_name} ${person.last_name}</option>` ;
-                            name.insertAdjacentHTML("beforeend", item);
-                              });
-                              });
-                            boutton.insertAdjacentHTML("beforeend", '<button type="button" onclick="getOption3()" class="btn-fullwidth btn-ellipse btn btn-primary">Afficher</button>');
-
-                            };
-
+                            });
                             function getOption3() {
                             const citycity = document.getElementById("index-city").value;
                             const deptdept = document.getElementById("index-dept").value;
@@ -312,7 +317,7 @@
                           <select id="index-city" data-minimum-results-for-search="Infinity" class="form-control", style="background-color: white">
 
                           </select>
-                          <input type="button" onclick="getOption2()" value="Valider!">
+
 
                         </div>
                       </div>
