@@ -44,7 +44,7 @@
                   </li>
                   <li class="<%= is_active?(pages_about_path) %>"><%= link_to 'A propos', pages_about_path %>
                   </li>
-                  <li class="<%= is_active?(pages_all_articles_categories_path) %>"><%= link_to 'News', pages_all_articles_categories_path %>
+                  <li class="<%= is_active?(pages_all_articles_categories_path) %>"><%= link_to 'News', articles_all_path %>
                   </li>
                   <li class="<%= is_active?(profiles_path) %> <%= is_active?(pages_soins_path) %>"><%= link_to 'Se soigner', profiles_path %>
                     <div class="rd-navbar-megamenu">
@@ -153,6 +153,4 @@
     </section>
   </header>
 </div>
-<!-- Java script-->
-<script src="assets/core.min.js"></script>
-<script src="assets/script.js"></script>
+
