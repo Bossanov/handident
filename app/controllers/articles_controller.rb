@@ -26,21 +26,21 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    # @article = Article.find(params[:profile_id])
-    # récupérer l'article qui nous interesse
-    @article = Article.find(4)
+    @article = Article.find(params[:id])
+    @articles = Article.all
+    @profile = Profile.find(@article.profile_id)
   end
 
 
   def edit
-    @article = Article.find(params[:profile_id])
+    @article = Article.find(params[:id])
     @profile = current_user.profile
 
     # @profile = current_user.profile
   end
 
   def update
-    @article = Article.find(params[:profile_id])
+    @article = Article.find(params[:id])
     @profile = current_user.profile
     @article.profile = @profile
     @article.update(article_params)
