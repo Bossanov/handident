@@ -50,39 +50,48 @@
     </div>
     <!-- Java script-->
     <script>
+  const choice = document.getElementById("choicetheme");
+  choice.innerHTML = "<%= j render 'shared/articlesall' %>";
   const tous = document.getElementById("tous");
   tous.addEventListener("click", (event) => {
     const choice = document.getElementById("choicetheme");
+    choice.innerHTML = "";
     choice.innerHTML = "<%= j render 'shared/articlesall' %>";
   });
   const meopa = document.getElementById("meopa");
   meopa.addEventListener("click", (event) => {
     const choice = document.getElementById("choicetheme");
+    choice.innerHTML = "";
     choice.innerHTML = "<%= j render 'shared/articlesmeopa' %>";
   });
   const evenement = document.getElementById("evenement");
   evenement.addEventListener("click", (event) => {
     const choice = document.getElementById("choicetheme");
+    choice.innerHTML = "";
     choice.innerHTML = "<%= j render 'shared/articlesevenement' %>";
   });
   const hs = document.getElementById("hs");
   hs.addEventListener("click", (event) => {
     const choice = document.getElementById("choicetheme");
+    choice.innerHTML = "";
     choice.innerHTML = "<%= j render 'shared/articleshs' %>";
   });
   const sante = document.getElementById("sante");
   sante.addEventListener("click", (event) => {
     const choice = document.getElementById("choicetheme");
+    choice.innerHTML = "";
     choice.innerHTML = "<%= j render 'shared/articlessante' %>";
   });
   const culture = document.getElementById("culture");
   culture.addEventListener("click", (event) => {
     const choice = document.getElementById("choicetheme");
+    choice.innerHTML = "";
     choice.innerHTML = "<%= j render 'shared/articlesculture' %>";
   });
   const vie = document.getElementById("vie");
   vie.addEventListener("click", (event) => {
     const choice = document.getElementById("choicetheme");
+    choice.innerHTML = "";
     choice.innerHTML = "<%= j render 'shared/articlesvie' %>";
   });
 </script>

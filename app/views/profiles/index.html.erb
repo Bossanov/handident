@@ -20,8 +20,11 @@
                 <hr class="divider divider-lg bg-secondary">
                 <div class="offset-top-41 offset-lg-top-60">
                   <div class="range range-xs-center" id="choicedpt">
+
+
+
+                  </div>
                 </div>
-              </div>
               </div>
             </section>
         </main>
@@ -51,14 +54,18 @@
 <script src="/assets/core.min.js"></script>
 <script src="/assets/script.js"></script>
 <script>
+  const choice = document.getElementById("choicedpt");
+  choice.innerHTML = "<%= j render 'shared/cardsall' %>";
   const pdc = document.getElementById("deptpdc");
   pdc.addEventListener("click", (event) => {
     const choice = document.getElementById("choicedpt");
+    choice.innerHTML = "";
     choice.innerHTML = "<%= j render 'shared/cardspdc' %>";
   });
   const nord = document.getElementById("deptnord");
   nord.addEventListener("click", (event) => {
     const choice = document.getElementById("choicedpt");
+    choice.innerHTML = "";
     choice.innerHTML = "<%= j render 'shared/cardsnord' %>";
   });
 
