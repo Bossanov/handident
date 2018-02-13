@@ -13,10 +13,10 @@ Profile.destroy_all
 Review.destroy_all
 User.destroy_all
 count = 1
-xls_file = Roo::Excelx.new('/Users/antoinestaumont/code/Bossanov/handident/db/data.xlsx')
-s = Roo::CSV.new("/Users/antoinestaumont/code/Bossanov/handident/db/test.csv")
-xls_file.to_csv("/Users/antoinestaumont/code/Bossanov/handident/db/test.csv")
-CSV.foreach("/Users/antoinestaumont/code/Bossanov/handident/db/test.csv") do |row|
+xls_file = Roo::Excelx.new('/handident/db/data.xlsx')
+s = Roo::CSV.new("/handident/db/test.csv")
+xls_file.to_csv("/handident/db/test.csv")
+CSV.foreach("/handident/db/test.csv") do |row|
     puts "seed n° #{count}"
   if row[9] == "Ville"
   else
