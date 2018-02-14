@@ -319,80 +319,40 @@
         <div class="offset-top-70"><a><%= link_to 'Voir les soins', pages_soins_path, class: 'btn btn-ellipse btn-primary'%></a></div>
       </div>
     </section>
-    <!-- testimonials-->
-    <section class="section-relative text-sm-left">
-      <div class="shell">
-        <div class="range range-xs-center">
-          <div class="cell-sm-8 cell-md-6 context-dark section-66 section-md-100 section-bg-image section-bg-image-left section-bg-image-1">
-            <div class="inset-md-right-30 inset-lg-right-50">
-              <h2>Quality Services & Best Prices</h2>
-              <hr class="divider divider-lg hr-sm-left-0 bg-white">
-              <p class="offset-md-top-60">Smile provides a vast range of dental care services for our patients. You can find the full list of services or order a free consultation if you are interested in general dental care.</p><a href="#" class="btn btn-ellipse btn-white offset-top-14">free consultation</a>
+    <!-- Featured Dental News-->
+    <section class="section-66 section-sm-110">
+      <div class="shell-wide shell-wide-xl">
+        <h2>Les derniers articles publiés</h2>
+        <hr class="divider divider-lg bg-secondary">
+        <div class="range range-xs-center offset-top-60">
+          <% @articles = Article.all %>
+          <% @articles.last(4).each do |article| %>
+            <% @profile = Profile.find(article.profile_id)  %>
+            <div class="cell-sm-8 cell-md-5 cell-lg-3">
+              <!-- Post Modern-->
+              <article class="post post-modern post-modern-classic">
+                <!-- Post media-->
+<!--                     <header class="post-media"><%= image_tag article.article_photo, class:"img-responsive img-cover" %></header> -->
+                <!-- Post content-->
+                <section class="post-content text-left">
+                  <!-- Post Title-->
+                  <div class="post-title offset-top-8">
+                    <h4 class="text-bold"><%= link_to article.article_title.first(60) +" ...", profile_article_path(@profile, article)%></h4>
+                  </div>
+                  <ul class="list-inline list-inline-dashed">
+                    <li><%= article.created_at %></li>
+                    <li><a href="blog-masonry.html" class="text-secondary"><%= article.theme %></a></li>
+                  </ul>
+                  <!-- Post Body-->
+                  <div class="post-body">
+                    <p><%= article.article_content.first(150) %> ...</p>
+                  </div>
+                </section>
+              </article>
             </div>
-          </div>
-          <div class="cell-sm-8 cell-md-6 section-34 section-sm-100 section-md-bottom-110">
-            <div class="inset-md-left-50 inset-lg-left-115">
-              <h2>Our Patients Say</h2>
-              <hr class="divider divider-lg hr-sm-left-0 bg-secondary">
-              <div data-loop="false" data-items="1" data-margin="50" data-dots="true" data-mouse-drag="false" data-nav="false" class="owl-carousel owl-carousel-default owl-carousel-class-light text-xs-left offset-top-30 offset-sm-top-60 owl-dots-secondary owl-dots-md-left">
-                <div class="owl-item">
-                  <blockquote class="quote quote-classic quote-classic-top inset-lg-right-40">
-                    <div class="quote-body">
-                      <p class="h3 text-regular text-italic text-gray-dark">
-                        <q>I urgently required dental help on July, 4. And despite all other clinics being closed, Smile took my appointment!</q>
-                      </p>
-                      <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
-                        <div class="unit-left unit-item-narrow"><%= image_tag "users/user-herbert-wallace-60x60.jpg", width:'60', height:'60', class:'img-circle quote-img' %></div>
-                        <div class="unit-body unit-item-wide">
-                          <h4 class="quote-author text-capitalize text-bold text-java">
-                            <cite class="text-normal">Herbert Wallace</cite>
-                          </h4>
-                          <p class="quote-desc text-capitalize text-gray text-italic">Patient</p>
-                        </div>
-                      </div>
-                    </div>
-                  </blockquote>
-                </div>
-                <div class="owl-item">
-                  <blockquote class="quote quote-classic quote-classic-top inset-lg-right-40">
-                    <div class="quote-body">
-                      <p class="h3 text-regular text-italic text-gray-dark">
-                        <q>Comparing teeth whitening prices here and elsewhere, I picked Smile. The result was beyond my expectations!</q>
-                      </p>
-                      <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
-                        <div class="unit-left unit-item-narrow"><%= image_tag "users/user-gary-growles-60x60.jpg", width:'60', height:'60', class:'img-circle quote-img' %></div>
-                        <div class="unit-body unit-item-wide">
-                          <h4 class="quote-author text-capitalize text-bold text-java">
-                            <cite class="text-normal">Harry Growles</cite>
-                          </h4>
-                          <p class="quote-desc text-capitalize text-gray text-italic">Patient</p>
-                        </div>
-                      </div>
-                    </div>
-                  </blockquote>
-                </div>
-                <div class="owl-item">
-                  <blockquote class="quote quote-classic quote-classic-top inset-lg-right-40">
-                    <div class="quote-body">
-                      <p class="h3 text-regular text-italic text-gray-dark">
-                        <q>Taking my kids to a dentist has never been easier. They just loved the welcoming and warm atmosphere in there!</q>
-                      </p>
-                      <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
-                        <div class="unit-left unit-item-narrow"><%= image_tag "users/user-betty-wade-60x60.jpg", width:'60', height:'60', class:'img-circle quote-img' %></div>
-                        <div class="unit-body unit-item-wide">
-                          <h4 class="quote-author text-capitalize text-bold text-java">
-                            <cite class="text-normal">Daniela Smith</cite>
-                          </h4>
-                          <p class="quote-desc text-capitalize text-gray text-italic">Patient</p>
-                        </div>
-                      </div>
-                    </div>
-                  </blockquote>
-                </div>
-              </div>
-            </div>
-          </div>
+          <% end  %>
         </div>
+        <div class="offset-top-60"><%= link_to "Tous les articles", articles_all_path, class:"btn btn-ellipse btn-primary" %></div>
       </div>
     </section>
     <!-- Our team-->
@@ -528,108 +488,6 @@
         </div>
       </div>
     </section>
-    <!-- Featured Dental News-->
-    <section class="section-66 section-sm-110">
-      <div class="shell-wide shell-wide-xl">
-        <h2>Featured Dental News</h2>
-        <hr class="divider divider-lg bg-secondary">
-        <div class="range range-xs-center offset-top-60">
-          <div class="cell-sm-8 cell-md-5 cell-lg-3">
-            <!-- Post Modern-->
-            <article class="post post-modern post-modern-classic">
-              <!-- Post media-->
-              <header class="post-media"><a href="single-post.html"><%= image_tag "blog/post-01-443x280.jpg", width:'443', height:'280', class:'img-responsive img-cover' %></a></header>
-              <!-- Post content-->
-              <section class="post-content text-left">
-                <!-- Post Title-->
-                <div class="post-title offset-top-8">
-                  <h4 class="text-bold"><a href="single-post.html">First Signs of Gum Disease</a></h4>
-                </div>
-                <ul class="list-inline list-inline-dashed">
-                  <li>June 21, 2017 at 8:12pm</li>
-                  <li><a href="blog-masonry.html" class="text-secondary">Dental</a></li>
-                </ul>
-                <!-- Post Body-->
-                <div class="post-body">
-                  <p>Gums disease is preceded by few very distinct symptoms. One of these is when you spit out blood after brushing your teeth...</p>
-                </div>
-                <div class="tags group group-sm"><a href="#" class="btn-tag btn btn-secondary text-regular">Dental</a><a href="#" class="btn-tag btn btn-secondary text-regular">Gum</a><a href="#" class="btn-tag btn btn-secondary text-regular">Disease</a></div>
-              </section>
-            </article>
-          </div>
-          <div class="cell-sm-8 cell-md-5 cell-lg-3 offset-top-50 offset-md-top-0">
-            <!-- Post Modern-->
-            <article class="post post-modern post-modern-classic">
-              <!-- Post media-->
-              <header class="post-media"><a href="single-post.html"><%= image_tag "blog/post-02-442x285.jpg", width:'442', height:'285', class:'img-responsive img-cover' %></a></header>
-              <!-- Post content-->
-              <section class="post-content text-left">
-                <!-- Post Title-->
-                <div class="post-title offset-top-8">
-                  <h4 class="text-bold"><a href="single-post.html">Basic Dental Care</a></h4>
-                </div>
-                <ul class="list-inline list-inline-dashed">
-                  <li>June 21, 2017 at 8:12pm</li>
-                  <li><a href="blog-masonry.html" class="text-secondary">Dental</a></li>
-                </ul>
-                <!-- Post Body-->
-                <div class="post-body">
-                  <p>Americans oftentimes ignore some basic, daily routines of oral hygiene, that need to be upheld. Practicing healthy habits...</p>
-                </div>
-                <div class="tags group group-sm"><a href="#" class="btn-tag btn btn-secondary text-regular">Dental</a><a href="#" class="btn-tag btn btn-secondary text-regular">Care</a><a href="#" class="btn-tag btn btn-secondary text-regular">Hygiene</a></div>
-              </section>
-            </article>
-          </div>
-          <div class="cell-sm-8 cell-md-5 cell-lg-3 offset-top-50 offset-lg-top-0">
-            <!-- Post Modern-->
-            <article class="post post-modern post-modern-classic">
-              <!-- Post media-->
-              <header class="post-media"><a href="single-post.html"><%= image_tag "blog/post-03-443x285.jpg", width:'443', height:'285', class:'img-responsive img-cover' %></a></header>
-              <!-- Post content-->
-              <section class="post-content text-left">
-                <!-- Post Title-->
-                <div class="post-title offset-top-8">
-                  <h4 class="text-bold"><a href="single-post.html">Avoiding Bad Breath</a></h4>
-                </div>
-                <ul class="list-inline list-inline-dashed">
-                  <li>June 21, 2017 at 8:12pm</li>
-                  <li><a href="blog-masonry.html" class="text-secondary">Dental</a></li>
-                </ul>
-                <!-- Post Body-->
-                <div class="post-body">
-                  <p>Bad breath is a deal breaker both in business and in personal life of ours. And while breath fresheners or candies hide it, they do not cure the very problem at hand...</p>
-                </div>
-                <div class="tags group group-sm"><a href="#" class="btn-tag btn btn-secondary text-regular">Dental</a><a href="#" class="btn-tag btn btn-secondary text-regular">Hygiene</a><a href="#" class="btn-tag btn btn-secondary text-regular">Care</a></div>
-              </section>
-            </article>
-          </div>
-          <div class="cell-sm-8 cell-md-5 cell-lg-3 offset-top-50 offset-lg-top-0">
-            <!-- Post Modern-->
-            <article class="post post-modern post-modern-classic">
-              <!-- Post media-->
-              <header class="post-media"><a href="single-post.html"><%= image_tag "blog/post-04-442x285.jpg", width:'442', height:'285', class:'img-responsive img-cover' %></a></header>
-              <!-- Post content-->
-              <section class="post-content text-left">
-                <!-- Post Title-->
-                <div class="post-title offset-top-8">
-                  <h4 class="text-bold"><a href="single-post.html">Dry Mouth</a></h4>
-                </div>
-                <ul class="list-inline list-inline-dashed">
-                  <li>June 21, 2017 at 8:12pm</li>
-                  <li><a href="blog-masonry.html" class="text-secondary">Dental</a></li>
-                </ul>
-                <!-- Post Body-->
-                <div class="post-body">
-                  <p>With the pace of modern life keeping us busy all the time and the environment conditions in big cities worsening day to day, our oral hygiene is at risk. The dry mouth syndrome...</p>
-                </div>
-                <div class="tags group group-sm"><a href="#" class="btn-tag btn btn-secondary text-regular">Dental</a><a href="#" class="btn-tag btn btn-secondary text-regular">Care</a><a href="#" class="btn-tag btn btn-secondary text-regular">Dry</a></div>
-              </section>
-            </article>
-          </div>
-        </div>
-        <div class="offset-top-60"><a href="blog-grid.html" class="btn btn-ellipse btn-primary">View all blog posts</a></div>
-      </div>
-    </section>
     <!-- RD Parallax-->
     <section class="rd-parallax context-dark">
       <div data-speed="0.2" data-type="media" class="rd-parallax-layer"><%= image_tag "/assets/backgrounds/background-02-1920x800.jpg" %></div>
@@ -670,7 +528,3 @@
     <% end %>
   </main>
 </div>
-
-<!-- Java script-->
-<script src="assets/core.min.js"></script>
-<script src="assets/script.js"></script>
