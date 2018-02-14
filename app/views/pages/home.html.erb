@@ -156,13 +156,21 @@
                             selectdept.addEventListener("change", (event) => {
                               const city = document.getElementById("index-city");
                               const deptdept = document.getElementById("index-dept").value;
+                              const name = document.getElementById("index-doctor");
+                              while (name.firstChild) {
+                                  name.removeChild(name.firstChild);
+                                };
+
                               city.innerHTML = "";
+
+
 
                               fetch(`/citywithdept?dept=${deptdept}`)
                                 .then(response => response.json())
                                 .then((data) => {
                                   data.forEach((person) => {
                                   const item = `<option id="${person.city}" value="${person.city}">${person.city}</option>` ;
+
                                   city.insertAdjacentHTML("beforeend", item);
                                   });
                                 });
@@ -173,13 +181,17 @@
                               const boutton = document.getElementById("bouttonsearch");
                               const name = document.getElementById("index-doctor");
                               const citycity = document.getElementById("index-city").value;
+
                               name.innerHTML = "";
                               fetch(`/dentistwithcity?city=${citycity}`)
                                 .then(response => response.json())
                                 .then((data) => {
 
+                                  name.innerHTML="";
                                   data.forEach((person) => {
                                     const item = `<option value ="${person.id}">${person.first_name} ${person.last_name}</option>` ;
+
+
                                     name.insertAdjacentHTML("beforeend", item);
                                   });
                                 });
@@ -187,8 +199,9 @@
                                   boutton.removeChild(boutton.firstChild);
                                 };
                               boutton.insertAdjacentHTML("beforeend", '<button type="button" onclick="getOption3()" class="btn-fullwidth btn-ellipse btn btn-primary">Afficher</button>');
-                              });
                             name.innerHTML = "";
+                              });
+
                             });
                             function getOption3() {
                             const citycity = document.getElementById("index-city").value;
@@ -291,15 +304,15 @@
         <div class="range offset-top-60 text-md-left">
           <div class="cell-sm-6 cell-md-4">
 
-            <div class="service"><img src="assets/pages/home-01-320x320.jpg" width="320" height="320" alt="" class="img-responsive"/><a href="services.html" class="service-desc text-regular h5">En ville</a>
+            <div class="service"><%= image_tag "/assets/pages/home-01-320x320.jpg", width:'320', height:'320', class:'img-responsive' %><a href="services.html" class="service-desc text-regular h5">En ville</a>
             </div>
           </div>
           <div class="cell-sm-6 cell-md-4 offset-top-50 offset-sm-top-0">
-            <div class="service"><img src="assets/pages/home-02-320x320.jpg" width="320" height="320" alt="" class="img-responsive"/><a href="services.html" class="service-desc text-regular h5">En USOS</a>
+            <div class="service"><%= image_tag "/assets/pages/home-02-320x320.jpg", width:'320', height:'320', class:'img-responsive' %><a href="services.html" class="service-desc text-regular h5">En USOS</a>
             </div>
           </div>
           <div class="cell-sm-6 cell-md-4 offset-top-50 offset-md-top-0">
-            <div class="service"><img src="assets/pages/home-03-320x320.jpg" width="320" height="320" alt="" class="img-responsive"/><a href="services.html" class="service-desc text-regular h5">Sous anesthésie</a>
+            <div class="service"><%= image_tag "/assets/pages/home-03-320x320.jpg", width:'320', height:'320', class:'img-responsive' %><a href="services.html" class="service-desc text-regular h5">Sous anesthésie</a>
             </div>
           </div>
         </div>
@@ -352,7 +365,7 @@
             <div data-loop="false" data-items="1" data-md-items="3" data-margin="50" data-dots="true" data-mouse-drag="false" data-nav="false" class="owl-carousel owl-carousel-default owl-carousel-default-1 owl-carousel-class-light text-xs-left owl-dots-secondary">
               <div class="owl-item">
                 <div class="unit unit-inline unit-xl-horizontal unit-lg-horizontal unit-md-vertical unit-sm-horizontal unit-xs-horizontal unit-spacing-sm">
-                  <div class="unit-left"><img src="http://res.cloudinary.com/dz83jh064/image/upload/v1515666200/azryp7feos4992mqkngd.jpg" width="110" height="110" alt="" class="img-responsive"/>
+                  <%= image_tag "users/user-scott-riley-110x110.jpg", width:'110', height:'110', class:'unit-left img-responsive' %></div>
                   </div>
                   <div class="unit-body">
                     <h4 class="text-bold text-java">Scott Riley</h4>
@@ -477,7 +490,7 @@
     </section>
     <!-- RD Parallax-->
     <section class="rd-parallax context-dark">
-      <div data-speed="0.2" data-type="media" data-url="/assets/backgrounds/background-02-1920x800.jpg" class="rd-parallax-layer"></div>
+      <div data-speed="0.2" data-type="media" class="rd-parallax-layer"><%= image_tag "/assets/backgrounds/background-02-1920x800.jpg" %></div>
       <div data-speed="0" data-type="html" class="rd-parallax-layer">
         <div class="bg-overlay-light section-98 section-sm-160 context-dark">
           <div class="shell">
