@@ -12,13 +12,13 @@
               <div class="offset-top-30">
                 <form data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php" novalidate="novalidate" class="rd-mailform text-left">
                   <div class="form-group form-group-label-outside offset-top-20">
-                    <%= f.input :review_title , id:"contacts-last-name", type:"text", name:"Adresse", required: true, class: "form-control form-control-last-child" %>
+                    <%= f.input :review_title ,label: 'Donnez un titre à votre témoignage:', id:"contacts-last-name", type:"text", name:"Adresse", required: true, class: "form-control form-control-last-child" %>
                   </div>
                   <div class="form-group form-group-label-outside offset-top-20">
-                    <%= f.input :review_content , :as => :text, input_html: {style: 'max-height:1500px;'}, required: true, class: "form-control form-control-last-child" %>
+                    <%= f.input :review_content ,label: 'Votre témoignage:', :as => :text, input_html: {style: 'max-height:1500px;'}, required: true, class: "form-control form-control-last-child" %>
                   </div>
                   <div class="form-group form-group-label-outside offset-top-20">
-                    <%= f.input :rating, collection: 1..5, id:"contacts-last-name", type:"text", name:"Adresse", required: true, class: "form-control form-control-last-child" %>
+                    <%= f.input :rating, collection: 1..5,label: 'Evaluez nous de 1 à 5:', id:"contacts-last-name", type:"text", name:"Adresse", required: true, class: "form-control form-control-last-child" %>
                   </div>
                   <div class="offset-top-18 offset-sm-top-30 text-center text-sm-left">
                     <%= f.button :submit, class:"btn-fullwidth btn btn-ellipse btn-primary", style:"font-weight:bold", value:"Pubier mon témoignage" %>
