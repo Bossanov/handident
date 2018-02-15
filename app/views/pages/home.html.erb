@@ -47,7 +47,7 @@
         </div>
       </div>
       <div class="swiper-wrapper context-dark text-center">
-        <div id="page-loader" data-slide-bg="assets/backgrounds/background-02-1920x800.jpg" class="swiper-slide">
+        <div id="page-loader" data-slide-bg="http://res.cloudinary.com/dz83jh064/image/upload/v1518719627/background-02-1920x800_fq5nhi.jpg" class="swiper-slide">
           <div class="swiper-caption">
             <div class="swiper-slide-caption">
               <div class="shell shell-fullheight">
@@ -63,15 +63,15 @@
             </div>
           </div>
         </div>
-        <div data-slide-bg="assets/backgrounds/background-01-1920x800.jpg" class="swiper-slide">
+        <div data-slide-bg="http://res.cloudinary.com/dz83jh064/image/upload/v1518719677/background-01-1920x800_bc05hy.jpg" class="swiper-slide">
           <div class="swiper-caption">
             <div class="swiper-slide-caption">
               <div class="shell shell-fullheight">
                 <div class="range range-xs-middle range-xs-center range-md-left">
                   <div class="cell-md-7 section-41 section-sm-98 to-front">
                     <div class="text-md-left">
-                      <h2 class="text-bold">Solving Your Dental Health Problems</h2>
-                      <h4 class="text-regular veil reveal-md-block">We are committed to providing the highest quality of general dental care, cosmetic and implant dentistry, and excellent patient service in a friendly, efficient and caring environment.</h4><a><%= link_to 'Faire un don', pages_make_a_donation_path, class: 'btn btn-ellipse btn-white offset-top-14 offset-sm-top-41'%></a>
+                      <h2 class="text-bold">Faciliter l'accès aux soins</h2>
+                      <h4 class="text-regular veil reveal-md-block">Nous somme là pour évaluer le besoin dans le cadre d'une situation personnelle et proposer une orientation et une prise en charge adaptée aux besoins.</h4><a><%= link_to 'Faire un don', pages_make_a_donation_path, class: 'btn btn-ellipse btn-white offset-top-14 offset-sm-top-41'%></a>
                     </div>
                   </div>
                 </div>
@@ -79,15 +79,15 @@
             </div>
           </div>
         </div>
-        <div data-slide-bg="assets/backgrounds/background-03-1920x800.jpg" class="swiper-slide">
+        <div data-slide-bg="http://res.cloudinary.com/dz83jh064/image/upload/v1518719715/background-03-1920x800_vcz3da.jpg" class="swiper-slide">
           <div class="swiper-caption">
             <div class="swiper-slide-caption">
               <div class="shell shell-fullheight">
                 <div class="range range-xs-middle range-xs-center range-md-left">
                   <div class="cell-md-7 cell-lg-8 section-41 section-sm-98">
                     <div class="text-md-left">
-                      <h2 class="text-bold">20+ Years of Experience in Dental Care</h2>
-                      <h4 class="text-regular veil reveal-md-block">Our friendly and professional team of dentists and nurses uses the latest techniques and equipment to make your smile look as shiny as possible. We are passionate about what we do!</h4><a><%= link_to 'Faire un don', pages_make_a_donation_path, class: 'btn btn-ellipse btn-white offset-top-14 offset-sm-top-41'%></a>
+                      <h2 class="text-bold">Développer la prévention et le dépistage</h2>
+                      <h4 class="text-regular veil reveal-md-block">Un professionnel chirurgien-dentiste du réseau se déplace au sein de l'établissement pour évaluer l'état de l'hygiène buccodentaire et les besoins en soins de la personne.</h4><a><%= link_to 'Faire un don', pages_make_a_donation_path, class: 'btn btn-ellipse btn-white offset-top-14 offset-sm-top-41'%></a>
                     </div>
                   </div>
                 </div>
@@ -304,15 +304,15 @@
         <div class="range offset-top-60 text-md-left">
           <div class="cell-sm-6 cell-md-4">
 
-            <div class="service"><%= image_tag "/assets/pages/home-01-320x320.jpg", width:'320', height:'320', class:'img-responsive' %><a href="services.html" class="service-desc text-regular h5">En ville</a>
+            <div class="service"><%= image_tag "/assets/pages/home-01-320x320.jpg", width:'320', height:'320', class:'img-responsive' %><a <%= link_to 'En ville', pages_soins_path, class: 'service-desc text-regular h5'%></a>
             </div>
           </div>
           <div class="cell-sm-6 cell-md-4 offset-top-50 offset-sm-top-0">
-            <div class="service"><%= image_tag "/assets/pages/home-02-320x320.jpg", width:'320', height:'320', class:'img-responsive' %><a href="services.html" class="service-desc text-regular h5">En USOS</a>
+            <div class="service"><%= image_tag "/assets/pages/home-02-320x320.jpg", width:'320', height:'320', class:'img-responsive' %><a <%= link_to 'En USOS', pages_soins_path, class: 'service-desc text-regular h5'%></a>
             </div>
           </div>
           <div class="cell-sm-6 cell-md-4 offset-top-50 offset-md-top-0">
-            <div class="service"><%= image_tag "/assets/pages/home-03-320x320.jpg", width:'320', height:'320', class:'img-responsive' %><a href="services.html" class="service-desc text-regular h5">Sous anesthésie</a>
+            <div class="service"><%= image_tag "/assets/pages/home-03-320x320.jpg", width:'320', height:'320', class:'img-responsive' %><a <%= link_to 'Sous anesthésie', pages_soins_path, class: 'service-desc text-regular h5'%> ></a>
             </div>
           </div>
         </div>
@@ -340,7 +340,7 @@
                     <h4 class="text-bold"><%= link_to article.article_title.first(60) +" ...", profile_article_path(@profile, article)%></h4>
                   </div>
                   <ul class="list-inline list-inline-dashed">
-                    <li><%= article.created_at %></li>
+                    <li><%= article.created_at.strftime("%d.%m.%Y") %></li>
                     <li><a href="blog-masonry.html" class="text-secondary"><%= article.theme %></a></li>
                   </ul>
                   <!-- Post Body-->
