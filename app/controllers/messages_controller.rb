@@ -23,7 +23,7 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:message_title, :message_content, :message_photo, :message_photo_cache)
+    params.require(:message).permit(:message_title, :destinataire, :message_content, :message_photo, :message_photo_cache)
 
   end
 end

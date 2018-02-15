@@ -7,7 +7,7 @@
       <% result = [] %>
       <% @profiles.each do |pro| %>
         <% if pro.category == "Dentiste" %>
-          <% result << pro.last_name %>
+          <% result << "Dr #{pro.last_name} #{pro.first_name}" %>
         <% end %>
       <% end %>
         <form class="row" method="post">
@@ -23,7 +23,7 @@
             </div>
             <div class="col-sm-12">
               <div class="form-group">
-                <%= f.input :destinataire, collection: result,  class: "form-control" %>
+                <%= f.input :destinataire, collection: result.sort,  class: "form-control" %>
               </div>
             </div>
             <div class="col-sm-12">

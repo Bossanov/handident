@@ -1,0 +1,26 @@
+<% @profile = Profile.find_by_id(current_user.profile.id) %>
+
+<% @sort = Message.where(profile_id: @profile.id ) %>
+<% @entre = Message.where(destinataire: "Dr #{@profile.last_name} #{@profile.first_name}") %>
+
+
+<div>
+<% @sort.each do |mess| %>
+  <% pro = Profile.find_by_id(mess.profile_id) %>
+  <h2><%= mess.message_title %></h2>
+  <h1> Auteur = <%=pro.last_name%> <%=pro.first_name%></h1>
+  <p><%= mess.message_content %> </p>
+<% end %>
+</div>
+
+<div>
+
+  <% @entre.each do |mess| %>
+  <% pro = Profile.find_by_id(mess.profile_id) %>
+  <h2><%= mess.message_title %></h2>
+  <h1> Auteur = <%=pro.last_name%> <%=pro.first_name%></h1>
+  <p><%= mess.message_content %> </p>
+<% end %>
+</div>
+
+

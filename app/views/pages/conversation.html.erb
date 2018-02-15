@@ -1,0 +1,29 @@
+
+
+      <input type="submit" id="entre" value="Messages reçus" class="btn btn-ellipse btn-primary" style="margin: 0px;">
+      <input type="submit" id="sort" value="Messages envoyés" class="btn btn-ellipse btn-primary" style="margin: 0px;">
+
+
+<div id="choix">
+
+</div>
+
+<script>
+  const choice = document.getElementById("choix");
+  choice.innerHTML = "<%= j render 'shared/messagesall' %>";
+  const entre = document.getElementById("entre");
+  entre.addEventListener("click", (event) => {
+    const choice = document.getElementById("choix");
+    choice.innerHTML = "";
+    choice.innerHTML = "<%= j render 'shared/messagesentrants' %>";
+  });
+  const sort = document.getElementById("sort");
+  sort.addEventListener("click", (event) => {
+    const choice = document.getElementById("choix");
+    choice.innerHTML = "";
+    choice.innerHTML = "<%= j render 'shared/messagessortants' %>";
+  });
+
+
+</script>
+
