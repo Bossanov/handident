@@ -1,45 +1,61 @@
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 col-sm-offset-3">
-      <%= simple_form_for [@profile, @message] do |f| %>
-      <% @profiles = Profile.all %>
-      <% result = [] %>
-      <% @profiles.each do |pro| %>
-        <% if pro.category == "Dentiste" %>
-          <% result << "Dr #{pro.last_name} #{pro.first_name}" %>
-        <% end %>
-      <% end %>
-        <form class="row" method="post">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <%= f.input :message_title , class: "form-control" %>
+<div class="page text-center">
+      <!-- Page Content-->
+      <main class="page-content section-98 section-sm-110">
+        <!-- Contact us-->
+        <section class="offset-top-90 offset-md-top-130">
+          <%= simple_form_for [@profile, @message] do |f| %>
+            <% @profiles = Profile.all %>
+            <% result = [] %>
+            <% @profiles.each do |pro| %>
+              <% if pro.category == "Dentiste" %>
+                <% result << "Dr #{pro.last_name} #{pro.first_name}" %>
+              <% end %>
+            <% end %>
+            <div class="shell">
+              <div class="range range-xs-center range-lg-left">
+                <div class="cell-sm-8">
+                  <h4 class="text-md-left">Envoyer un message:</h4>
+                  <hr class="text-subline">
+                  <div class="offset-top-30">
+                    <form data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php" novalidate="novalidate" class="rd-mailform text-left">
+                      <div class="range range-xs-center">
+                        <div class="cell-sm-6">
+                          <div class="form-group form-group-label-outside">
+                            <%= f.input :message_title ,label:'Objet du message:', type:"text", name:"Prénom", required: true, class: "form-control form-control-last-child" %>
+                          </div>
+                          <div class="form-group form-group-label-outside offset-top-20">
+                            <%= f.input :message_content ,label:'Votre message:', :as => :text, input_html: {style: 'height:200px;'}, required: true, class: "form-control form-control-last-child" %>
+                          </div>
+                          <% if @message.destinataire %>
+                          <div class="form-group form-group-label-outside offset-top-20">
+                            <%= f.input :destinataire,label:'Destinataire:', required: true, collection: [@message.destinataire],  class: "form-control form-control-last-child" %>
+                          </div>
+                          <% else %>
+                          <div class="form-group form-group-label-outside offset-top-20">
+                            <%= f.input :destinataire, label:'Destinataire:', required: true, collection: result.sort,  class: "form-control form-control-last-child" %>
+                          </div>
+                        <% end %>
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <%= f.input :message_photo,label:'Pièce jointe:', class: "form-control"%>
+                        <%= f.input :message_photo_cache, as: :hidden %>
+                      </div>
+                    </div>
+                    <div class="offset-top-18 offset-sm-top-30 text-center text-sm-left">
+                      <button type="submit" style="min-width: 130px;" class="btn-fullwidth btn btn-ellipse btn-primary ">ENVOYER</button>
+                      <p><%= link_to 'Annuler', root_path(current_user.profile), class: 'btn-fullwidth btn btn-ellipse btn-white', style:"margin-top:20px"%></p>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
-            <div class="col-sm-12">
-              <div class="form-group">
-                <%= f.input :message_content , input_html: {style: 'height:200px;'}, class: "form-control" %>
-              </div>
-            </div>
-            <div class="col-sm-12">
-              <div class="form-group">
-                <%= f.input :destinataire, collection: result.sort,  class: "form-control" %>
-              </div>
-            </div>
-            <div class="col-sm-12">
-              <div class="form-group">
-                <%= f.input :message_photo, class: "form-control"%>
-                <%= f.input :message_photo_cache, as: :hidden %>
-              </div>
-            </div>
-          <div class="col-md-12 text-center padding-bottom-100">
-            <%= f.button :submit, class:"btn btn-primary" %>
-            <br>
-            <br>
           </div>
-        </form>
-      <% end %>
-    </div>
+        <% end %>
+      </section>
+    </main>
   </div>
-</div>
+
+
 

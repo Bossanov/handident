@@ -20,10 +20,17 @@ class MeetingsController < ApplicationController
     end
   end
 
+  def destroy
+    @meeting = Meeting.find(params[:id])
+    @meeting.destroy
+    redirect_to pages_demande_rdv_path
+  end
+
+
   private
 
 def meeting_params
-    params.require(:meeting).permit(:reason, :disponibility)
+    params.require(:meeting).permit(:reason, :disponibility, :destinataire)
 
   end
 end

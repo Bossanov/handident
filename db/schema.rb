@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180208150230) do
+ActiveRecord::Schema.define(version: 20180215155425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
     t.string "article_title"
-    t.string "article_content"
+    t.text "article_content"
     t.string "article_photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 20180208150230) do
     t.string "status"
     t.string "theme"
     t.index ["profile_id"], name: "index_articles_on_profile_id"
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "donations", force: :cascade do |t|
@@ -38,7 +45,7 @@ ActiveRecord::Schema.define(version: 20180208150230) do
 
   create_table "meetings", force: :cascade do |t|
     t.string "reason"
-    t.string "disponibility"
+    t.text "disponibility"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "profile_id"
@@ -54,6 +61,9 @@ ActiveRecord::Schema.define(version: 20180208150230) do
     t.datetime "updated_at", null: false
     t.string "destinataire"
     t.bigint "profile_id"
+    t.boolean "read", default: false
+    t.bigint "conversation_id"
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["profile_id"], name: "index_messages_on_profile_id"
   end
 
@@ -109,6 +119,7 @@ ActiveRecord::Schema.define(version: 20180208150230) do
   add_foreign_key "articles", "profiles"
   add_foreign_key "donations", "profiles"
   add_foreign_key "meetings", "profiles"
+  add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "profiles"
   add_foreign_key "profiles", "users"
   add_foreign_key "reviews", "profiles"

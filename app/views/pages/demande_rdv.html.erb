@@ -1,0 +1,60 @@
+
+<div class="page text-center">
+      <!-- Page Contents-->
+      <main class="page-content">
+        <!-- Masonry Blog-->
+        <div id="fb-root"></div>
+        <section class="section-98 section-sm-110">
+          <div class="shell">
+            <div class="range range-xs-center">
+              <div class="cell-md-10 cell-lg-8">
+
+                <h1>Mes demandes de rdv</h1>
+
+                <% @profile = Profile.find_by_id(current_user.profile.id) %>
+                <% @rdvs = Meeting.where(destinataire: "Dr #{@profile.last_name} #{@profile.first_name}") %>
+                <% if @rdvs == nil %>
+                  <h2> Pas de demande pour le moment </h2>
+                <% else %>
+                <% @rdvs.each do |rdv| %>
+                  <% pro = Profile.find_by_id(rdv.profile_id) %>
+
+
+
+                <div class="range range-xs-center" id="choicetheme">
+                  <div class="cell-sm-6">
+    <!-- Post Modern-->
+                    <article class="post post-modern post-modern-classic">
+      <!-- Post media-->
+                      <header class="post-media"><%= image_tag pro.photo, width:"370", height:"240", class:"img-responsive img-cover" %>
+                      </header>
+      <!-- Post content-->
+                      <section class="post-content text-left">
+        <!-- Post Title-->
+                        <div class="post-title offset-top-8">
+                          <h4 class="text-bold"> Patient: <%=pro.last_name%> <%=pro.first_name%>  </h4>
+                        </div>
+                        <ul class="list-inline list-inline-dashed">
+                          <li><%= rdv.created_at %></li>
+                          <li><a href="blog-masonry.html" class="text-secondary">Motif: <%=rdv.reason%></a></li>
+                        </ul>
+        <!-- Post Body-->
+                        <div class="post-body" style="margin-bottom: 30px;">
+                          <p>Disponibilités: <%= rdv.disponibility %></p>
+                        </div>
+                      </section>
+                    </article>
+                  </div>
+
+                </div>
+              <p><%= link_to 'Repondre', new_profile_message_path(@profile, destinataire: "#{pro.last_name} #{pro.first_name}"), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+
+              <% end %>
+            <% end %>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>

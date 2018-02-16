@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   def new
-    @message = Message.new
+    @message = Message.new(destinataire: params[:destinataire])
     @profile = current_user.profile
   end
 
