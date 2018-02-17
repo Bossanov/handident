@@ -16,7 +16,7 @@
             <p>L’association HANDIDENT s’est donné pour objectif de faciliter l’accès aux soins et à la prévention buccodentaires par la prévention, la formation ainsi que par la création de plusieurs Unités de Santé Orale Spécifique sur la région des HAUTS-De-France. Chaque personne quels que soient son handicap, son âge et sa condition sociale, doit pouvoir accéder et bénéficier de soins buccodentaires adaptés, à proximité de son lieu de résidence.</p>
             <p>Lorsque vous faites un don de 1 000 € vous avez en réalité un coût 400 € après la déduction fiscale de 60%.</p>
             <div class="offset-top-30">
-              <a href="team-member.html" class="btn-fullwidth btn btn-primary btn-ellipse" style="margin-top:20px; margin-bottom:20px">Je fais un don</a>
+              <%= link_to 'Je fais un don', new_profile_donation_path(current_user.id), class:"btn-fullwidth btn btn-primary btn-ellipse", style:"margin-top:20px; margin-bottom:20px" %>
             </div>
             <h3>Défiscalisation, le saviez-vous?</h3>
             <hr class="text-subline">
@@ -41,7 +41,7 @@
           <h3>Devenez partenaire</h3>
           <hr class="text-subline">
           <div class="offset-top-30">
-            <a href="team-member.html" class="btn-fullwidth btn btn-primary btn-ellipse" style="margin-top:20px">Je deviens partenaire</a>
+            <%= link_to 'Je deviens partenaire', contacts_path, class: 'btn-fullwidth btn btn-primary btn-ellipse', style:"margin-top:20px"%>
           </div>
         </div>
       </div>

@@ -39,7 +39,9 @@
 
 
                   <% end %>
-                  <p><%= link_to 'Voir les profils', profiles_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+                  <p><%= link_to 'Contacter ce dentsite', new_profile_message_path(@profile), class: 'btn-fullwidth btn-ellipse btn btn-white'%></p>
+                  <p><%= link_to 'Prendre rdv', new_profile_meeting_path(@profile), class: 'btn-fullwidth btn-ellipse btn btn-white'%></p>
+                  <p><%= link_to 'Voir les autres dentistes', profiles_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
                   <p><%= link_to 'Que pensez-vous de Handident?', profiles_path, class: 'btn-fullwidth btn-ellipse btn btn-primary' %></p>
               </div>
             <% else  %>

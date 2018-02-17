@@ -1,75 +1,58 @@
-<!-- Page-->
 <div class="page text-center">
-  <!-- Page Head-->
-  <header class="page-head rd-navbar-sidebar-toggle-wrap">
-    <!-- RD Navbar Transparent-->
-    <div class="rd-navbar-wrap" style="/* display: none; */">
-      <nav class="rd-navbar rd-navbar-sidebar-toggle rd-navbar-light rd-navbar-fixed " data-lg-auto-height="true" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-fixed" data-lg-stick-up="false" data-lg-hover-on="false">
-        <div class="rd-navbar-inner">
-          <!-- RD Navbar Panel-->
-          <div class="rd-navbar-panel">
-            <!-- RD Navbar Toggle-->
-            <button data-rd-navbar-toggle=".rd-navbar, .rd-navbar-nav-wrap" class="rd-navbar-toggle "><span></span></button>
-            <!-- RD Navbar Toggle-->
-            <button data-rd-navbar-toggle=".rd-navbar, .swiper-top-panel" class="rd-navbar-top-panel-toggle"><span></span></button>
-          </div>
-          <div class="rd-navbar-menu-wrap">
-            <div class="rd-navbar-nav-wrap ">
-              <div class="rd-navbar-mobile-scroll-holder">
-                <div class="rd-navbar-mobile-scroll">
-                  <!--Navbar Brand Mobile-->
-                  <div class="rd-navbar-mobile-brand"><a href="index.html"><img width="160" height="45" class="img-responsive" src="images/logo-dark.png" alt=""></a></div>
-                  <div class="form-search-wrap">
-                    <!-- RD Search Form-->
-                    <form action="search-results.html" method="GET" class="form-search rd-search">
-                      <div class="form-group">
-                        <label for="rd-navbar-form-search-widget" class="form-label form-search-label form-label-sm rd-input-label">Search</label>
-                        <input id="rd-navbar-form-search-widget" type="text" name="s" autocomplete="off" class="form-search-input form-control form-control-gray-lightest input-sm">
+      <!-- Page Content-->
+      <main class="page-content section-98 section-sm-110">
+        <!-- Contact us-->
+        <section class="offset-top-90 offset-md-top-130">
+          <%= simple_form_for [@profile, @message] do |f| %>
+            <% @profiles = Profile.all %>
+            <% result = [] %>
+            <% @profiles.each do |pro| %>
+              <% if pro.category == "Dentiste" %>
+                <% result << "Dr #{pro.last_name} #{pro.first_name}" %>
+              <% end %>
+            <% end %>
+            <div class="shell">
+              <div class="range range-xs-center range-lg-left">
+                <div class="cell-sm-8">
+                  <h4 class="text-md-left">Envoyer un message:</h4>
+                  <hr class="text-subline">
+                  <div class="offset-top-30">
+                    <form data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php" novalidate="novalidate" class="rd-mailform text-left">
+                      <div class="range range-xs-center">
+                        <div class="cell-sm-6">
+                          <div class="form-group form-group-label-outside">
+                            <%= f.input :message_title ,label:'Objet du message:', type:"text", name:"Prénom", required: true, class: "form-control form-control-last-child" %>
+                          </div>
+                          <div class="form-group form-group-label-outside offset-top-20">
+                            <%= f.input :message_content ,label:'Votre message:', :as => :text, input_html: {style: 'height:200px;'}, required: true, class: "form-control form-control-last-child" %>
+                          </div>
+                          <% if @message.destinataire %>
+                          <div class="form-group form-group-label-outside offset-top-20">
+                            <%= f.input :destinataire,label:'Destinataire:', required: true, collection: [@message.destinataire],  class: "form-control form-control-last-child" %>
+                          </div>
+                          <% else %>
+                          <div class="form-group form-group-label-outside offset-top-20">
+                            <%= f.input :destinataire, label:'Destinataire:', required: true, collection: result.sort,  class: "form-control form-control-last-child" %>
+                          </div>
+                        <% end %>
                       </div>
-                      <button type="submit" class="form-search-submit"><span class="fa fa-search text-primary"></span></button>
-                    </form>
-                  </div>
-                  <!-- RD Navbar Nav-->
-                  <ul class="rd-navbar-nav">
-                    <li class=""><a href="index.html"><span>Home</span></a>
-                    </li>
-                    <li><a href="about.html"><span>About</span></a>
-                    </li>
-                    <li><a href="our-team.html"><span>Team</span></a>
-                    </li>
-                    <li class="rd-navbar--has-dropdown rd-navbar-submenu"><a href="#"><span>Pages</span></a>
-                      <ul class="rd-navbar-dropdown rd-navbar-open-left">
-                        <li><a href="typography.html"><span class="rd-navbar-icon"></span><span class="text-middle">Typography</span></a></li>
-                        <li><a href="forms.html"><span class="rd-navbar-icon"></span><span class="text-middle">Forms</span></a></li>
-                        <li><a href="buttons.html"><span class="rd-navbar-icon"></span><span class="text-middle">Buttons</span></a></li>
-                      </ul>
-                    <span class="rd-navbar-submenu-toggle"></span></li>
-                    <li><a href="services.html"><span>Services</span></a>
-                    </li>
-                    <li><a href="departments.html"><span>Departments</span></a>
-                    </li>
-                    <li><a href="timetable.html"><span>Timetable</span></a>
-                    </li>
-                    <li class="rd-navbar--has-dropdown rd-navbar-submenu"><a href="blog-masonry.html"><span>Blog</span></a>
-                      <ul class="rd-navbar-dropdown rd-navbar-open-left">
-                        <li><a href="blog-masonry.html"><span class="text-middle">Masonry blog</span></a>
-                        </li>
-                        <li><a href="blog-modern.html"><span class="text-middle">Modern blog</span></a>
-                        </li>
-                        <li><a href="blog-classic.html"><span class="text-middle">Classic blog</span></a>
-                        </li>
-                      </ul>
-                    <span class="rd-navbar-submenu-toggle"></span></li>
-                    <li><a href="contacts.html"><span>Contacts</span></a>
-                    </li>
-                  </ul>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <%= f.input :message_photo,label:'Pièce jointe:', class: "form-control"%>
+                        <%= f.input :message_photo_cache, as: :hidden %>
+                      </div>
+                    </div>
+                    <div class="offset-top-18 offset-sm-top-30 text-center text-sm-left">
+                      <button type="submit" style="min-width: 130px;" class="btn-fullwidth btn btn-ellipse btn-primary ">ENVOYER</button>
+                      <p><%= link_to 'Annuler', root_path(current_user.profile), class: 'btn-fullwidth btn btn-ellipse btn-white', style:"margin-top:20px"%></p>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </nav>
-    </div>
-  </header>
-</div>
-
+        <% end %>
+      </section>
+    </main>
+  </div>
