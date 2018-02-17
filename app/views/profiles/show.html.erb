@@ -33,14 +33,16 @@
                     <p><%= link_to 'Voir mes demandes de Rdv', pages_demande_rdv_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
                     <p><%= link_to 'Envoyer un message ', new_profile_message_path(current_user.profile), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
 
-                    <% elsif current_user.present? && current_user.profile && @profile.id != current_user.profile.id %>
+                    <% elsif current_user.present? && current_user.profile && @profile.id != current_user.profile.id && @profile.category != "admin" %>
                     <p><%= link_to 'Lui envoyer un message', new_profile_message_path(current_user.profile,  destinataire: "#{@profile.last_name} #{@profile.first_name}"), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
                     <p><%= link_to 'Lui demander un rdv', new_profile_meeting_path(current_user.profile,destinataire: "#{@profile.last_name} #{@profile.first_name}"), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
 
+                    <% elsif current_user.present? && current_user.profile && @profile.id != current_user.profile.id && @profile.category == "admin"%>
+                    <p><%= link_to 'Lui envoyer un message', new_profile_message_path(current_user.profile,  destinataire: "#{@profile.last_name} #{@profile.first_name}"), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+
 
                   <% end %>
-                  <p><%= link_to 'Contacter ce dentsite', new_profile_message_path(@profile), class: 'btn-fullwidth btn-ellipse btn btn-white'%></p>
-                  <p><%= link_to 'Prendre rdv', new_profile_meeting_path(@profile), class: 'btn-fullwidth btn-ellipse btn btn-white'%></p>
+
                   <p><%= link_to 'Voir les autres dentistes', profiles_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
                   <p><%= link_to 'Que pensez-vous de Handident?', profiles_path, class: 'btn-fullwidth btn-ellipse btn btn-primary' %></p>
               </div>
