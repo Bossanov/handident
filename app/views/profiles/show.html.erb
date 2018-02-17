@@ -27,6 +27,16 @@
                   <% if current_user.present? && @profile.id == current_user.profile.id %>
                     <p><%= link_to 'éditer mon profil', edit_profile_path(@profile), class: 'btn-fullwidth btn btn-ellipse btn-white offset-sm-top-41 offset-top-41 offset-md-top-60'%></p>
                     <p><%= link_to 'Rédiger un article', new_profile_article_path(@profile), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+
+                    <p><%= link_to 'Voir mes messages', pages_conversation_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+                    <p><%= link_to 'Voir mes demandes de Rdv', pages_demande_rdv_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+                    <p><%= link_to 'Envoyer un message ', new_profile_message_path(current_user.profile), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+
+                    <% elsif current_user.present? && current_user.profile && @profile.id != current_user.profile.id %>
+                    <p><%= link_to 'Lui envoyer un message', new_profile_message_path(current_user.profile,  destinataire: "#{@profile.last_name} #{@profile.first_name}"), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+                    <p><%= link_to 'Lui demander un rdv', new_profile_meeting_path(current_user.profile,destinataire: "#{@profile.last_name} #{@profile.first_name}"), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+
+
                   <% end %>
                   <p><%= link_to 'Voir les profils', profiles_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
                   <p><%= link_to 'Que pensez-vous de Handident?', profiles_path, class: 'btn-fullwidth btn-ellipse btn btn-primary' %></p>
@@ -38,7 +48,16 @@
                   <% if current_user.present? && @profile.id == current_user.profile.id %>
                     <p><%= link_to 'éditer mon profil', edit_profile_path(@profile), class: 'btn-fullwidth btn btn-ellipse btn-white offset-sm-top-41 offset-top-41 offset-md-top-60'%></p>
                     <p><%= link_to 'Rédiger un article', new_profile_article_path(@profile), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+                     <p><%= link_to 'Voir mes messages', pages_conversation_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+                    <p><%= link_to 'Voir mes demandes de Rdv', pages_demande_rdv_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+                    <p><%= link_to 'Envoyer un message ', new_profile_message_path(current_user.profile), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+
+                  <% elsif current_user.present? && current_user.profile && @profile.id != current_user.profile.id %>
+                    <p><%= link_to 'Lui envoyer un message', new_profile_message_path(current_user.profile, destinataire: "#{@profile.last_name} #{@profile.first_name}"), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+                    <p><%= link_to 'Lui demander un rdv', new_profile_meeting_path(current_user.profile,destinataire: "#{@profile.last_name} #{@profile.first_name}"), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+
                   <% end %>
+
                   <p><%= link_to 'Voir les profils', profiles_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
                   <p><%= link_to 'Que pensez-vous de Handident?', new_profile_review_path(:profile_id), class: 'btn-fullwidth btn-ellipse btn btn-primary' %></p>
               </div>

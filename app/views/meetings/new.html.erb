@@ -8,7 +8,7 @@
             <% result = [] %>
             <% @profiles.each do |pro| %>
               <% if pro.category == "Dentiste" %>
-                <% result << "Dr #{pro.last_name} #{pro.first_name}" %>
+                <% result << "#{pro.last_name} #{pro.first_name}" %>
               <% end %>
             <% end %>
             <div class="shell">
@@ -26,9 +26,15 @@
                           <div class="form-group form-group-label-outside offset-top-20">
                             <%= f.input :disponibility ,label:'Vos disponibilités:',  input_html: {style: 'height:150px;'}, required: true, :as => :text,  class: "form-control form-control-last-child" %>
                           </div>
+                          <% if @meeting.destinataire %>
                           <div class="form-group form-group-label-outside offset-top-20">
-                            <%= f.input :destinataire, label:'Sélectionnez le dentiste:', required: true, collection: result.sort,  class: "form-control form-control-last-child" %>
+                            <%= f.input :destinataire,label:'Destinataire:', required: true, collection: [@meeting.destinataire],  class: "form-control form-control-last-child" %>
                           </div>
+                          <% else %>
+                          <div class="form-group form-group-label-outside offset-top-20">
+                            <%= f.input :destinataire, label:'Destinataire:', required: true, collection: result.sort,  class: "form-control form-control-last-child" %>
+                          </div>
+                          <% end %>
                       </div>
                     </div>
                     <div class="offset-top-18 offset-sm-top-30 text-center text-sm-left">

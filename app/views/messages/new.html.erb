@@ -8,7 +8,7 @@
             <% result = [] %>
             <% @profiles.each do |pro| %>
               <% if pro.category == "Dentiste" %>
-                <% result << "Dr #{pro.last_name} #{pro.first_name}" %>
+                <% result << "#{pro.last_name} #{pro.first_name}" %>
               <% end %>
             <% end %>
             <div class="shell">
