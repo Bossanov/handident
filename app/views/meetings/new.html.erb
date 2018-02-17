@@ -30,14 +30,14 @@
                           </div>
                         </div>
                         <div class="cell-sm-6 offset-top-20 offset-sm-top-0">
-                          
+
 
                           <% if @meeting.destinataire %>
-                          <div class="form-group form-group-label-outside offset-top-20">
+                          <div class="form-group form-group-label-outside ">
                             <%= f.input :destinataire,label:'Destinataire:', required: true, collection: [@meeting.destinataire],  class: "form-control form-control-last-child" %>
                           </div>
                           <% else %>
-                          <div class="form-group form-group-label-outside offset-top-20">
+                          <div class="form-group form-group-label-outside ">
                             <%= f.input :destinataire, label:'Destinataire:', required: true, collection: result.sort,  class: "form-control form-control-last-child" %>
                           </div>
                           <% end %>
@@ -52,7 +52,7 @@
 
                       <div class="offset-top-18 offset-sm-top-24 text-center text-sm-left">
                         <div class="group-lg offset-top-20 offset-md-top-30">
-                          <button type="submit" style="min-width: 130px;" class="btn btn-lg btn-ellipse btn-primary">send message</button>
+                          <button type="submit" style="min-width: 130px;" class="btn btn-lg btn-ellipse btn-primary">ENVOYER</button>
                           <p><%= link_to 'Annuler', root_path, class: 'btn btn-lg btn-ellipse btn-white', style:"margin-top:20px"%></p>
                         </div>
                       </div>
