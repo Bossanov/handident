@@ -8,12 +8,13 @@
         <ul class="list-inline list-inline-arrows p offset-top-34 offset-md-top-70">
           <li> <%= link_to 'Home', root_path %> </li>
           <li> <%= link_to 'Liste', profiles_path %> </li>
-          <li> Membre depuis <%= @profile.created_at.strftime("%m/%Y") %> </li>
+          <li>Membre depuis <%= @profile.created_at.strftime("%m/%Y") %> </li>
         </ul>
       </div>
     </section>
   </div>
   <!-- Page Content-->
+
   <main class="page-content">
     <!-- team member section-->
     <section class="section-98 section-sm-top-34 section-sm-bottom-110">
@@ -27,6 +28,16 @@
                   <% if current_user.present? && @profile.id == current_user.profile.id %>
                     <p><%= link_to 'éditer mon profil', edit_profile_path(@profile), class: 'btn-fullwidth btn btn-ellipse btn-white offset-sm-top-41 offset-top-41 offset-md-top-60'%></p>
                     <p><%= link_to 'Rédiger un article', new_profile_article_path(@profile), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+
+                    <p><%= link_to 'Voir mes messages', pages_conversation_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+                    <p><%= link_to 'Voir mes demandes de Rdv', pages_demande_rdv_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+                    <p><%= link_to 'Envoyer un message ', new_profile_message_path(current_user.profile), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+
+                    <% elsif current_user.present? && current_user.profile && @profile.id != current_user.profile.id %>
+                    <p><%= link_to 'Lui envoyer un message', new_profile_message_path(current_user.profile,  destinataire: "#{@profile.last_name} #{@profile.first_name}"), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+                    <p><%= link_to 'Lui demander un rdv', new_profile_meeting_path(current_user.profile,destinataire: "#{@profile.last_name} #{@profile.first_name}"), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+
+
                   <% end %>
                   <p><%= link_to 'Contacter ce dentsite', new_profile_message_path(@profile), class: 'btn-fullwidth btn-ellipse btn btn-white'%></p>
                   <p><%= link_to 'Prendre rdv', new_profile_meeting_path(@profile), class: 'btn-fullwidth btn-ellipse btn btn-white'%></p>
@@ -40,7 +51,16 @@
                   <% if current_user.present? && @profile.id == current_user.profile.id %>
                     <p><%= link_to 'éditer mon profil', edit_profile_path(@profile), class: 'btn-fullwidth btn btn-ellipse btn-white offset-sm-top-41 offset-top-41 offset-md-top-60'%></p>
                     <p><%= link_to 'Rédiger un article', new_profile_article_path(@profile), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+                     <p><%= link_to 'Voir mes messages', pages_conversation_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+                    <p><%= link_to 'Voir mes demandes de Rdv', pages_demande_rdv_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+                    <p><%= link_to 'Envoyer un message ', new_profile_message_path(current_user.profile), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+
+                  <% elsif current_user.present? && current_user.profile && @profile.id != current_user.profile.id %>
+                    <p><%= link_to 'Lui envoyer un message', new_profile_message_path(current_user.profile, destinataire: "#{@profile.last_name} #{@profile.first_name}"), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+                    <p><%= link_to 'Lui demander un rdv', new_profile_meeting_path(current_user.profile,destinataire: "#{@profile.last_name} #{@profile.first_name}"), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+
                   <% end %>
+
                   <p><%= link_to 'Voir les profils', profiles_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
                   <p><%= link_to 'Que pensez-vous de Handident?', new_profile_review_path(:profile_id), class: 'btn-fullwidth btn-ellipse btn btn-primary' %></p>
               </div>

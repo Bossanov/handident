@@ -1,6 +1,6 @@
 class MeetingsController < ApplicationController
   def new
-    @meeting = Meeting.new
+    @meeting = Meeting.new(destinataire: params[:destinataire])
     @profile = current_user.profile
   end
 

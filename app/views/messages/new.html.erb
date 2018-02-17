@@ -1,5 +1,6 @@
 <!-- Page-->
 <div class="page text-center">
+
   <!-- Page Content-->
   <main class="page-content section-top-98 section-sm-top-110">
     <!-- Get In Touch-->
@@ -18,9 +19,10 @@
                       <% result = [] %>
                       <% @profiles.each do |pro| %>
                         <% if pro.category == "Dentiste" %>
-                          <% result << "Dr #{pro.last_name} #{pro.first_name}" %>
+                          <% result << "#{pro.last_name} #{pro.first_name}" %>
                         <% end %>
                       <% end %>
+
                       <div class="range range-xs-center">
                         <div class="cell-sm-6">
                           <div class="form-group form-group-label-outside">

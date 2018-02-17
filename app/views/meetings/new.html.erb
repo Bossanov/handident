@@ -1,5 +1,6 @@
 <!-- Page-->
 <div class="page text-center">
+
   <!-- Page Content-->
   <main class="page-content section-top-98 section-sm-top-110">
     <!-- Get In Touch-->
@@ -18,9 +19,10 @@
                       <% result = [] %>
                       <% @profiles.each do |pro| %>
                         <% if pro.category == "Dentiste" %>
-                          <% result << "Dr #{pro.last_name} #{pro.first_name}" %>
+                          <% result << "#{pro.last_name} #{pro.first_name}" %>
                         <% end %>
                       <% end %>
+
                       <div class="range range-xs-center">
                         <div class="cell-sm-6">
                           <div class="form-group form-group-label-outside">
@@ -28,9 +30,18 @@
                           </div>
                         </div>
                         <div class="cell-sm-6 offset-top-20 offset-sm-top-0">
-                          <div class="form-group form-group-label-outside ">
-                            <%= f.input :destinataire, label:'Sélectionnez le dentiste:', required: true, collection: result.sort,  class: "form-control form-control-last-child" %>
+                          
+
+                          <% if @meeting.destinataire %>
+                          <div class="form-group form-group-label-outside offset-top-20">
+                            <%= f.input :destinataire,label:'Destinataire:', required: true, collection: [@meeting.destinataire],  class: "form-control form-control-last-child" %>
                           </div>
+                          <% else %>
+                          <div class="form-group form-group-label-outside offset-top-20">
+                            <%= f.input :destinataire, label:'Destinataire:', required: true, collection: result.sort,  class: "form-control form-control-last-child" %>
+                          </div>
+                          <% end %>
+
                         </div>
                         <div class="cell-xs-12">
                           <div class="form-group form-group-label-outside offset-top-20">
@@ -71,6 +82,7 @@
                         <div class="unit-body">
                           <p><a class="text-gray-dark" style="text-decoration: none;">10 rue du Petit Boulevard BP 20127<br>59653 Villeneuve d'Ascq Cedex</a></p>
                         </div>
+
                       </div>
                     </div>
                   </div>

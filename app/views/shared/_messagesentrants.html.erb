@@ -1,5 +1,5 @@
 <% @profile = Profile.find_by_id(current_user.profile.id) %>
-<% @entre = Message.where(destinataire: "Dr #{@profile.last_name} #{@profile.first_name}") %>
+<% @entre = Message.where(destinataire: "#{@profile.last_name} #{@profile.first_name}") %>
 <% @entre.each do |mess| %>
   <% pro = Profile.find_by_id(mess.profile_id) %>
 
