@@ -42,6 +42,4 @@ gem 'jquery-rails'
 
 
 
-gem 'rails-jquery-autocomplete'
-gem 'rspec-rails'
-gem "puma_worker_killer"
+
