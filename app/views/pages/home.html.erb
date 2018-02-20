@@ -109,44 +109,23 @@
                       <div class="form-group form-group-label-outside">
                         <label for="index-name" class="form-label form-label-outside rd-input-label text-white-06">Département</label>
                         <div class="select2-whitout-border shadow-drop-md">
-                          <% @profiles = Profile.all %>
-                          <% result = [] %>
-                          <% @profiles.each do |pro| %>
-                            <% if pro.category == "Dentiste" %>
-                              <% until result.include?(pro.departement) %>
-                                <% result << pro.departement %>
-                              <% end %>
-                            <% end %>
-                          <% end %>
+
 
                           <select id="index-dept" data-minimum-results-for-search="Infinity" class="form-control", style="background-color: white">
                             <option value=""><%= %></option>
-                            <% excl_nil_result = result.reject{|s| s.to_s == ''}  %>
-                            <% if excl_nil_result[0].nil?  %>
-                            <% else  %>
-                              <% excl_nil_result = excl_nil_result.sort %>
-                              <% excl_nil_result.each do |dept| %>
-                                <% if dept == "Aisne" %>
-                                  <% @valuedept = "Aisne" %>
-                                  <option value="Aisne"><%= dept %></option>
-                                  <% elsif dept == "Nord" %>
-                                  <% @valuedept = "Nord" %>
-                                  <option value="Nord"><%= dept %></option>
-                                  <% elsif dept == "Oise" %>
-                                  <% @valuedept = "Oise" %>
-                                  <option value="Oise"><%= dept %></option>
-                                  <% elsif dept == "Pas-de-Calais" %>
-                                  <% @valuedept = "Pas-de-Calais" %>
-                                  <option value="Pas-de-Calais"><%= dept %></option>
-                                  <% elsif dept == "Somme" %>
-                                  <% @valuedept = "Somme" %>
-                                  <option value="Somme"><%= dept %></option>
-                                  <% else %>
-                                  <% @valuedept = 0 %>
-                                  <option value=""><%= dept %></option>
-                                <% end %>
-                              <% end %>
-                            <% end  %>
+
+                                  <option value="Aisne">Aisne</option>
+
+                                  <option value="Nord">Nord</option>
+
+                                  <option value="Oise">Oise</option>
+
+                                  <option value="Pas-de-Calais">Pas-de-Caais</option>
+
+                                  <option value="Somme">Somme</option>
+
+
+
                           </select>
 
 
