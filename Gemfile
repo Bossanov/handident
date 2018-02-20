@@ -38,6 +38,10 @@ group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
 end
-
 gem 'jquery-rails'
 
+
+
+gem 'rails-jquery-autocomplete'
+gem 'rspec-rails'
+gem "puma_worker_killer"

@@ -1,58 +1,51 @@
+    <!-- Page-->
 <div class="page text-center">
-      <!-- Page Content-->
-      <main class="page-content section-98 section-sm-110">
-        <!-- Contact us-->
-        <section class="offset-top-90 offset-md-top-130">
-          <%= simple_form_for [@profile, @message] do |f| %>
-            <% @profiles = Profile.all %>
-            <% result = [] %>
-            <% @profiles.each do |pro| %>
-              <% if pro.category == "Dentiste" %>
-                <% result << "Dr #{pro.last_name} #{pro.first_name}" %>
-              <% end %>
-            <% end %>
-            <div class="shell">
-              <div class="range range-xs-center range-lg-left">
-                <div class="cell-sm-8">
-                  <h4 class="text-md-left">Envoyer un message:</h4>
-                  <hr class="text-subline">
-                  <div class="offset-top-30">
-                    <form data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php" novalidate="novalidate" class="rd-mailform text-left">
-                      <div class="range range-xs-center">
-                        <div class="cell-sm-6">
-                          <div class="form-group form-group-label-outside">
-                            <%= f.input :message_title ,label:'Objet du message:', type:"text", name:"Prénom", required: true, class: "form-control form-control-last-child" %>
-                          </div>
-                          <div class="form-group form-group-label-outside offset-top-20">
-                            <%= f.input :message_content ,label:'Votre message:', :as => :text, input_html: {style: 'height:200px;'}, required: true, class: "form-control form-control-last-child" %>
-                          </div>
-                          <% if @message.destinataire %>
-                          <div class="form-group form-group-label-outside offset-top-20">
-                            <%= f.input :destinataire,label:'Destinataire:', required: true, collection: [@message.destinataire],  class: "form-control form-control-last-child" %>
-                          </div>
-                          <% else %>
-                          <div class="form-group form-group-label-outside offset-top-20">
-                            <%= f.input :destinataire, label:'Destinataire:', required: true, collection: result.sort,  class: "form-control form-control-last-child" %>
-                          </div>
-                        <% end %>
-                      </div>
-                    </div>
-                    <div class="col-sm-12">
-                      <div class="form-group">
-                        <%= f.input :message_photo,label:'Pièce jointe:', class: "form-control"%>
-                        <%= f.input :message_photo_cache, as: :hidden %>
-                      </div>
-                    </div>
-                    <div class="offset-top-18 offset-sm-top-30 text-center text-sm-left">
-                      <button type="submit" style="min-width: 130px;" class="btn-fullwidth btn btn-ellipse btn-primary ">ENVOYER</button>
-                      <p><%= link_to 'Annuler', root_path(current_user.profile), class: 'btn-fullwidth btn btn-ellipse btn-white', style:"margin-top:20px"%></p>
-                    </div>
-                  </form>
+  <!-- Page Head-->
+  <header class="page-head rd-navbar-sidebar-toggle-wrap">
+    <!-- RD Navbar Transparent-->
+    <div class="rd-navbar-wrap">
+      <nav class="rd-navbar rd-navbar-sidebar-toggle rd-navbar-light rd-navbar-fixed active" data-lg-auto-height="true" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-fixed" data-lg-stick-up="false" data-lg-hover-on="false">
+        <div class="rd-navbar-inner">
+          <!-- RD Navbar Panel-->
+          <div class="rd-navbar-panel">
+            <!-- RD Navbar Toggle-->
+            <button data-rd-navbar-toggle=".rd-navbar, .rd-navbar-nav-wrap" class="rd-navbar-toggle"><span></span></button>
+            <!-- RD Navbar Toggle-->
+            <button data-rd-navbar-toggle=".rd-navbar, .swiper-top-panel" class="rd-navbar-top-panel-toggle"><span></span></button>
+          </div>
+          <div class="rd-navbar-menu-wrap">
+            <div class="rd-navbar-nav-wrap">
+              <div class="rd-navbar-mobile-scroll-holder">
+                <div class="rd-navbar-mobile-scroll">
+                  <!--Navbar Brand Mobile-->
+                  <div class="rd-navbar-mobile-brand"><a href="index.html"><img width='160' height='45' class='img-responsive' src='images/logo-dark.png' alt=''/></a></div>
+                  <div class="form-search-wrap">
+
+                  </div>
+                  <!-- RD Navbar Nav-->
+                  <ul class="rd-navbar-nav">
+                    <li class="active"><a href="index.html"><span>Home</span></a>
+                    </li>
+                    <li><a href="about.html"><span>About</span></a>
+                    </li>
+                    <li><a href="our-team.html"><span>Team</span></a>
+                    </li>
+                    <li><a href="#"><span>Pages</span></a>
+                      <ul class="rd-navbar-dropdown">
+                        <li><a href="typography.html"><span class="rd-navbar-icon"></span><span class="text-middle">Typography</span></a></li>
+                        <li><a href="forms.html"><span class="rd-navbar-icon"></span><span class="text-middle">Forms</span></a></li>
+                        <li><a href="tabs-and-accordions.html"><span class="rd-navbar-icon"></span><span class="text-middle">Tabs &amp; Accordions</span></a></li>
+                        <li><a href="infographics.html"><span class="rd-navbar-icon"></span><span class="text-middle">Progress Bars</span></a></li>
+                      </ul>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
-        <% end %>
-      </section>
-    </main>
-  </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+</div>
+
