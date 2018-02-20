@@ -10,7 +10,7 @@ gem 'redis'
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
 gem 'autoprefixer-rails'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.3.7'
 gem 'font-awesome-sass'
 gem 'sass-rails'
 gem 'simple_form'
@@ -41,5 +41,5 @@ end
 gem 'jquery-rails'
 
 
-
+gem 'derailed', group: :development
 
