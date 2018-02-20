@@ -14,7 +14,6 @@
                 <hr class="divider divider-lg bg-secondary hr-left-0 hr-sm-left-2">
                 <div class="offset-top-34">
                   <form data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php" novalidate="novalidate" class="rd-mailform text-left">
-                    <%= simple_form_for [@profile, @message] do |f| %>
                       <% @profiles = Profile.all %>
                       <% result = [] %>
                       <% @profiles.each do |pro| %>
@@ -22,6 +21,7 @@
                           <% result << "#{pro.last_name} #{pro.first_name}" %>
                         <% end %>
                       <% end %>
+                    <%= simple_form_for [@profile, @message] do |f| %>
 
                       <div class="range range-xs-center">
                         <div class="cell-sm-6">
@@ -46,11 +46,11 @@
                           </div>
                         </div>
                       </div>
-                      <div class="col-sm-12">
+
                         <div class="form-group">
                           <%= f.input :message_photo,label:'Pièce jointe:', class: "form-control"%>
                           <%= f.input :message_photo_cache, as: :hidden %>
-                        </div>
+
                       </div>
                       <div class="offset-top-18 offset-sm-top-24 text-center text-sm-left">
                         <div class="group-lg offset-top-20 offset-md-top-30">
