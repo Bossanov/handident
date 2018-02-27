@@ -13,7 +13,8 @@
                 <h2>Contactez le dentiste de votre choix</h2>
                 <hr class="divider divider-lg bg-secondary hr-left-0 hr-sm-left-2">
                 <div class="offset-top-34">
-                  <form data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php" novalidate="novalidate" class="rd-mailform text-left">
+                  <%= simple_form_for [@profile, @message] do |f| %>
+                    <form data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php" novalidate="novalidate" class="rd-mailform text-left">
                       <% @profiles = Profile.all %>
                       <% result = [] %>
                       <% @profiles.each do |pro| %>
@@ -21,7 +22,6 @@
                           <% result << "#{pro.last_name} #{pro.first_name}" %>
                         <% end %>
                       <% end %>
-                    <%= simple_form_for [@profile, @message] do |f| %>
 
                       <div class="range range-xs-center">
                         <div class="cell-sm-6">
@@ -52,12 +52,12 @@
                       </div>
                       <div class="offset-top-18 offset-sm-top-24 text-center text-sm-left">
                         <div class="group-lg offset-top-20 offset-md-top-30">
-                          <button type="submit" style="min-width: 130px;" class="btn btn-lg btn-ellipse btn-primary">ENVOYER</button>
+                          <%= f.button :submit, class:"btn btn-lg btn-ellipse btn-primary", style:"min-width: 130px; font-weight:bold", value:"Envoyer mon message" %>
                           <p><%= link_to 'Annuler', root_path, class: 'btn btn-lg btn-ellipse btn-white', style:"margin-top:20px"%></p>
                         </div>
                       </div>
-                    <% end %>
-                  </form>
+                    </form>
+                  <% end %>
                 </div>
               </div>
               <div class="cell-lg-4 text-left offset-top-66 offset-lg-top-0">

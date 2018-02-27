@@ -28,23 +28,18 @@
                   <% if current_user.present? && @profile.id == current_user.profile.id %>
                     <p><%= link_to 'éditer mon profil', edit_profile_path(@profile), class: 'btn-fullwidth btn btn-ellipse btn-white offset-sm-top-41 offset-top-41 offset-md-top-60'%></p>
                     <p><%= link_to 'Rédiger un article', new_profile_article_path(@profile), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
-
                     <p><%= link_to 'Voir mes messages', pages_conversation_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
                     <p><%= link_to 'Voir mes demandes de Rdv', pages_demande_rdv_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
                     <p><%= link_to 'Envoyer un message ', new_profile_message_path(current_user.profile), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
-
-                    <% elsif current_user.present? && current_user.profile && @profile.id != current_user.profile.id && @profile.category != "admin" %>
+                  <% elsif current_user.present? && current_user.profile && @profile.id != current_user.profile.id && @profile.category != "admin" %>
                     <p><%= link_to 'Lui envoyer un message', new_profile_message_path(current_user.profile,  destinataire: "#{@profile.last_name} #{@profile.first_name}"), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
                     <p><%= link_to 'Lui demander un rdv', new_profile_meeting_path(current_user.profile,destinataire: "#{@profile.last_name} #{@profile.first_name}"), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
-
-                    <% elsif current_user.present? && current_user.profile && @profile.id != current_user.profile.id && @profile.category == "admin"%>
+                  <% elsif current_user.present? && current_user.profile && @profile.id != current_user.profile.id && @profile.category == "admin"%>
                     <p><%= link_to 'Lui envoyer un message', new_profile_message_path(current_user.profile,  destinataire: "#{@profile.last_name} #{@profile.first_name}"), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
-
-
                   <% end %>
 
                   <p><%= link_to 'Voir les autres dentistes', profiles_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
-                  <p><%= link_to 'Que pensez-vous de Handident?', profiles_path, class: 'btn-fullwidth btn-ellipse btn btn-primary' %></p>
+                  <p><%= link_to 'Que pensez-vous de Handident?', new_profile_review_path(:profile_id), class: 'btn-fullwidth btn-ellipse btn btn-primary' %></p>
               </div>
             <% else  %>
               <div class="member-block-type-5 inset-md-right-20"><%= cl_image_tag @profile.photo, width:"320", height: "320", alt:"", class:"img-responsive center-block" %> <!-- options available with cloudinary crop: :thumb, gravity: :face -->
@@ -133,7 +128,7 @@
                         <h4 class="text-bold"><a href="<%= profile_article_path(@profile, article)%>"><%= article.article_title %></a></h4>
                       </div>
                       <ul class="list-inline list-inline-dashed">
-                        <li><%= article.created_at %></li>
+                        <li><%= article.created_at.strftime("%d.%m.%Y") %></li>
                         <li><a href="#" class="text-secondary">Healthy Lifestyle</a></li>
                       </ul>
                       <!-- Post Body-->
@@ -149,7 +144,7 @@
                 </div>
               <% end %>
             <% end  %>
-          </div><a <%= link_to 'Voir tous les articles', pages_all_articles_categories_path, class: 'btn btn-ellipse btn-primary offset-top-41 offset-md-top-60'%></a>
+          </div><a <%= link_to 'Voir tous les articles', articles_all_path, class: 'btn btn-ellipse btn-primary offset-top-41 offset-md-top-60'%></a>
         </div>
       </div>
     </section>

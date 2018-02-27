@@ -127,11 +127,9 @@
     </div>
     <!-- Modern Breadcrumbs-->
     <section class="breadcrumb-modern context-dark text-md-left">
-      <div class="shell section-34 section-md-top-160 section-md-bottom-41">
+      <div class="shell section-34 section-md-top-200 section-md-bottom-41">
         <% if current_page?(pages_about_path) %>
           <h1 class="text-regular">A propos</h1>
-        <% elsif current_page?(pages_all_articles_categories_path) %>
-          <h1 class="text-regular">Les articles</h1>
         <% elsif current_page?(profiles_path) %>
           <h1 class="text-regular">Les dentistes partenaires</h1>
         <% elsif current_page?(pages_formation_path) %>
@@ -146,8 +144,10 @@
           <h1 class="text-regular">Contactez-nous !</h1>
         <% elsif current_page?(pages_soins_path) %>
           <h1 class="text-regular">Améliorer l'offre de soins</h1>
+        <% elsif current_page?(articles_all_path) %>
+          <h1 class="text-regular">Tous les articles</h1>
         <% else  %>
-          <h1 class="text-regular">Titre à Changer</h1>
+          <h1 class="text-regular"></h1>
         <% end  %>
       </div>
     </section>
