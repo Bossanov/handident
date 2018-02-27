@@ -13,16 +13,15 @@
                 <h2>Envoyer une demande de rdv au dentiste de votre choix</h2>
                 <hr class="divider divider-lg bg-secondary hr-left-0 hr-sm-left-2">
                 <div class="offset-top-34">
-                  <form data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php" novalidate="novalidate" class="rd-mailform text-left">
-                    <%= simple_form_for [@profile, @meeting] do |f| %>
-                      <% @profiles = Profile.all %>
-                      <% result = [] %>
-                      <% @profiles.each do |pro| %>
-                        <% if pro.category == "Dentiste" %>
-                          <% result << "#{pro.last_name} #{pro.first_name}" %>
-                        <% end %>
+                  <%= simple_form_for [@profile, @meeting] do |f| %>
+                    <% @profiles = Profile.all %>
+                    <% result = [] %>
+                    <% @profiles.each do |pro| %>
+                      <% if pro.category == "Dentiste" %>
+                        <% result << "#{pro.last_name} #{pro.first_name}" %>
                       <% end %>
-
+                    <% end %>
+                    <form data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php" novalidate="novalidate" class="rd-mailform text-left">
                       <div class="range range-xs-center">
                         <div class="cell-sm-6">
                           <div class="form-group form-group-label-outside">
@@ -30,8 +29,6 @@
                           </div>
                         </div>
                         <div class="cell-sm-6 offset-top-20 offset-sm-top-0">
-
-
                           <% if @meeting.destinataire %>
                           <div class="form-group form-group-label-outside ">
                             <%= f.input :destinataire,label:'Destinataire:', required: true, collection: [@meeting.destinataire],  class: "form-control form-control-last-child" %>
@@ -41,7 +38,6 @@
                             <%= f.input :destinataire, label:'Destinataire:', required: true, collection: result.sort,  class: "form-control form-control-last-child" %>
                           </div>
                           <% end %>
-
                         </div>
                         <div class="cell-xs-12">
                           <div class="form-group form-group-label-outside offset-top-20">
@@ -49,15 +45,14 @@
                           </div>
                         </div>
                       </div>
-
                       <div class="offset-top-18 offset-sm-top-24 text-center text-sm-left">
                         <div class="group-lg offset-top-20 offset-md-top-30">
                           <button type="submit" style="min-width: 130px;" class="btn btn-lg btn-ellipse btn-primary">ENVOYER</button>
                           <p><%= link_to 'Annuler', root_path, class: 'btn btn-lg btn-ellipse btn-white', style:"margin-top:20px"%></p>
                         </div>
                       </div>
-                    <% end %>
-                  </form>
+                    </form>
+                  <% end %>
                 </div>
               </div>
               <div class="cell-lg-4 text-left offset-top-66 offset-lg-top-0">

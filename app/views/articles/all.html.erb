@@ -32,7 +32,7 @@
                       <% @articles.last(2).each do |article| %>
                         <% @profile = Profile.find(article.profile_id)  %>
                         <li><a class="text-java text-bold"><%= link_to article.article_title, profile_article_path(@profile, article)%></a><br>
-                        <time datetime="2017-04-30" class="text-gray-dark"><%= article.created_at %></time>
+                        <time datetime="2017-04-30" class="text-gray-dark"><%= article.created_at.strftime("%d.%m.%Y") %></time>
                         </li>
                       <% end  %>
                     </ul>

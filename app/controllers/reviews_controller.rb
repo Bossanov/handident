@@ -1,7 +1,12 @@
 class ReviewsController < ApplicationController
   def new
     @review = Review.new
-    @profile = current_user.profile
+    if current_user == nil
+      redirect_to new_user_session_path
+      flash[:alert] = 'Merci créer votre compte avant de publier un avis'
+    else
+      @profile = current_user.profile
+    end
   end
 
   def create

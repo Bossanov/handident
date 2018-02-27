@@ -8,14 +8,13 @@
       <div class="shell">
         <div class="range range-xs-center range-lg-right">
           <div class="cell-sm-10 cell-md-8">
-            <% @article = Article.find(4) %>
-            <% @profile = Profile.find(@article.profile_id) %>
-            <h3 class="text-bold text-java"><%= @article.article_title %></h3>
+            <% @profile = Profile.find(127) %>
+            <h3 class="text-bold text-java">NUMERIQUE: Les innovations dans le domaine thérapeutique</h3>
             <ul class="list list-inline list-inline-dashed offset-top-4">
-              <li type=date><%= @article.created_at %></li>
+              <li type=date>01.03.2018</li>
               <li>by <a><%= link_to @profile.first_name, profile_path(@profile), class: 'text-secondary'%> <%= link_to @profile.last_name, profile_path(@profile), class: 'text-secondary'%></a>
               </li>
-              <li><a href="blog-modern.html" class="text-secondary">Oral Health</a></li>
+              <li><a href="blog-modern.html" class="text-secondary">Formation</a></li>
             </ul>
             <iframe width="100%" height="400px" src="https://www.youtube.com/embed/cYAlm0EAJ7A" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             <div class="clearfix"></div>
@@ -24,7 +23,10 @@
               <hr class="text-subline">
             </div>
             <div class="offset-top-30">
-              <p class="text-gray-darker"><%= @article.article_content %></p>
+              <p>MIEUX SOIGNER AVEC LE NUMERIQUE !</p>
+              <p>Empreinte optique, radiographie 3D, photographie, planification implantaire, chirurgie guidée, laboratoire numérique…La dentisterie numérique est aujourd'hui une réalité.</p>
+              <p>Ces outils numériques nécessitent toutefois quelques apprentissages afin d’en tirer la quintessence.</p>
+              <p>Une fois ceux-ci appréhendés, il ne fait aucun doute que ces innovations technologiques vous apporteront une aide précieuse au quotidien.</p>
             </div>
             <div class="clearfix"></div>
             <div class="offset-top-66">
