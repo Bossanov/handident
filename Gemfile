@@ -22,6 +22,7 @@ gem "gmaps4rails"
 gem 'forest_liana'
 gem "roo", "~> 2.7.0"
 gem 'mail_form'
+gem "letter_opener", group: :development
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
