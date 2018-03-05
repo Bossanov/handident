@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.5'
+
+
 gem 'devise'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
@@ -24,6 +26,7 @@ gem "roo", "~> 2.7.0"
 gem 'mail_form'
 gem 'money-rails'
 gem 'stripe'
+gem "letter_opener", group: :development
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
