@@ -1,7 +1,12 @@
 class DonationsController < ApplicationController
   def new
-    @donation = Donation.new
-    @profile = current_user.profile
+    if current_user.profile == nil
+      redirect_to new_user_session_path
+      flash[:alert] = 'Merci créer votre compte avant de publier un avis'
+    else
+      @donation = Donation.new
+      @profile = current_user.profile
+    end
   end
 
   def create
