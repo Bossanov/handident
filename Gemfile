@@ -23,6 +23,7 @@ gem 'forest_liana'
 gem "roo", "~> 2.7.0"
 gem 'mail_form'
 gem 'money-rails'
+gem 'stripe'
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end

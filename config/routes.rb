@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     resources :meetings
     resources :messages
   end
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: [:new, :create]
+  end
 
   root to: 'pages#home'
   get 'citywithdept', to: 'profiles#citywithdept'
