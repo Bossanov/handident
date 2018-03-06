@@ -1,7 +1,13 @@
 class DonationsController < ApplicationController
   def new
-    @donation = Donation.new
-    @profile = current_user.profile
+    if current_user.profile == nil
+      redirect_to new_user_session_path
+      flash[:alert] = 'Merci créer votre compte avant de publier un avis'
+    else
+      @donation = Donation.new
+      @profile = current_user.profile
+    end
+
   end
 
   def create
@@ -10,9 +16,9 @@ class DonationsController < ApplicationController
     @donation.profile = @profile
 
     if @donation.save
-      redirect_to root_path
-      flash[:notice] = 'Merci !'
-
+      @donation.price_cents = params[:donation][:price]
+       redirect_to orders_path
+      # redirect_to root_path
     else
       render :new
       flash[:notice] = 'Une erreur est survenue, veuillez recommencer ...'
@@ -23,7 +29,7 @@ class DonationsController < ApplicationController
   private
 
   def donation_params
-    params.require(:donation).permit(:value, :moyen)
+    params.require(:donation).permit(:price)
   end
 
 end
