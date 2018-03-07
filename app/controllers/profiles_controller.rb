@@ -39,17 +39,18 @@ class ProfilesController < ApplicationController
   end
 
   def show
-      @profile = Profile.find(params[:id])
-      puts @profile
-      @profile_coordinates = { lat: @profile.latitude, lng: @profile.longitude }
-      @markers = Gmaps4rails.build_markers(@profile) do |profile, marker|
-        marker.lat profile.latitude
-        marker.lng profile.longitude
-        marker.infowindow "<p>#{profile.address} #{profile.post_code} #{profile.city}</p>"
-        # marker.infowindow render_to_string(partial: "/profile/map_box", locals: { profile: profile })
-        @articles = Article.where(profile_id: @profile.id)
-      end
-
+    @profile = Profile.find(params[:id])
+    puts @profile
+    @profile_coordinates = { lat: @profile.latitude, lng: @profile.longitude }
+    @markers = Gmaps4rails.build_markers(@profile) do |profile, marker|
+      marker.lat profile.latitude
+      marker.lng profile.longitude
+      marker.infowindow "<p>#{profile.address} #{profile.post_code} #{profile.city}</p>"
+      # marker.infowindow render_to_string(partial: "/profile/map_box", locals: { profile: profile })
+    end
+    @articles = Article.where(profile_id: @profile.id, status: 'Validé')
+    @articles_a_valider = Article.where(status: 'A Valider')
+    @articles_refuses = Article.where(status: 'Refusé')
   end
 
   def edit
