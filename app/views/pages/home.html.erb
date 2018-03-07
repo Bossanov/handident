@@ -330,8 +330,8 @@
         <h2>Les derniers articles publiés</h2>
         <hr class="divider divider-lg bg-secondary">
         <div class="range range-xs-center offset-top-60">
-          <% @articles = Article.all %>
-          <% @articles.last(4).each do |article| %>
+          <% articles = Article.where(status: 'Validé')  %>
+          <% articles.last(4).each do |article| %>
             <% @profile = Profile.find(article.profile_id)  %>
             <div class="cell-sm-8 cell-md-5 cell-lg-3">
               <!-- Post Modern-->
