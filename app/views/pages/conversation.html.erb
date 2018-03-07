@@ -4,8 +4,6 @@
       <!-- Page Contents-->
       <main class="page-content">
 
-        <input type="submit" id="entre" value="Messages reçus" class="btn btn-ellipse btn-primary" style="margin: 0px;">
-        <input type="submit" id="sort" value="Messages envoyés" class="btn btn-ellipse btn-primary" style="margin: 0px;">
 
         <!-- Masonry Blog-->
         <div id="fb-root"></div>
@@ -19,7 +17,7 @@
               <div class="cell-sm-10 cell-md-8 cell-lg-4 offset-top-66 offset-md-top-90 offset-lg-top-0">
                 <div class="blog-grid-sidebar inset-lg-left-30">
                   <!-- Aside-->
-
+                <%= render 'shared/messagesphotos'%>
                 </div>
               </div>
             </div>
@@ -29,21 +27,3 @@
     </div>
     <!-- Java script-->
 
-<script>
-  const choice = document.getElementById("choix");
-  choice.innerHTML = "<%= j render 'shared/messagesentrants' %>";
-  const entre = document.getElementById("entre");
-  entre.addEventListener("click", (event) => {
-    const choice = document.getElementById("choix");
-    choice.innerHTML = "";
-    choice.innerHTML = "<%= j render 'shared/messagesentrants' %>";
-  });
-  const sort = document.getElementById("sort");
-  sort.addEventListener("click", (event) => {
-    const choice = document.getElementById("choix");
-    choice.innerHTML = "";
-    choice.innerHTML = "<%= j render 'shared/messagessortants' %>";
-  });
-
-
-</script>

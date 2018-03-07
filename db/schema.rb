@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(version: 20180305140951) do
     t.index ["profile_id"], name: "index_articles_on_profile_id"
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "donations", force: :cascade do |t|
     t.integer "value"
     t.datetime "created_at", null: false
@@ -55,6 +62,9 @@ ActiveRecord::Schema.define(version: 20180305140951) do
     t.datetime "updated_at", null: false
     t.string "destinataire"
     t.bigint "profile_id"
+    t.boolean "read", default: false
+    t.bigint "conversation_id"
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["profile_id"], name: "index_messages_on_profile_id"
   end
 
@@ -118,6 +128,7 @@ ActiveRecord::Schema.define(version: 20180305140951) do
   add_foreign_key "articles", "profiles"
   add_foreign_key "donations", "profiles"
   add_foreign_key "meetings", "profiles"
+  add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "profiles"
   add_foreign_key "profiles", "users"
   add_foreign_key "reviews", "profiles"

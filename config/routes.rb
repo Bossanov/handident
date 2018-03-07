@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get 'pages/support_us'
   get 'pages/conversation'
   get 'pages/demande_rdv'
+  get 'pages/conversationitem'
 
   match '/contacts',     to: 'contacts#new', via: 'get'
   resources "contacts", only: [:new, :create]

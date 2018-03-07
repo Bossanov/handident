@@ -1,0 +1,100 @@
+
+<div class="page text-center">
+      <!-- Page Contents-->
+      <main class="page-content">
+
+
+        <!-- Masonry Blog-->
+        <div id="fb-root"></div>
+        <section class="section-98 section-sm-110">
+          <div class="shell">
+            <div class="range range-xs-center">
+              <div class="cell-md-10 cell-lg-8">
+                <div class="range range-xs-center" id="choix">
+                </div>
+              </div>
+              <div class="cell-sm-10 cell-md-8 cell-lg-4 offset-top-66 offset-md-top-90 offset-lg-top-0">
+                <div class="blog-grid-sidebar inset-lg-left-30">
+
+
+
+
+
+                <% @profilesortant = Profile.find_by_id(current_user.profile.id) %>
+                <% @profileentrant = Profile.find_by_id(params[:auteur_id]) %>
+
+                <% @sort = Message.where(profile_id: @profilesortant.id, destinataire: "#{@profileentrant.last_name} #{@profileentrant.first_name}" ) %>
+                <% @entre = Message.where(profile_id: @profileentrant.id, destinataire: "#{@profilesortant.last_name} #{@profilesortant.first_name}") %>
+
+                <h2>Ma conversation avec <%= @profileentrant.first_name %></h2>
+                <% @sort.each do |mess| %>
+                <H4>Message envoyé le <%= mess.created_at%> </H4>
+                  <% pro = Profile.find_by_id(mess.profile_id) %>
+
+                  <div class="cell-sm-6">
+                    <!-- Post Modern-->
+                    <article class="post post-modern post-modern-classic">
+                      <!-- Post media-->
+
+                      <!-- Post content-->
+                      <section class="post-content text-left">
+                        <!-- Post Title-->
+                        <div class="post-title offset-top-8">
+                          <h4 class="text-bold"> <%= mess.message_title%> </h4>
+                        </div>
+                        <ul class="list-inline list-inline-dashed">
+
+
+                        </ul>
+                        <!-- Post Body-->
+                        <div class="post-body" style="margin-bottom: 30px;">
+                          <p><%= mess.message_content%></p>
+                          <% if mess.message_photo.present? %>
+                            <%= cl_image_tag mess.message_photo, width:"150", height: "150", alt:"" %>
+                          <% end %>
+                        </div>
+                      </section>
+                    </article>
+                  </div>
+                <% end  %>
+
+
+
+                <% @entre.each do |mess| %>
+                <H4>Message reçu le <%= mess.created_at%> </H4>
+
+                  <% pro = Profile.find_by_id(mess.profile_id) %>
+
+                  <div class="cell-sm-6">
+                    <!-- Post Modern-->
+                    <article class="post post-modern post-modern-classic">
+                      <!-- Post media-->
+
+                      <!-- Post content-->
+                      <section class="post-content text-left">
+                        <!-- Post Title-->
+                        <div class="post-title offset-top-8">
+                          <h4 class="text-bold"> <%= mess.message_title%> </h4>
+                        </div>
+                        <ul class="list-inline list-inline-dashed">
+
+
+                        </ul>
+                        <!-- Post Body-->
+                        <div class="post-body" style="margin-bottom: 30px;">
+                          <p><%= mess.message_content%></p>
+                          <% if mess.message_photo.present? %>
+                            <%= cl_image_tag mess.message_photo, width:"150", height: "150", alt:"" %>
+                          <% end %>
+                        </div>
+                      </section>
+                    </article>
+                  </div>
+                <% end  %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
