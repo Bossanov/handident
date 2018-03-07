@@ -25,7 +25,13 @@
             <% if @profile.photo_url.nil? %>
               <div class="member-block-type-5 inset-md-right-20"><img src="http://res.cloudinary.com/dz83jh064/image/upload/v1517825470/images_z0whi1.png" width="320" height="320" alt="" class="img-responsive center-block"/> <!-- options available with cloudinary crop: :thumb, gravity: :face -->
                 <!-- ajouter une restriction sur l'accès à l'edit du profile -->
+                <% if current_user.present? && @profile.id == current_user.profile.id && current_user.profile.category == "admin" %>
+
+                    <p><%= link_to 'MAJ Base Donnée', excelcreator_path , class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+                    <%= link_to "Télécharger la BD", "/sauvegarde.csv", target: "_blank", class:"btn-fullwidth btn-ellipse btn btn-primary"%>
+                  <% end %>
                   <% if current_user.present? && current_user.profile && @profile.id == current_user.profile.id %>
+
                     <p><%= link_to 'éditer mon profil', edit_profile_path(@profile), class: 'btn-fullwidth btn btn-ellipse btn-white offset-sm-top-41 offset-top-41 offset-md-top-60'%></p>
                     <p><%= link_to 'Rédiger un article', new_profile_article_path(@profile), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
                     <p><%= link_to 'Voir mes messages', pages_conversation_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
@@ -44,7 +50,10 @@
             <% else  %>
               <div class="member-block-type-5 inset-md-right-20"><%= cl_image_tag @profile.photo, width:"320", height: "320", alt:"", class:"img-responsive center-block" %> <!-- options available with cloudinary crop: :thumb, gravity: :face -->
                 <!-- ajouter une restriction sur l'accès à l'edit du profile -->
-
+                   <% if current_user.present? && @profile.id == current_user.profile.id && current_user.profile.category == "admin" %>
+                    <p><%= link_to 'MAJ Base Donnée', excelcreator_path , class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+                    <%= link_to "Télécharger la BD", "/sauvegarde.csv", target: "_blank", class:"btn-fullwidth btn-ellipse btn btn-primary"%>
+                  <% end %>
                   <% if current_user.present? && @profile.id == current_user.profile.id %>
                     <p><%= link_to 'éditer mon profil', edit_profile_path(@profile), class: 'btn-fullwidth btn btn-ellipse btn-white offset-sm-top-41 offset-top-41 offset-md-top-60'%></p>
                     <p><%= link_to 'Rédiger un article', new_profile_article_path(@profile), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
