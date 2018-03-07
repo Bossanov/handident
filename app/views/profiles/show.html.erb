@@ -109,8 +109,6 @@
       <% end %>
     <% end %>
     <!-- Scott Riley’s blog posts-->
-
-
     <section class="section-98 section-sm-110 bg-white-liac">
       <div class="shell">
         <h2>Les articles de <%= @profile.first_name %></h2>
@@ -157,5 +155,107 @@
         </div>
       </div>
     </section>
+    <% if @profile.category == "admin"  %>
+<!--       LES ARTICLES A VALIDER -->
+      <section class="section-98 section-sm-110 bg-white-liac">
+        <div class="shell">
+          <h2>Les articles que vous devez valider</h2>
+          <hr class="divider divider-lg bg-secondary">
+          <div class="offset-top-41 offset-lg-top-60">
+            <div class="range range-xs-center">
+              <% if @articles_a_valider.count == 0 %>
+                <div class="post-title offset-top-8">
+                  <h4 class="text-bold">Aucun article à valider</h4>
+                </div>
+              <% else  %>
+                <% @articles_a_valider.each do |article| %>
+                <% @profile = Profile.find(article.profile_id) %>
+                  <div class="cell-xs-10 cell-sm-8 cell-md-4">
+                    <!-- Post Modern-->
+                    <article class="post post-modern post-modern-classic">
+                      <!-- Post media-->
+                      <header class="post-media"><a href="<%= profile_article_path(@profile, article)%>"><%= image_tag article.article_photo, width:'370', height:'250', crop: :thumb, class:'img-responsive img-cover"' %></a>
+                      </header>
+                      <!-- Post content-->
+                      <section class="post-content text-left">
+                        <!-- Post Title-->
+                        <div class="post-title offset-top-8">
+                          <h4 class="text-bold"><a href="<%= profile_article_path(@profile, article)%>"><%= article.article_title %></a></h4>
+                        </div>
+                        <ul class="list-inline list-inline-dashed">
+                          <li><%= article.created_at.strftime("%d.%m.%Y") %></li>
+                          <li><a href="#" class="text-secondary"><%= article.theme %></a></li>
+                        </ul>
+                        <!-- Post Body-->
+                        <div class="post-body">
+                          <div class="offset-top-14">
+                            <p><%= article.article_content.first(150) %></p>
+                          </div>
+                        </div>
+                        <div class="tags group group-sm">
+                        </div>
+                      </section>
+                    </article>
+                    <a href="<%= profile_article_path(@profile, article) %>", class="btn btn-xs btn-rect btn-white", style="margin-bottom: 10px;">Voir</a>
+                    <a href="<%= edit_profile_article_path(@profile, article) %>", class="btn btn-xs btn-rect btn-white", style="margin-bottom: 10px;">Editer</a>
+                    <a href="<%= valider_article_path(articleid: article.id, profileid: article.profile_id) %>", class="btn btn-xs btn-rect btn-primary", style="margin-bottom: 10px;">Valider</a>
+                    <a href="<%= refuser_article_path(articleid: article.id, profileid: article.profile_id) %>", class="btn btn-xs btn-rect btn-red", style="margin-bottom: 10px;">Refuser</a>
+                  </div>
+                <% end %>
+              <% end  %>
+            </div>
+            <%= link_to 'Voir tous les articles', articles_all_path, class: 'btn btn-ellipse btn-primary offset-top-41 offset-md-top-60'%>
+          </div>
+        </div>
+      </section>
+<!--       LES ARTICLES REFUSES -->
+      <section class="section-98 section-sm-110 bg-white-liac">
+        <div class="shell">
+          <h2>Les articles que vous avez refusés></h2>
+          <hr class="divider divider-lg bg-secondary">
+          <div class="offset-top-41 offset-lg-top-60">
+            <div class="range range-xs-center">
+              <% if @articles_refuses.count == 0 %>
+                <div class="post-title offset-top-8">
+                  <h4 class="text-bold">Aucun article refusé</h4>
+                </div>
+              <% else  %>
+                <% @articles_refuses.each do |article| %>
+                <% @profile = Profile.find(article.profile_id) %>
+                  <div class="cell-xs-10 cell-sm-8 cell-md-4">
+                    <!-- Post Modern-->
+                    <article class="post post-modern post-modern-classic">
+                      <!-- Post media-->
+                      <header class="post-media"><a href="<%= profile_article_path(@profile, article)%>"><%= image_tag article.article_photo, width:'370', height:'250', crop: :thumb, class:'img-responsive img-cover"' %></a>
+                      </header>
+                      <!-- Post content-->
+                      <section class="post-content text-left">
+                        <!-- Post Title-->
+                        <div class="post-title offset-top-8">
+                          <h4 class="text-bold"><a href="<%= profile_article_path(@profile, article)%>"><%= article.article_title %></a></h4>
+                        </div>
+                        <ul class="list-inline list-inline-dashed">
+                          <li><%= article.created_at.strftime("%d.%m.%Y") %></li>
+                          <li><a href="#" class="text-secondary"><%= article.theme %></a></li>
+                        </ul>
+                        <!-- Post Body-->
+                        <div class="post-body">
+                          <div class="offset-top-14">
+                            <p><%= article.article_content.first(150) %></p>
+                          </div>
+                        </div>
+                        <div class="tags group group-sm">
+                        </div>
+                      </section>
+                    </article>
+                  </div>
+                <% end %>
+              <% end  %>
+            </div>
+            <%= link_to 'Voir tous les articles', articles_all_path, class: 'btn btn-ellipse btn-primary offset-top-41 offset-md-top-60'%>
+          </div>
+        </div>
+      </section>
+    <% end  %>
   </main>
 </div>
