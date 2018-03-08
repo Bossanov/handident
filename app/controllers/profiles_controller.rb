@@ -28,8 +28,6 @@ class ProfilesController < ApplicationController
   end
 
   def index
-    # @profiles = Profile.where(category: "Dentiste")
-
       @profiles = Profile.where.not(latitude: nil, longitude: nil)
       @markers = Gmaps4rails.build_markers(@profiles) do |profile, marker|
         marker.lat profile.latitude
@@ -130,23 +128,21 @@ class ProfilesController < ApplicationController
 
 def excelcreator
  # xls_file = Roo::Excelx.new('db/sauvegarde.xlsx')
-
   profiles = Profile.where(category: "Dentiste")
   CSV.open("public/sauvegarde.csv", "wb") do |csv|
     profiles.each do |prof|
       csv << [ prof.first_name, prof.last_name, prof.address, prof.city, prof.birthday, prof.phone_number, prof.departement, prof.post_code, prof.formation, prof.biographie ]
     end
   end
-      send_file 'db/sauvegarde.csv'
-      redirect_to profile_path(current_user.profile)
-
+  send_file 'db/sauvegarde.csv'
+  redirect_to profile_path(current_user.profile)
 end
 
 
   private
 
   def profile_params
-  params.require(:profile).permit(:first_name, :last_name, :address,:departement, :city, :post_code, :phone_number, :category, :birthday, :photo, :photo_cache, :biographie)
+  params.require(:profile).permit(:first_name, :last_name, :address,:departement, :city, :post_code, :phone_number, :category, :birthday, :photo, :photo_cache, :biographie, :formation)
   end
 
 end

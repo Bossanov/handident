@@ -9,6 +9,7 @@ class Profile < ApplicationRecord
   geocoded_by :full_address
   after_validation :geocode, if: :address_changed?
 
+
   def full_address
     "#{address} #{post_code} #{city}"
   end
