@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get 'getSearch', to: 'profiles#getSearch'
   get 'valider_article', to: 'articles#valider_article'
   get 'refuser_article', to: 'articles#refuser_article'
+  get 'valider_review', to: 'reviews#valider_review'
+  get 'refuser_review', to: 'reviews#refuser_review'
   get 'pages/about'
   get 'pages/formation'
   get 'pages/formation1'
