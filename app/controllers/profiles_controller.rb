@@ -51,6 +51,10 @@ class ProfilesController < ApplicationController
     @articles = Article.where(profile_id: @profile.id, status: 'Validé')
     @articles_a_valider = Article.where(status: 'A Valider')
     @articles_refuses = Article.where(status: 'Refusé')
+
+    @reviews = Review.where(profile_id: @profile.id, status: 'Validé')
+    @reviews_a_valider = Review.where(status: 'A valider')
+    @reviews_refuses = Review.where(status: 'Refusé')
   end
 
   def edit

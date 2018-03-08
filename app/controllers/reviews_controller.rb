@@ -31,19 +31,19 @@ class ReviewsController < ApplicationController
   def valider_review
     @review = Review.find(params[:reviewid])
     @profile = Profile.find(params[:profileid])
-    @review.status = "Validé"
+    @review.review_status = "Validé"
     @review.save
-    flash[:notice] = "L'review a été validé. Merci."
-    redirect_to profile_review_path(@profile, @review)
+    flash[:notice] = "Le témoignage a été validé. Merci."
+    redirect_to reviews_all_path
   end
 
   def refuser_review
     @review = Review.find(params[:reviewid])
     @profile = Profile.find(params[:profileid])
-    @review.status = "Refusé"
+    @review.review_status = "Refusé"
     @review.save
-    flash[:alert] = "L'review a été refusé."
-    redirect_to profile_review_path(@profile, @review)
+    flash[:alert] = "Le témoignage a été refusé."
+    redirect_to reviews_all_path
   end
 
   private

@@ -102,7 +102,7 @@
     <!-- Scott Riley’s blog posts-->
     <section class="section-98 section-sm-110 bg-white-liac">
       <div class="shell">
-        <h2>Les articles de <%= @profile.first_name %></h2>
+        <h2>Vos articles</h2>
         <hr class="divider divider-lg bg-secondary">
         <div class="offset-top-41 offset-lg-top-60">
           <div class="range range-xs-center">
@@ -242,6 +242,83 @@
           </div>
         </section>
       <% end  %>
+<!--       LES REVIEWS A VALIDER -->
+    <% if Review.where(review_status: 'A valider')  != [] %>
+      <section class="section-98 section-sm-110 bg-white-liac" style="padding-top: 0px">
+        <div class="shell">
+          <h2>Témoignages à valider</h2>
+          <hr class="divider divider-lg bg-secondary">
+          <div class="offset-top-60">
+            <div data-loop="false" data-margin="15" data-items="1" data-dots="true" data-mouse-drag="false" data-md-items="3" data-nav="false" class="owl-carousel owl-carousel-default owl-carousel-default-1 owl-carousel-class-light owl-dots-secondary">
+              <% @reviews = Review.where(review_status: 'A valider').order('RANDOM()') %>
+              <% @reviews.each do |review| %>
+                <div class="owl-item">
+                  <blockquote class="quote quote-classic quote-classic-secondary">
+                    <div class="quote-body">
+                      <p class="text-italic text-gray-dark"><%= review.review_content %></p>
+                      <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
+                        <% if Profile.find(review.profile_id).photo.present? %>
+                          <div class="unit-left unit-item-narrow"><%= image_tag Profile.find(review.profile_id).photo, width:'60', height:'60', class:'img-circle quote-img' %></div>
+                        <% else  %>
+                          <div class="unit-left unit-item-narrow"><%= image_tag "http://res.cloudinary.com/dz83jh064/image/upload/v1517825470/images_z0whi1.png", width:'60', height:'60', class:'img-circle quote-img' %></div>
+                        <% end %>
+                        <div class="unit-body unit-item-wide">
+                          <h4 class="quote-author text-capitalize text-bold text-java">
+                            <cite class="text-normal"><%= Profile.find(review.profile_id).first_name %> <%= Profile.find(review.profile_id).last_name %></cite>
+                          </h4>
+                          <p class="quote-desc text-capitalize text-gray text-italic"><%= Profile.find(review.profile_id).category %></p>
+                        </div>
+                      </div>
+                    </div>
+                  </blockquote>
+                  <a href="<%= valider_review_path(reviewid: review.id, profileid: review.profile_id) %>", class="btn btn-xs btn-rect btn-primary", style="margin-top: 10px;">Valider</a>
+                  <a href="<%= refuser_review_path(reviewid: review.id, profileid: review.profile_id) %>", class="btn btn-xs btn-rect btn-red", style="margin-top: 10px;">Refuser</a>
+                </div>
+              <% end  %>
+            </div>
+          </div>
+          <div class="offset-top-60"><%= link_to 'Tous les témoignages', reviews_all_path , class:"btn btn-ellipse btn-primary btn-lg"%></div>
+        </div>
+      </section>
+    <% end %>
+<!--       LES REVIEWS REFUSES -->
+    <% if Review.where(review_status: 'Refusé')  != [] %>
+      <section class="section-98 section-sm-110 bg-white-liac" style="padding-top: 0px">
+        <div class="shell">
+          <h2>Témoignages refusés</h2>
+          <hr class="divider divider-lg bg-secondary">
+          <div class="offset-top-60">
+            <div data-loop="false" data-margin="15" data-items="1" data-dots="true" data-mouse-drag="false" data-md-items="3" data-nav="false" class="owl-carousel owl-carousel-default owl-carousel-default-1 owl-carousel-class-light owl-dots-secondary">
+              <% @reviews = Review.where(review_status: 'Refusé').order('RANDOM()') %>
+              <% @reviews.each do |review| %>
+                <div class="owl-item">
+                  <blockquote class="quote quote-classic quote-classic-secondary">
+                    <div class="quote-body">
+                      <p class="text-italic text-gray-dark"><%= review.review_content %></p>
+                      <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
+                        <% if Profile.find(review.profile_id).photo.present? %>
+                          <div class="unit-left unit-item-narrow"><%= image_tag Profile.find(review.profile_id).photo, width:'60', height:'60', class:'img-circle quote-img' %></div>
+                        <% else  %>
+                          <div class="unit-left unit-item-narrow"><%= image_tag "http://res.cloudinary.com/dz83jh064/image/upload/v1517825470/images_z0whi1.png", width:'60', height:'60', class:'img-circle quote-img' %></div>
+                        <% end %>
+                        <div class="unit-body unit-item-wide">
+                          <h4 class="quote-author text-capitalize text-bold text-java">
+                            <cite class="text-normal"><%= Profile.find(review.profile_id).first_name %> <%= Profile.find(review.profile_id).last_name %></cite>
+                          </h4>
+                          <p class="quote-desc text-capitalize text-gray text-italic"><%= Profile.find(review.profile_id).category %></p>
+                        </div>
+                      </div>
+                    </div>
+                  </blockquote>
+                  <a href="<%= valider_review_path(reviewid: review.id, profileid: review.profile_id) %>", class="btn btn-xs btn-rect btn-primary", style="margin-top: 10px;">Valider</a>
+                </div>
+              <% end  %>
+            </div>
+          </div>
+          <div class="offset-top-60"><%= link_to 'Tous les témoignages', reviews_all_path , class:"btn btn-ellipse btn-primary btn-lg"%></div>
+        </div>
+      </section>
+    <% end %>
     <% end  %>
   </main>
 </div>
