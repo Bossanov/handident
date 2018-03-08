@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   get 'citywithdept', to: 'profiles#citywithdept'
   get 'dentistwithcity', to: 'profiles#dentistwithcity'
   get 'getSearch', to: 'profiles#getSearch'
+
+  get 'excelcreator', to: 'profiles#excelcreator'
+
   get 'valider_article', to: 'articles#valider_article'
   get 'refuser_article', to: 'articles#refuser_article'
   get 'valider_review', to: 'reviews#valider_review'

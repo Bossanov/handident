@@ -1,3 +1,4 @@
+require 'csv'
 class ProfilesController < ApplicationController
   def new
     @profile = Profile.new
@@ -126,6 +127,21 @@ class ProfilesController < ApplicationController
       redirect_to profile_path(@prof)
     end
   end
+
+def excelcreator
+ # xls_file = Roo::Excelx.new('db/sauvegarde.xlsx')
+
+  profiles = Profile.where(category: "Dentiste")
+  CSV.open("public/sauvegarde.csv", "wb") do |csv|
+    profiles.each do |prof|
+      csv << [ prof.first_name, prof.last_name, prof.address, prof.city, prof.birthday, prof.phone_number, prof.departement, prof.post_code, prof.formation, prof.biographie ]
+    end
+  end
+      send_file 'db/sauvegarde.csv'
+      redirect_to profile_path(current_user.profile)
+
+end
+
 
   private
 
