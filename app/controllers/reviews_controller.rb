@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @profile = current_user.profile
     @review.profile = @profile
-    @review.review_status = "pending"
+    @review.review_status = "A valider"
 
     if @review.save
       redirect_to root_path
@@ -25,7 +25,25 @@ class ReviewsController < ApplicationController
   end
 
   def all
-    @reviews =Review.all
+    @reviews =Review.where(review_status: 'Validé')
+  end
+
+  def valider_review
+    @review = Review.find(params[:reviewid])
+    @profile = Profile.find(params[:profileid])
+    @review.review_status = "Validé"
+    @review.save
+    flash[:notice] = "Le témoignage a été validé. Merci."
+    redirect_to reviews_all_path
+  end
+
+  def refuser_review
+    @review = Review.find(params[:reviewid])
+    @profile = Profile.find(params[:profileid])
+    @review.review_status = "Refusé"
+    @review.save
+    flash[:alert] = "Le témoignage a été refusé."
+    redirect_to reviews_all_path
   end
 
   private

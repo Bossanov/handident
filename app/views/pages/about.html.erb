@@ -147,14 +147,18 @@
         <hr class="divider divider-lg bg-secondary">
         <div class="offset-top-60">
           <div data-loop="false" data-margin="15" data-items="1" data-dots="true" data-mouse-drag="false" data-md-items="3" data-nav="false" class="owl-carousel owl-carousel-default owl-carousel-default-1 owl-carousel-class-light owl-dots-secondary">
-            <% @reviews = Review.order('RANDOM()').limit(8) %>
+            <% @reviews = Review.where(review_status: 'Validé').order('RANDOM()').limit(8) %>
             <% @reviews.each do |review| %>
               <div class="owl-item">
                 <blockquote class="quote quote-classic quote-classic-secondary">
                   <div class="quote-body">
                     <p class="text-italic text-gray-dark"><%= review.review_content.first(120) %> ...</p>
                     <div class="quote-meta unit unit-horizontal unit-spacing-sm unit-middle">
-                      <div class="unit-left unit-item-narrow"><%= image_tag Profile.find(review.profile_id).photo, width:'60', height:'60', class:'img-circle quote-img' %></div>
+                      <% if Profile.find(review.profile_id).photo.present? %>
+                        <div class="unit-left unit-item-narrow"><%= image_tag Profile.find(review.profile_id).photo, width:'60', height:'60', class:'img-circle quote-img' %></div>
+                      <% else  %>
+                        <div class="unit-left unit-item-narrow"><%= image_tag "http://res.cloudinary.com/dz83jh064/image/upload/v1517825470/images_z0whi1.png", width:'60', height:'60', class:'img-circle quote-img' %></div>
+                      <% end %>
                       <div class="unit-body unit-item-wide">
                         <h4 class="quote-author text-capitalize text-bold text-java">
                           <cite class="text-normal"><%= Profile.find(review.profile_id).first_name %> <%= Profile.find(review.profile_id).last_name %></cite>
