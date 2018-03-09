@@ -1,0 +1,6 @@
+<h1>Vous avez un nouveau message Handident</h1>
+<p><%= Profile.find(@message.profile_id).first_name %> <%= Profile.find(@message.profile_id).last_name %> vous a envoyé un message</p>
+<p>Cliquez</p> <a href='www.google.com>' class="btn btn-block btn-rect text-md-left btn-secondary">ici</a> <p>pour le consulter</p>
+<p>
+  <%= @greeting %>, find me in app/views/message_mailer/creation_confirmation.html.erb
+</p>

@@ -10,8 +10,9 @@ class MessagesController < ApplicationController
     @message.profile = @profile
 
     if @message.save
-      redirect_to root_path
+      MessageMailer.creation_confirmation(@message).deliver_now
       flash[:notice] = 'Votre message a été envoyé !'
+      redirect_to root_path
 
     else
       render :new
