@@ -10,9 +10,9 @@ class MeetingsController < ApplicationController
     @meeting.profile = @profile
 
     if @meeting.save
-      redirect_to root_path
+      MeetingMailer.creation_confirmation(@meeting).deliver_now
       flash[:notice] = 'Votre demande a été transmise !'
-
+      redirect_to root_path
     else
       render :new
       flash[:notice] = 'Une erreur est survenue, veuillez recommencer ...'
