@@ -3,13 +3,13 @@
 
 <% @sort = Message.where(profile_id: @profile.id ) %>
 <% @entre = Message.where(destinataire: "#{@profile.last_name} #{@profile.first_name}") %>
-<% @entre.each do |mess| %>
-  <% pro = Profile.find_by_id(mess.profile_id) %>
-  <% until result.include?(pro.id) %>
-    <section class="section-98 section-sm-110">
-      <div class="shell">
-        <div class="offset-top-41 offset-lg-top-60">
-          <div class="range range-xs-center">
+<section class="section-98 section-sm-110">
+  <div class="shell">
+    <div class="offset-top-41 offset-lg-top-60">
+      <div class="range range-xs-center">
+        <% @entre.each do |mess| %>
+          <% pro = Profile.find_by_id(mess.profile_id) %>
+          <% until result.include?(pro.id) %>
             <div class="cell-xs-8 cell-sm-7 cell-md-3 offset-top-41 offset-md-top-0", style="margin-top: 20px">
               <% if pro.photo.present? %>
                 <figure class="thumbnail-josip odd"><a href='/pages/conversationitem?profile_id=<%=@profile.id%>&auteur_id=<%=pro.id%>'><img width="270" height="270" src="<%=pro.photo %>" alt=""/></a>
@@ -27,13 +27,11 @@
                 </figure>
               <% end  %>
             </div>
-          </div>
-        </div>
+            <% result << pro.id %>
+          <% end  %>
+        <% end %>
       </div>
-    </section>
-    <% result << pro.id %>
-  <% end  %>
-<% end %>
-
-
+    </div>
+  </div>
+</section>
 
