@@ -37,7 +37,7 @@
             <div class="rd-navbar-nav-wrap">
               <div class="rd-navbar-mobile-scroll">
                 <!--Navbar Brand Mobile-->
-                <div class="rd-navbar-mobile-brand"><a href="/"><%= image_tag "logo-dark.png", width:'160', height:'45', class:'img-responsive' %></a></div>
+                <div class="rd-navbar-mobile-brand"><a href="/"><%= cl_image_tag "d595b7_a2b7f4d6f3504368ba7822b3d48b9a46-mv2_fotrsm.png", :width=>100, :height=>100, :crop=>"scale" , class:'img-responsive' %></a></div>
                 <!-- RD Navbar Nav-->
                 <ul class="rd-navbar-nav">
                   <li class="<%= is_active?(root_path) %>"><%= link_to 'Accueil', root_path %>
