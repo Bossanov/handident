@@ -108,9 +108,11 @@ class ProfilesController < ApplicationController
     result.each do |dentiste|
       res << {'id' => dentiste.id, 'first_name' => dentiste.first_name, 'last_name' => dentiste.last_name}
     end
+    resnew =  res.sort_by { |qb| qb["last_name"] }
+
     respond_to do |format|
       format.json {
-      render json: res
+      render json: resnew
       }
     end
   end
