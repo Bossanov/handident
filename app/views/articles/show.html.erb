@@ -13,7 +13,7 @@
               <li type=date><%= @article.created_at %></li>
               <li>by <a <%= link_to @profile.last_name, profile_path(@profile), class: 'text-secondary'%> <%= link_to @profile.first_name, profile_path(@profile), class: 'text-secondary'%></a>
               </li>
-              <li><a  class="text-secondary"><%= @article.theme %></a></li>
+              <li><i  class="text-secondary"><%= @article.theme %></i></li>
             </ul>
             <div class="offset-top-30"><%= image_tag @article.article_photo, width:'770', height:'480', class:'img-responsive center-block' %></div>
             <div class="offset-top-30">
