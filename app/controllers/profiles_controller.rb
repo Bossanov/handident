@@ -18,6 +18,7 @@ class ProfilesController < ApplicationController
     elsif @profile.post_code.to_i < 61000 && @profile.post_code.to_i > 59999
       @profile.departement = "Oise"
     end
+    @profile.maildest = "#{@profile.last_name} #{@profile.first_name}"
     if @profile.save
       flash[:notice] = 'Votre profil a correctement été créé. Merci.'
       redirect_to profile_path(@profile)
@@ -73,6 +74,8 @@ class ProfilesController < ApplicationController
     elsif @profile.post_code.to_i < 61000 && @profile.post_code.to_i > 59999
       @profile.departement = "Oise"
     end
+    @profile.maildest = "#{@profile.last_name} #{@profile.first_name}"
+
     if @profile.update(profile_params)
       flash[:notice] = 'Votre profil a correctement été actualisé. Merci.'
       redirect_to profile_path(@profile)
@@ -146,7 +149,7 @@ end
   private
 
   def profile_params
-  params.require(:profile).permit(:first_name, :last_name, :address,:departement, :city, :post_code, :phone_number, :category, :birthday, :photo, :photo_cache, :biographie, :formation)
+  params.require(:profile).permit(:first_name, :last_name, :address,:departement, :city, :post_code, :phone_number, :category, :birthday, :photo, :photo_cache, :biographie,:maildest, :formation)
   end
 
 end
