@@ -24,7 +24,12 @@
     <![endif]-->
   </head>
   <body>
-
+    <!-- ci dessous a enlever apres premier lancement car la seed ne faisait pas tous les maildest -->
+    <% @unos = Profile.all %>
+    <% @unos.each do |uno|%>
+    <% uno.maildest = "#{uno.last_name} #{uno.first_name}"%>
+    <% uno.save %>
+    <% end %>
 
     <% if current_page?(root_path ) %>
     <% else  %>
