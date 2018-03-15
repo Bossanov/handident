@@ -17,23 +17,23 @@
                       <div class="range range-xs-center">
                         <div class="cell-sm-6">
                           <div class="form-group form-group-label-outside">
-                            <%= f.input :first_name, id:"contacts-first-name", type:"text", name:"first-name", required: true, class: "form-control form-control-last-child" %>
+                            <%= f.input :first_name, id:"contacts-first-name",label:"Votre prénom", type:"text", name:"first-name", required: true, class: "form-control form-control-last-child" %>
                           </div>
                           <div class="form-group form-group-label-outside offset-top-20">
-                            <%= f.input :email, id:"contacts-email", type:"email", name:"email", required: true, class: "form-control form-control-last-child" %>
+                            <%= f.input :email, id:"contacts-email", type:"email", label:"Votre E-mail", name:"email", required: true, class: "form-control form-control-last-child" %>
                           </div>
                         </div>
                         <div class="cell-sm-6 offset-top-20 offset-sm-top-0">
                           <div class="form-group form-group-label-outside">
-                            <%= f.input :last_name, id:"contacts-last-name", type:"text", name:"last-name", required: true, class: "form-control form-control-last-child" %>
+                            <%= f.input :last_name, id:"contacts-last-name",label:"Votre nom", type:"text", name:"last-name", required: true, class: "form-control form-control-last-child" %>
                           </div>
                           <div class="form-group form-group-label-outside offset-top-20">
-                            <%= f.input :phone_number, id:"contacts-phone", type:"text", name:"last-name", required: true, class: "form-control form-control-last-child" %>
+                            <%= f.input :phone_number, id:"contacts-phone", type:"text", label:"Votre numéro de téléphone", name:"phone_number", required: true, class: "form-control form-control-last-child" %>
                           </div>
                         </div>
                       </div>
                       <div class="form-group form-group-label-outside offset-top-20">
-                        <%= f.input :message, :as => :text, id:"contacts-message", name:"message", input_html: {style: 'max-height:1500px;'}, required: true, class: "form-control form-control-last-child" %>
+                        <%= f.input :message, :as => :text, id:"contacts-message",label:"Votre message", name:"message", input_html: {style: 'max-height:1500px;'}, required: true, class: "form-control form-control-last-child" %>
                       </div>
                       <div class="offset-top-18 offset-sm-top-24 text-center text-sm-left">
                         <div class="group-lg offset-top-20 offset-md-top-30">
@@ -48,7 +48,7 @@
               <div class="cell-lg-4 text-left offset-top-66 offset-lg-top-0">
                 <div class="inset-lg-left-40">
                   <div>
-                    <h4>Socials</h4>
+                    <h4>Liens sociaux</h4>
                     <hr class="text-subline">
                       <ul class="list-inline">
                         <li><a href="https://fr-fr.facebook.com/handident/" target="_blank" class="icon fa fa-facebook icon-xxs icon-circle icon-gray-light"></a></li>
@@ -57,7 +57,7 @@
                       </ul>
                   </div>
                   <div class="offset-top-60">
-                    <h4>Address</h4>
+                    <h4>Adresse</h4>
                     <hr class="text-subline">
                     <div class="offset-top-20">
                       <div class="unit unit-horizontal unit-spacing-xxs p">
