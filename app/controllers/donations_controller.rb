@@ -14,9 +14,9 @@ class DonationsController < ApplicationController
     @donation = Donation.new(donation_params)
     @profile = current_user.profile
     @donation.profile = @profile
+    @donation.price_cents = params[:donation][:price]
 
     if @donation.save
-      @donation.price_cents = params[:donation][:price]
        redirect_to orders_path
       # redirect_to root_path
     else

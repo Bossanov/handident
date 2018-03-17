@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:show, :create] do
     resources :payments, only: [:new, :create]
   end
-
+  resources :charges
   root to: 'pages#home'
   get 'citywithdept', to: 'profiles#citywithdept'
   get 'dentistwithcity', to: 'profiles#dentistwithcity'
