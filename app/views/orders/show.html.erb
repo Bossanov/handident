@@ -1,0 +1,4 @@
+<H2>Nous vous remercions !!!!<H2>
+  <% order = Order.find_by_id(params[:id])%>
+<h4> Vous venez de faire une donation de <%=order.amount_cents / 100 %> euros à Handident ! </h4>
+<p><%= link_to "Retour à l'accueil", root_path(current_user.profile), class:'btn-fullwidth btn btn-ellipse btn-white', style:"margin-top:20px"%></p>
