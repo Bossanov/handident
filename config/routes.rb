@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :meetings
     resources :messages
   end
-  resources :orders, only: [:show, :create] do
+  resources :orders, only: [:show, :new, :create] do
     resources :payments, only: [:new, :create]
   end
   resources :charges

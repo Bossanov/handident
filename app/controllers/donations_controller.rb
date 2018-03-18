@@ -14,10 +14,14 @@ class DonationsController < ApplicationController
     @donation = Donation.new(donation_params)
     @profile = current_user.profile
     @donation.profile = @profile
-    @donation.price_cents = params[:donation][:price]
+    @donation.price_cents = params[:donation][:price].to_i * 100
+
 
     if @donation.save
-       redirect_to orders_path
+
+       redirect_to new_order_path(@donation)
+
+
       # redirect_to root_path
     else
       render :new
