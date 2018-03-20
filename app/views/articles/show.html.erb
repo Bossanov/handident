@@ -84,7 +84,7 @@
                 <div id="choicetheme" class="offset-top-14 offset-md-top-20">
                   <!-- List Marked-->
                   <ul class="list list-marked list-marked-icon text-dark inset-left-0 list-marked-gray">
-                    <% @articles.last(5).each do |article| %>
+                    <% @articles.where(status: 'Validé').order("created_at DESC").first(5).each do |article| %>
                       <% @profile = Profile.find(article.profile_id)  %>
                       <li><a class="text-java text-bold"><%= link_to article.article_title, profile_article_path(@profile, article)%></a><br>
                       <time datetime="2017-04-30" class="text-gray-dark"><%= article.created_at.strftime("%d.%m.%Y") %></time>
