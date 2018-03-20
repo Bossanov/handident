@@ -1,27 +1,27 @@
 <% i = 0  %>
 <% if Article.where(theme: "Vie associative") == [] %>
-    <div class="cell-sm-6">
-      <!-- Post Modern-->
-      <article class="post post-modern post-modern-classic">
-        <section class="post-content text-left">
-          <!-- Post Title-->
-          <div class="post-title offset-top-8">
-            <p class="text-bold">Aucun article de cette catégorie n'a été rédigé pour le moment</p>
-          </div>
-        </section>
-      </article>
-    </div>
+  <div class="cell-sm-6">
+    <!-- Post Modern-->
+    <article class="post post-modern post-modern-classic">
+      <section class="post-content text-left">
+        <!-- Post Title-->
+        <div class="post-title offset-top-8">
+          <p class="text-bold">Aucun article de cette catégorie n'a été rédigé pour le moment</p>
+        </div>
+      </section>
+    </article>
+  </div>
 <% end  %>
-<% @articles.order("created_at DESC").each do |article| %>
-  <% if article.theme == "Vie associative" && i < 5%>
+<% @articles.where(status: 'Validé').order("created_at DESC").each do |article| %>
+  <% if article.theme == "Vie associative" && i < 3 %>
     <% i = i + 1  %>
     <% @profile = Profile.find(article.profile_id)  %>
     <div class="cell-sm-6">
       <!-- Post Modern-->
       <article class="post post-modern post-modern-classic">
         <!-- Post media-->
-<!--         <header class="post-media"><%= image_tag article.article_photo, width:"370", height:"240", class:"img-responsive img-cover" %>
-        </header> -->
+        <header class="post-media"><%= image_tag article.article_photo, width:"370", height:"240", class:"img-responsive img-cover" %>
+        </header>
         <!-- Post content-->
         <section class="post-content text-left">
           <!-- Post Title-->
@@ -33,9 +33,9 @@
             <li><i  class="text-secondary"><%=article.theme%></i></li>
           </ul>
           <!-- Post Body-->
-<!--           <div class="post-body" style="margin-bottom: 30px;">
+          <div class="post-body" style="margin-bottom: 30px;">
             <p><%= article.article_content.first(200) %> ...</p>
-          </div> -->
+          </div>
         </section>
       </article>
     </div>

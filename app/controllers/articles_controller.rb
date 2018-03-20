@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
 
     if @article.save
       redirect_to root_path
-      flash[:notice] = 'Votre article a été sauvegardé !'
+      flash[:notice] = "L'article a été sauvegardé !"
 
     else
       render :new
@@ -33,16 +33,16 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
-    @profile = current_user.profile
+    @profile = Profile.find(@article.profile_id)
   end
 
   def update
     @article = Article.find(params[:id])
-    @profile = current_user.profile
+    @profile = Profile.find(@article.profile_id)
     @article.profile = @profile
     @article.update(article_params)
     redirect_to root_path
-    flash[:notice] = 'Votre article a été modifié, merci !'
+    flash[:notice] = "L'article a été édité, merci !"
   end
 
   def all
