@@ -8,7 +8,13 @@ class MessageMailer < ApplicationMailer
     mail(
       # to:       @message.destinataire.email,
       to:       result.first.email,
-      subject:  "DESTINATAIRE TO BE CHANGED: Nouveau message depuis Handident"
+      subject:  "Vous avez un message d'Handident"
     )
+  end
+  def mail_admin_review(admin)
+    address = admin
+    mail(to:       address,
+      subject:  "Handident vous signale la création d'un témoignage.")
+
   end
 end

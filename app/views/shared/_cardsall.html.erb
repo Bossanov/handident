@@ -10,7 +10,9 @@
           <% end %>
           <div class="thumbnail-desc">
             <h4 class="thumbnail-josip-title text-bold text-white"><%= profile.first_name.capitalize %> <%= profile.last_name.upcase %></h4>
-            <p class="veil reveal-md-block text-italic text-white offset-top-0"><%= profile.city %></p>
+            <% if profile.city %>
+            <p class="veil reveal-md-block text-italic text-white offset-top-0"><%= profile.city.upcase %></p>
+            <% end %>
           </div>
           <figcaption><a <%= link_to 'Voir ce profil', profile_path(profile), class: 'btn btn-block btn-rect text-md-left btn-secondary'%></a></figcaption>
         </figure>
