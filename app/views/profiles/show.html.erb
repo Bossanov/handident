@@ -35,7 +35,9 @@
                     <p><%= link_to 'éditer mon profil', edit_profile_path(@profile), class: 'btn-fullwidth btn btn-ellipse btn-white offset-sm-top-41 offset-top-41 offset-md-top-60'%></p>
                     <p><%= link_to 'Rédiger un article', new_profile_article_path(@profile), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
                     <p><%= link_to 'Voir mes messages', pages_conversation_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
-                    <p><%= link_to 'Voir mes demandes de Rdv', pages_demande_rdv_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+                    <% until current_user.profile.category == "Patient" %>
+                      <p><%= link_to 'Voir mes demandes de Rdv', pages_demande_rdv_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+                    <% end %>
                     <p><%= link_to 'Envoyer un message ', new_profile_message_path(current_user.profile), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
                   <% elsif current_user.present? && current_user.profile && @profile.id != current_user.profile.id && @profile.category != "admin" %>
                     <p><%= link_to 'Lui envoyer un message', new_profile_message_path(current_user.profile,  destinataire: "#{@profile.last_name} #{@profile.first_name}"), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
@@ -58,7 +60,9 @@
                     <p><%= link_to 'éditer mon profil', edit_profile_path(@profile), class: 'btn-fullwidth btn btn-ellipse btn-white offset-sm-top-41 offset-top-41 offset-md-top-60'%></p>
                     <p><%= link_to 'Rédiger un article', new_profile_article_path(@profile), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
                      <p><%= link_to 'Voir mes messages', pages_conversation_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
-                    <p><%= link_to 'Voir mes demandes de Rdv', pages_demande_rdv_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+                    <% until current_user.profile.category == "Patient" %>
+                      <p><%= link_to 'Voir mes demandes de Rdv', pages_demande_rdv_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
+                    <% end %>
                     <p><%= link_to 'Envoyer un message ', new_profile_message_path(current_user.profile), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
 
                   <% elsif current_user.present? && current_user.profile && @profile.id != current_user.profile.id %>
@@ -87,6 +91,14 @@
               <h5>Biographie</h5>
               <hr class="text-subline">
               <p><%= @profile.biographie %></p>
+            </div>
+            <div class="offset-top-66 text-left">
+              <h5>Mes dons à Handident</h5>
+              <% donations = Donation.where(profile_id: current_user.profile.id) %>
+              <% donations.each do |don|%>
+                <hr >
+                <p>Don de <%= don.price_cents / 100 %> euros le <%= don.created_at.strftime("%d.%m.%Y") %></p>
+              <% end %>
             </div>
           </div>
         </div>

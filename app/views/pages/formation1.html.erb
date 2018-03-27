@@ -12,9 +12,8 @@
             <h3 class="text-bold text-java">NUMERIQUE: Les innovations dans le domaine thérapeutique</h3>
             <ul class="list list-inline list-inline-dashed offset-top-4">
               <li type=date>01.03.2018</li>
-              <li>by <a><%= link_to @profile.first_name, profile_path(@profile), class: 'text-secondary'%> <%= link_to @profile.last_name, profile_path(@profile), class: 'text-secondary'%></a>
-              </li>
-              <li><a href="blog-modern.html" class="text-secondary">Formation</a></li>
+              <li>by <%= @profile.last.first_name%> <%= @profile.last.last_name%></li>
+
             </ul>
             <iframe width="100%" height="400px" src="https://www.youtube.com/embed/cYAlm0EAJ7A" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             <div class="clearfix"></div>
@@ -99,20 +98,20 @@
               </div>
               <div class="offset-top-30">
                 <div class="unit unit-xs unit-xs-horizontal">
-                  <% if @profile.photo_url.nil? %>
+                  <% if @profile.last.photo_url.nil? %>
                     <div class="unit-left"><%= image_tag "http://res.cloudinary.com/dz83jh064/image/upload/v1517825470/images_z0whi1.png", width:'170', height:'170', class:'img-circle img-responsive center-block' %></div>
                   <% else  %>
-                    <div class="unit-left"><%= image_tag @profile.photo, width:'170', height:'170', class:'img-circle img-responsive center-block' %></div>
+                    <div class="unit-left"><%= image_tag @profile.last.photo, width:'170', height:'170', class:'img-circle img-responsive center-block' %></div>
                   <% end %>
                   <div class="unit-body text-xs-left">
                     <div>
-                      <h4><a><%= link_to @profile.first_name, profile_path(@profile), class: 'text-primary' %> <%= link_to @profile.last_name, profile_path(@profile), class: 'text-primary' %></a></h4>
+                      <h4 class="text-primary"><%=@profile.last.first_name%> <%=@profile.last.last_name%></h4>
                     </div>
                     <div class="offset-top-4 offset-sm-top-8">
-                      <div class="text-gray text-italic"><%= @profile.category %></div>
+                      <div class="text-gray text-italic"><%= @profile.last.category %></div>
                     </div>
                     <div class="offset-top-20 text-left">
-                      <p class="text-gray-darker"><%= @profile.biographie %></p>
+                      <p class="text-gray-darker"><%= @profile.last.biographie %></p>
                     </div>
                   </div>
                 </div>

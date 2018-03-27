@@ -14,8 +14,9 @@ class ReviewsController < ApplicationController
     @profile = current_user.profile
     @review.profile = @profile
     @review.review_status = "A valider"
-
+    admin = "staumont.antoine@me.com"
     if @review.save
+      MessageMailer.mail_admin_review(admin).deliver_now
       redirect_to root_path
       flash[:notice] = 'Merci pour votre commentaire !'
     else
