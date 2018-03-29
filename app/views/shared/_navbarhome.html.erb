@@ -18,24 +18,28 @@
               <div class="rd-navbar-mobile-scroll-holder">
                 <div class="rd-navbar-mobile-scroll">
                   <!--Navbar Brand Mobile-->
-                  <div class="rd-navbar-mobile-brand"><a href="index.html"><img width='160' height='45' class='img-responsive' src='images/logo-dark.png' alt=''/></a></div>
-                  <div class="form-search-wrap">
+                  <div class="rd-navbar-brand veil reveal-md-inline-block"><a href="/" class="veil reveal-lg-inline-block"><%= cl_image_tag "d595b7_a2b7f4d6f3504368ba7822b3d48b9a46-mv2_fotrsm.png", :height=>99, :crop=>"scale" , class:'img-responsive' %></a></div>
 
-                  </div>
                   <!-- RD Navbar Nav-->
                   <ul class="rd-navbar-nav">
-                    <li class="active"><a href="index.html"><span>Home</span></a>
-                    </li>
-                    <li><a href="about.html"><span>About</span></a>
-                    </li>
-                    <li><a href="our-team.html"><span>Team</span></a>
-                    </li>
-                    <li><a href="#"><span>Pages</span></a>
+                    <li><%= link_to 'A propos', pages_about_path, class: 'btn btn-rounded'%></li>
+                    <li><%= link_to 'Notre réseau', profiles_path, class: 'btn btn-rounded'%></li>
+                    <li><%= link_to 'Formation', pages_formation_path, class: 'btn btn-rounded'%></li>
+                    <li><%= link_to 'Les articles', pages_all_articles_categories_path, class: 'btn btn-rounded'%></p>
+                    <li><a href="#"><span>Mon compte</span></a>
                       <ul class="rd-navbar-dropdown">
-                        <li><a href="typography.html"><span class="rd-navbar-icon"></span><span class="text-middle">Typography</span></a></li>
-                        <li><a href="forms.html"><span class="rd-navbar-icon"></span><span class="text-middle">Forms</span></a></li>
-                        <li><a href="tabs-and-accordions.html"><span class="rd-navbar-icon"></span><span class="text-middle">Tabs &amp; Accordions</span></a></li>
-                        <li><a href="infographics.html"><span class="rd-navbar-icon"></span><span class="text-middle">Progress Bars</span></a></li>
+                        <% if current_user && current_user.profile == nil%>
+                          <li><%= link_to 'Créer mon profil', new_profile_path, class: 'btn btn-rounded'%></li>
+                          <li><%= link_to 'Se déconnecter', destroy_user_session_path, :method => 'delete' %></li>
+                        <% elsif current_user && current_user.profile %>
+                          <li><%= link_to 'Voir mon profil', profile_path(current_user.profile), class: 'btn btn-rounded'%></li>
+                          <li><%= link_to 'Editer mon profil', edit_profile_path(current_user.profile), class: 'btn btn-rounded'%></li>
+                          <li><%= link_to 'Faire un don', new_profile_donation_path(current_user.profile), class: 'btn btn-rounded'%></li>
+                          <li> <%= link_to 'Se déconnecter', destroy_user_session_path, :method => 'delete' , class: 'btn btn-rounded'%></li>
+                        <% else %>
+                          <li> <%= link_to 'Me connecter', new_user_session_path %>
+                          </li>
+                        <% end %>
                       </ul>
                     </li>
                   </ul>
@@ -48,3 +52,4 @@
     </div>
   </header>
 </div>
+

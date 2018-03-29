@@ -10,7 +10,7 @@
             <!-- Responsive-tabs-->
             <div data-type="horizontal" class="responsive-tabs responsive-tabs-classic">
               <ul data-group="tabs-group-default" class="resp-tabs-list tabs-1 text-center tabs-group-default">
-                <li>Login</li>
+                <li>Se connecter</li>
               </ul>
               <div data-group="tabs-group-default" class="resp-tabs-container text-left tabs-group-default">
                 <div>
@@ -26,12 +26,12 @@
                         <div class="form-group">
 <!--                               <label for="password" class="form-label form-label-outside">Password</label> -->
 <!--                               <input id="password" name="password" type="password" class="form-control"> -->
-                          <%= f.input :password, required: false , class: "form-control", id:"password", name:"password", type:"password", placeholder: "password"%>
+                          <%= f.input :password, required: false , class: "form-control",label:"Mot de passe", id:"password", name:"password", type:"password", placeholder: "mot de passe"%>
                         </div>
                         <div class="offset-top-20">
                           <div class="reveal-sm-flex offset-none range-xs-middle text-center text-sm-left">
 <!--                                 <button type="submit" class="btn btn-ellipse btn-primary">sign in</button>
--->                                <%= f.button :submit, "Log in", class: "btn btn-ellipse btn-primary", style: "font-weight: bold" %>
+-->                                <%= f.button :submit, "S'identifier", class: "btn btn-ellipse btn-primary", style: "font-weight: bold" %>
                           </div>
                         </div>
                       </form>

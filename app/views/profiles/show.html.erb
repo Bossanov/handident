@@ -35,7 +35,7 @@
                     <p><%= link_to 'éditer mon profil', edit_profile_path(@profile), class: 'btn-fullwidth btn btn-ellipse btn-white offset-sm-top-41 offset-top-41 offset-md-top-60'%></p>
                     <p><%= link_to 'Rédiger un article', new_profile_article_path(@profile), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
                     <p><%= link_to 'Voir mes messages', pages_conversation_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
-                    <% until current_user.profile.category == "Patient" %>
+                    <% if current_user.profile.category != "Patient" %>
                       <p><%= link_to 'Voir mes demandes de Rdv', pages_demande_rdv_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
                     <% end %>
                     <p><%= link_to 'Envoyer un message ', new_profile_message_path(current_user.profile), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
@@ -60,7 +60,7 @@
                     <p><%= link_to 'éditer mon profil', edit_profile_path(@profile), class: 'btn-fullwidth btn btn-ellipse btn-white offset-sm-top-41 offset-top-41 offset-md-top-60'%></p>
                     <p><%= link_to 'Rédiger un article', new_profile_article_path(@profile), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
                      <p><%= link_to 'Voir mes messages', pages_conversation_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
-                    <% until current_user.profile.category == "Patient" %>
+                    <% if current_user.profile.category != "Patient" %>
                       <p><%= link_to 'Voir mes demandes de Rdv', pages_demande_rdv_path, class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
                     <% end %>
                     <p><%= link_to 'Envoyer un message ', new_profile_message_path(current_user.profile), class: 'btn-fullwidth btn-ellipse btn btn-primary'%></p>
@@ -92,6 +92,9 @@
               <hr class="text-subline">
               <p><%= @profile.biographie %></p>
             </div>
+
+            <% if current_user.present? && @profile.id == current_user.profile.id %>
+
             <div class="offset-top-66 text-left">
               <h5>Mes dons à Handident</h5>
               <% donations = Donation.where(profile_id: current_user.profile.id) %>
@@ -100,6 +103,8 @@
                 <p>Don de <%= don.price_cents / 100 %> euros le <%= don.created_at.strftime("%d.%m.%Y") %></p>
               <% end %>
             </div>
+            <% end %>
+
           </div>
         </div>
       </div>

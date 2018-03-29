@@ -53,8 +53,8 @@
                           <h6>Notre but est d'améliorer l'offre de soins</h6>
                           <hr class="text-subline"/>
                           <ul class="list-unstyled offset-lg-top-25">
-                            <li><a <%= link_to 'Cabinets dentaires libéraux', profiles_path %></a></li>
-                            <li><a <%= link_to 'Soins spécifiques en USOS', pages_soins_path %></a></li>
+                            <li><%= link_to 'Cabinets dentaires libéraux', profiles_path %></li>
+                            <li><%= link_to 'Soins spécifiques en USOS', pages_soins_path %></li>
                           </ul>
                         </div>
                       </div>
@@ -69,9 +69,9 @@
                           <h6>Faites partie de l'aventure Handident</h6>
                           <hr class="text-subline"/>
                           <ul class="list-unstyled offset-lg-top-25">
-                            <li><a <%= link_to 'Faites un don', pages_make_a_donation_path %></a></li>
-                            <li><a <%= link_to 'Entreprises, soutenez-nous !', pages_support_us_path %></a></li>
-                            <li><a <%= link_to 'Nos partenaires', pages_partnerships_path %></a></li>
+                            <li> <%= link_to 'Faites un don', pages_make_a_donation_path %></li>
+                            <li> <%= link_to 'Entreprises, soutenez-nous !', pages_support_us_path %></li>
+                            <li> <%= link_to 'Nos partenaires', pages_partnerships_path %></li>
                           </ul>
                         </div>
                       </div>
@@ -89,9 +89,9 @@
                                 <h6> Bonjour <%= current_user.profile.first_name %></h6>
                                 <hr class="text-subline"/>
                                 <ul class="list-unstyled offset-lg-top-25">
-                                  <li><a <%= link_to 'Voir mon profil', profile_path(current_user.profile) %></a></li>
-                                  <li><a <%= link_to 'Editer mon profil', edit_profile_path(current_user.profile) %></a></li>
-                                  <li><a <%= link_to 'Se déconnecter', destroy_user_session_path, :method => 'delete' %></a></li>
+                                  <li><%= link_to 'Voir mon profil', profile_path(current_user.profile) %></li>
+                                  <li> <%= link_to 'Editer mon profil', edit_profile_path(current_user.profile) %></li>
+                                  <li> <%= link_to 'Se déconnecter', destroy_user_session_path, :method => 'delete' %></li>
                                 </ul>
                               </div>
                             </div>
@@ -105,8 +105,8 @@
                                 <h6>Mes données</h6>
                                 <hr class="text-subline"/>
                                 <ul class="list-unstyled offset-lg-top-25">
-                                  <li><a <%= link_to 'Créer mon profil', new_profile_path %></a></li>
-                                  <li><a <%= link_to 'Se déconnecter', destroy_user_session_path, :method => 'delete' %></a></li>
+                                  <li><%= link_to 'Créer mon profil', new_profile_path %></li>
+                                  <li><%= link_to 'Se déconnecter', destroy_user_session_path, :method => 'delete' %></li>
                                 </ul>
                               </div>
                             </div>
