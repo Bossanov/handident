@@ -1,7 +1,9 @@
 <p>Hello <%= @resource.email %>!</p>
 
-<p>Your account has been locked due to an excessive number of unsuccessful sign in attempts.</p>
+<p>Votre compte a été bloqué par sécurité suite à de nombreux eches de log-in.</p>
 
-<p>Click the link below to unlock your account:</p>
+<p>Merci de cliquer sur le lien ci dessous.</p>
 
-<p><%= link_to 'Unlock my account', unlock_url(@resource, unlock_token: @token) %></p>
+<p><%= link_to 'Débloquer mon compte', unlock_url(@resource, unlock_token: @token) %></p>
+<p>L'équipe Handident.</p>
+

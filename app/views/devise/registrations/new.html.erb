@@ -10,7 +10,7 @@
             <!-- Responsive-tabs-->
             <div data-type="horizontal" class="responsive-tabs responsive-tabs-classic">
               <ul data-group="tabs-group-default" class="resp-tabs-list tabs-1 text-center tabs-group-default">
-                <li>Sign in</li>
+                <li>S'inscrire</li>
               </ul>
               <div data-group="tabs-group-default" class="resp-tabs-container text-left tabs-group-default">
                 <div>
@@ -27,17 +27,17 @@
                         <div class="form-group">
 <!--                               <label for="password" class="form-label form-label-outside">Password</label> -->
 <!--                               <input id="password" name="password" type="password" class="form-control"> -->
-                          <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), id:"password", name:"password", type:"password", placeholder: "**********" %>
+                          <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), id:"password", name:"password",label:"Mot de passe", type:"password", placeholder: "**********" %>
                         </div>
                         <div class="form-group">
 <!--                               <label for="password" class="form-label form-label-outside">Password</label> -->
 <!--                               <input id="password" name="password" type="password" class="form-control"> -->
-                          <%= f.input :password_confirmation, required: true, id:"password", name:"password", type:"password", placeholder: "**********" %>
+                          <%= f.input :password_confirmation, required: true,label:"Confirmez votre mot de passe", id:"password", name:"password", type:"password", placeholder: "**********" %>
                         </div>
                         <div class="offset-top-20">
                           <div class="reveal-sm-flex offset-none range-xs-middle text-center text-sm-left">
 <!--                                 <button type="submit" class="btn btn-ellipse btn-primary">sign in</button>
--->                                <%= f.button :submit, "Sign in", class: "btn btn-ellipse btn-primary", style: "font-weight: bold" %>
+-->                                <%= f.button :submit, "S'inscrire", class: "btn btn-ellipse btn-primary", style: "font-weight: bold" %>
                           </div>
                         </div>
                       </form>
